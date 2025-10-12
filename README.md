@@ -1,7 +1,15 @@
-![OSR Studio](https://mathewsachin.github.io/Captura/assets/Banner.png)
+<div align="center">
+  <img src="https://grandixximo.github.io/osr-studio/logo-light.svg#gh-light-mode-only" alt="OSR Studio" width="300">
+  <img src="https://grandixximo.github.io/osr-studio/logo-dark.svg#gh-dark-mode-only" alt="OSR Studio" width="300">
+  
+  <h3>Powerful Screen Recording Made Simple</h3>
+  <p>Capture screen, webcam, audio, cursor, mouse clicks and keystrokes</p>
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
-![Build Status](https://github.com/grandixximo/osr-studio/actions/workflows/build.yml/badge.svg)
+  [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
+  ![Build Status](https://github.com/grandixximo/osr-studio/actions/workflows/build.yml/badge.svg)
+  
+  [Website](https://grandixximo.github.io/osr-studio/) • [Download](https://github.com/grandixximo/osr-studio/releases/latest) • [Documentation](#docs)
+</div>
 
 
 
@@ -12,10 +20,22 @@
 To read the story of **Capture** in following
 :link: <https://mathewsachin.github.io/Captura/>
 
-Capture Screen, WebCam, Audio, Cursor, Mouse Clicks and Keystrokes.
+---
 
+<div align="center">
 
-![Captura](docs/Screenshots/Captura.png)
+### 🎬 Modern & Classic UI
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://grandixximo.github.io/osr-studio/modern-ui-dark.png">
+  <img src="https://grandixximo.github.io/osr-studio/modern-ui-light.png" alt="OSR Studio Modern UI" width="45%">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://grandixximo.github.io/osr-studio/classic-ui-dark.png">
+  <img src="https://grandixximo.github.io/osr-studio/classic-ui-light.png" alt="OSR Studio Classic UI" width="45%">
+</picture>
+
+</div>
 
 
 ## About This Project
@@ -67,41 +87,87 @@ Both versions have identical features and functionality—choose the one that ma
 ![Captura-Repository](docs/Screenshots/Captura_Github_Repo.png)
 
 
-## Features
+## ✨ Features
 
-- Take ScreenShots
-- Capture ScreenCasts (Avi/Gif/Mp4)
-- Capture with/without Mouse Cursor
-- Capture Specific Regions, Screens or Windows
-- Capture Mouse Clicks or Keystrokes
-- Mix Audio recorded from Microphone and Speaker Output
-- Capture from WebCam.
-- Can be used from [Command-line](https://mathewsachin.github.io/Captura/cmdline) (*BETA*).
-- Available in [multiple languages](https://mathewsachin.github.io/Captura/translation)
-- Configurable [Hotkeys](https://mathewsachin.github.io/Captura/hotkeys)
+<table>
+<tr>
+<td width="50%">
 
-## Installation
+### 🎥 Recording
+- **Screen Recording** - Capture in AVI, GIF, MP4
+- **WebCam Capture** - Record from camera
+- **Hardware Encoding** - AMD AMF support
+- **Windows Graphics Capture** - Modern WGC support (Win 10 1903+)
+
+</td>
+<td width="50%">
+
+### 🎨 Capture Options
+- **Screenshots** - Capture regions, screens, or windows
+- **Mouse Cursor** - Include/exclude cursor
+- **Click & Keystroke** - Record mouse clicks and keystrokes
+- **Multi-Audio** - Mix microphone and speaker output
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### ⚙️ Advanced
+- **Command-line** - [CLI support](docs/Cmdline/README.md) (*BETA*)
+- **Hotkeys** - [Configurable shortcuts](https://mathewsachin.github.io/Captura/hotkeys)
+
+</td>
+<td width="50%">
+
+### 🌍 Accessibility  
+- **Multi-language** - [Available in multiple languages](https://mathewsachin.github.io/Captura/translation)
+- **Portable** - No installation required option
+
+</td>
+</tr>
+</table>
+
+## 📦 Installation
 
 [latest]: https://github.com/grandixximo/osr-studio/releases/latest
 
-Portable and Setup builds for the latest release can be downloaded from [here][latest].
+Get the latest release from **[GitHub Releases][latest]**
 
-**Choose one:**
-- **Installer** (`OSR-Studio-Setup.exe` or `OSR-Studio-Classic-Setup.exe`) - Recommended for most users
-- **Portable** (`OSR-Studio-Portable.zip` or `OSR-Studio-Classic-Portable.zip`) - No installation required
+### Download Options
 
-### Build from Source
+| Type | File | Description |
+|------|------|-------------|
+| 🏠 **Installer** | `OSR-Studio-Setup.exe` or `OSR-Studio-Classic-Setup.exe` | Recommended for most users - Includes automatic updates |
+| 📦 **Portable** | `OSR-Studio-Portable.zip` or `OSR-Studio-Classic-Portable.zip` | No installation required - Run from anywhere |
 
-See the [Build Notes](docs/Build.md) for instructions on building from source.
+### 🔨 Build from Source
 
-## Docs
-[Build Notes](docs/Build.md) | [System Requirements](docs/System-Requirements.md) | [Contributing](CONTRIBUTING.md)
+See the [Build Notes](docs/Build.md) for detailed instructions on building from source.
 
-[ScreenShots](docs/Screenshots) | [Command-line](docs/Cmdline/README.md) | [Hotkeys](https://mathewsachin.github.io/Captura/hotkeys)
+## 📚 Documentation
 
-[FAQ](docs/FAQ.md) | [Code of Conduct](CODE_OF_CONDUCT.md) | [Changelog](docs/Changelogs/README.md)
+<details>
+<summary><b>📖 Quick Links</b></summary>
 
-[Continuous Integration](docs/CI.md) | [FFmpeg](docs/FFmpeg.md)
+### Getting Started
+- [System Requirements](docs/System-Requirements.md)
+- [FAQ](docs/FAQ.md)
+- [ScreenShots](docs/Screenshots)
+
+### Configuration
+- [Command-line Usage](docs/Cmdline/README.md)
+- [Hotkeys](https://mathewsachin.github.io/Captura/hotkeys)
+- [FFmpeg Setup](docs/FFmpeg.md)
+
+### Development
+- [Build Notes](docs/Build.md)
+- [Contributing](CONTRIBUTING.md)
+- [Continuous Integration](docs/CI.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Changelog](docs/Changelogs/README.md)
+
+</details>
 
 ## License
 
