@@ -59,8 +59,6 @@ OSR Studio continues this legacy with important enhancements:
 - **Mr. Chip (mrchipset)** - Excellent maintainer who kept the project alive with nCaptura
 - **Cursor & Claude** - AI tools that made these enhancements possible
 
-![OSR Studio Repository](docs/Screenshots/Captura_Github_Repo.png)
-
 
 ## ✨ Features
 
