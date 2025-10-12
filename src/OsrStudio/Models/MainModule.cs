@@ -29,7 +29,6 @@ namespace OsrStudio
             Binder.BindSingleton<RegionSelectorViewModel>();
 
             Binder.BindSingleton<WebcamPlacementPreviewPage>();
-            Binder.BindSingleton<WebcamPlacementPreviewPage>();
 
             // Bind as a Function to ensure the UI objects are referenced only after they have been created.
             Binder.Bind<Func<TaskbarIcon>>(() => () => MainWindow.Instance.SystemTray);
