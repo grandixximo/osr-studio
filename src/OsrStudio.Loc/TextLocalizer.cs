@@ -1,4 +1,6 @@
-﻿namespace Captura.Loc
+using OsrStudio;
+
+namespace OsrStudio.Loc
 {
     public class TextLocalizer : NotifyPropertyChanged
     {

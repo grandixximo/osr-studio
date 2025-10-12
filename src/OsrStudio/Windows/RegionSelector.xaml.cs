@@ -12,8 +12,8 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using OsrStudio.Video;
 using OsrStudio.ViewModels;
-using RecordingViewModel = Captura.ViewModels.RecordingViewModel;
-using ScreenShotViewModel = Captura.ViewModels.ScreenShotViewModel;
+using RecordingViewModel = OsrStudio.ViewModels.RecordingViewModel;
+using ScreenShotViewModel = OsrStudio.ViewModels.ScreenShotViewModel;
 using Color = System.Windows.Media.Color;
 
 namespace OsrStudio

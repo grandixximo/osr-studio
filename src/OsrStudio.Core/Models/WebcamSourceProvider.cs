@@ -1,4 +1,4 @@
-﻿using Captura.Loc;
+using OsrStudio.Loc;
 using OsrStudio.Video;
 using OsrStudio.Windows.Gdi;
 

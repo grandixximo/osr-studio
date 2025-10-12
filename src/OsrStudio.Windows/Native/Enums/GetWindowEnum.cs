@@ -1,4 +1,4 @@
-﻿namespace Captura.Native
+﻿namespace OsrStudio.Native
 {
     enum GetWindowEnum
     {

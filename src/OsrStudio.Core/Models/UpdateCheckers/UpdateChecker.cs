@@ -32,7 +32,7 @@ namespace OsrStudio.Models
             using (var w = new WebClient { Proxy = _proxySettings.GetWebProxy() })
             {
                 // User Agent header required by GitHub api
-                w.Headers.Add("user-agent", nameof(Captura));
+                w.Headers.Add("user-agent", "OsrStudio");
 
                 var result = await w.DownloadStringTaskAsync(LatestReleaseUrl);
 

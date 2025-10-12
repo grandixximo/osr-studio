@@ -2,7 +2,7 @@ using System.Windows;
 using OsrStudio.Models;
 using OsrStudio.Video;
 using OsrStudio.ViewModels;
-using Settings = Captura.Settings;
+using Settings = OsrStudio.Settings;
 
 namespace OsrStudio
 {

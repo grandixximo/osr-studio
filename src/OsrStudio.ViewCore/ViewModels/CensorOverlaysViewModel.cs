@@ -1,4 +1,4 @@
-﻿using Captura.Video;
+using OsrStudio.Video;
 
 namespace OsrStudio.ViewModels
 {

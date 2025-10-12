@@ -1,4 +1,4 @@
-﻿namespace Captura.Hotkeys
+﻿namespace OsrStudio.Hotkeys
 {
     public enum ServiceName
     {

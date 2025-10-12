@@ -1,4 +1,4 @@
-﻿namespace Captura.Windows.MediaFoundation
+namespace OsrStudio.Windows.MediaFoundation
 {
     enum RateControlMode
     {

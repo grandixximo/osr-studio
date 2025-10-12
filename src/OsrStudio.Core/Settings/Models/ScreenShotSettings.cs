@@ -1,4 +1,4 @@
-﻿namespace Captura
+namespace OsrStudio
 {
     public class ScreenShotSettings : PropertyStore
     {

@@ -1,4 +1,4 @@
-﻿namespace Captura.Tests
+﻿namespace OsrStudio.Tests
 {
     public class FakePropertyStore : PropertyStore
     {

@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using DirectShowLib;
+using OsrStudio;
 
 namespace OsrStudio.Webcam
 {
@@ -628,7 +629,7 @@ namespace OsrStudio.Webcam
             }
         }
 
-        public Captura.IBitmapImage GetFrame(Captura.IBitmapLoader BitmapLoader)
+        public IBitmapImage GetFrame(IBitmapLoader BitmapLoader)
         {
             lock (_lock)
             {

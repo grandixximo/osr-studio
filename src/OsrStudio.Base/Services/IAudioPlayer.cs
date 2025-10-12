@@ -1,4 +1,4 @@
-﻿namespace Captura.Audio
+namespace OsrStudio.Audio
 {
     public interface IAudioPlayer
     {

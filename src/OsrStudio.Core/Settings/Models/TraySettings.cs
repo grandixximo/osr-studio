@@ -1,4 +1,4 @@
-﻿using Captura.Hotkeys;
+using OsrStudio.Hotkeys;
 
 namespace OsrStudio
 {

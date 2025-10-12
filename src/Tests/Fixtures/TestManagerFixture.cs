@@ -41,7 +41,7 @@ namespace OsrStudio.Tests
 
         public static string GetUiPath()
         {
-            return GetPath(nameof(Captura), "captura.exe");
+            return GetPath("OsrStudio", "captura.exe");
         }
     }
 }

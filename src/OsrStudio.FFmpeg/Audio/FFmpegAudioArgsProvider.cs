@@ -1,4 +1,4 @@
-﻿namespace Captura.FFmpeg
+﻿namespace OsrStudio.FFmpeg
 {
     /// <summary>
     /// Provides FFmpeg Audio encoding Command-line args.

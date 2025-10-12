@@ -1,4 +1,4 @@
-﻿namespace Captura.FFmpeg
+﻿namespace OsrStudio.FFmpeg
 {
     public interface IFFmpegViewsProvider
     {

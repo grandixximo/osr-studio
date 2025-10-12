@@ -1,4 +1,4 @@
-﻿namespace Captura
+namespace OsrStudio
 {
     public interface INV12Frame : IBitmapFrame
     {

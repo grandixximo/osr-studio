@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -32,7 +32,7 @@ namespace OsrStudio.FFmpeg
             {
                 var localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-                path = Path.Combine(localAppDataPath, nameof(Captura));
+                path = Path.Combine(localAppDataPath, "OsrStudio");
             }
 
             return path;

@@ -32,7 +32,7 @@ namespace OsrStudio
                     {
                         var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-                        _settingsDir = Path.Combine(appDataPath, nameof(Captura));
+                        _settingsDir = Path.Combine(appDataPath, "OsrStudio");
                     }
                 }
 

@@ -16,7 +16,7 @@ using Color = System.Windows.Media.Color;
 using Cursors = System.Windows.Input.Cursors;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
-using Window = Captura.Video.Window;
+using Window = OsrStudio.Video.Window;
 
 namespace OsrStudio
 {

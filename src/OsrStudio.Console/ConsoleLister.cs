@@ -1,4 +1,4 @@
-﻿using Captura.Audio;
+using OsrStudio.Audio;
 using System.Linq;
 using OsrStudio.FFmpeg;
 using OsrStudio.SharpAvi;

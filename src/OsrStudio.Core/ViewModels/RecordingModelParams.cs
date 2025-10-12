@@ -1,4 +1,4 @@
-﻿using Captura.Audio;
+using OsrStudio.Audio;
 using OsrStudio.Video;
 
 namespace OsrStudio.ViewModels
