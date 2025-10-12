@@ -1,6 +1,6 @@
-using Captura.Loc;
+using OsrStudio.Loc;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public abstract class VideoSourceProviderBase : NotifyPropertyChanged, IVideoSourceProvider
     {

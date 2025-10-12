@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     /// <summary>
     /// Contains methods for taking ScreenShots

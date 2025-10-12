@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
-using Captura.Video;
+using OsrStudio.Video;
 using Moq;
 using Xunit;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     [Collection(nameof(Tests))]
     public class ImageProviderTests

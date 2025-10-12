@@ -1,8 +1,8 @@
 using System.Drawing;
-using Captura.Loc;
+using OsrStudio.Loc;
 using System.ComponentModel;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class RegionSourceProvider : VideoSourceProviderBase

@@ -4,7 +4,7 @@ using System.Threading;
 using System.IO;
 using Xunit;
 
-namespace Captura.Tests.Views
+namespace OsrStudio.Tests.Views
 {
     [Collection(nameof(Tests))]
     public class ScreenShotTests : IClassFixture<AppRunnerFixture>

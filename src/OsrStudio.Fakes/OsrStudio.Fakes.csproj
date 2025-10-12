@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\OsrStudio.FFmpeg\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\Screna\Screna.csproj" />
+  </ItemGroup>
+</Project>

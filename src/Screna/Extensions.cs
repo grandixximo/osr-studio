@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Captura
+namespace OsrStudio
 {
     /// <summary>
     /// Collection of utility methods.

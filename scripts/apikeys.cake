@@ -16,7 +16,7 @@ IEnumerable<string> GetVariables(string ApiKeysContent)
 
 void EmbedApiKeys()
 {
-    var apiKeysPath = sourceFolder + File("Captura.Core/ApiKeys.cs");
+    var apiKeysPath = sourceFolder + File("OsrStudio.Core/ApiKeys.cs");
 
     Information("Embedding Api Keys from Environment Variables ...");
 

@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     [Collection(nameof(Tests))]
     public class PropertyStoreTests

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public class MultiRecorder : IRecorder
     {

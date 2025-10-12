@@ -56,7 +56,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: src/Captura.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Solution_Name: src/OsrStudio.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: src/Test/Tests.csproj
 
     steps:
@@ -98,8 +98,8 @@ jobs:
         New-Item -ItemType Directory -Force -Path dist
         New-Item -ItemType Directory -Force -Path temp
         
-        $consoleBinFolder = "src/Captura.Console/bin/${{ matrix.configuration }}"
-        $uiBinFolder = "src/Captura/bin/${{ matrix.configuration }}"
+        $consoleBinFolder = "src/OsrStudio.Console/bin/${{ matrix.configuration }}"
+        $uiBinFolder = "src/OsrStudio/bin/${{ matrix.configuration }}"
         
         # Copy License files
         Copy-Item -Path "licenses" -Destination "dist/licenses" -Recurse -Force
@@ -160,7 +160,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "nCaptura-${version}-Portable.zip"
+        $portableZip = "OSR-Studio-Classic-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "PORTABLE_ZIP=$portableZip" >> $env:GITHUB_ENV
         
@@ -183,8 +183,8 @@ jobs:
         & $innoPath "/DMyAppVersion=$version" "Inno.iss"
         
         # Rename output file
-        $installerName = "nCaptura-${{ github.ref_name }}-Setup.exe"
-        Move-Item -Path "temp/Captura-Setup.exe" -Destination $installerName -Force
+        $installerName = "OSR-Studio-Classic-${{ github.ref_name }}-Setup.exe"
+        Move-Item -Path "temp/OSR-Studio-Classic-Setup.exe" -Destination $installerName -Force
         echo "INSTALLER_EXE=$installerName" >> $env:GITHUB_ENV
       shell: pwsh
 
@@ -192,7 +192,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: nCaptura-${{ github.ref_name }}-Release
+        name: OSR-Studio-Classic-${{ github.ref_name }}-Release
         path: |
           ${{ env.PORTABLE_ZIP }}
           ${{ env.INSTALLER_EXE }}
@@ -208,9 +208,9 @@ jobs:
           ${{ env.INSTALLER_EXE }}
         draft: false
         prerelease: false
-        name: "nCaptura ${{ github.ref_name }}"
+        name: "OSR-Studio-Classic ${{ github.ref_name }}"
         body: |
-          ## nCaptura ${{ github.ref_name }}
+          ## OSR-Studio-Classic ${{ github.ref_name }}
 
           ### What's New
 
@@ -221,8 +221,8 @@ jobs:
           ### Download
 
           Choose one:
-          - **Installer** (`nCaptura-${{ github.ref_name }}-Setup.exe`) - Recommended for most users
-          - **Portable** (`nCaptura-${{ github.ref_name }}-Portable.zip`) - No installation required
+          - **Installer** (`OSR-Studio-Classic-${{ github.ref_name }}-Setup.exe`) - Recommended for most users
+          - **Portable** (`OSR-Studio-Classic-${{ github.ref_name }}-Portable.zip`) - No installation required
 
           ---
 

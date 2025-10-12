@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public abstract class ImageOverlay : IOverlay
     {

@@ -1,0 +1,14 @@
+﻿using System;
+using System.Drawing;
+
+namespace OsrStudio.Video
+{
+    public interface IVideoSourcePicker
+    {
+        IWindow PickWindow(Predicate<IWindow> Filter = null);
+
+        IScreen PickScreen();
+
+        Rectangle? PickRegion();
+    }
+}

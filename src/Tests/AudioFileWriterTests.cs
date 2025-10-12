@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
-using Captura.Audio;
+using OsrStudio.Audio;
 using Xunit;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     [Collection(nameof(Tests))]
     public class AudioFileWriterTests
