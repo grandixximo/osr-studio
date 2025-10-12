@@ -1,4 +1,6 @@
-﻿namespace Captura
+using OsrStudio;
+
+namespace Captura
 {
     public class StepsSettings : PropertyStore
     {

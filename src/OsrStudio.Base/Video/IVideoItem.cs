@@ -1,4 +1,6 @@
-﻿namespace Captura.Video
+using OsrStudio;
+
+namespace Captura.Video
 {
     /// <summary>
     /// Items to show in Video Source List.

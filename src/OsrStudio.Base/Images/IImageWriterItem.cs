@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using Captura;
 
 namespace OsrStudio.Models
 {

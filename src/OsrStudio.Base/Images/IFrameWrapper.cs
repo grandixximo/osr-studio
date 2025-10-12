@@ -1,4 +1,6 @@
-﻿namespace Captura.Models
+using OsrStudio;
+
+namespace Captura.Models
 {
     public interface IFrameWrapper
     {
