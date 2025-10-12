@@ -58,6 +58,8 @@
                 </xctk:DropDownButton.DropDownContent>
             </xctk:DropDownButton>
 
+            <!-- WebcamPage.xaml removed - feature moved to settings -->
+            <!--
             <xctk:DropDownButton ToolTip="{Binding WebCam, Source={StaticResource Loc}, Mode=OneWay}"
                                  Padding="5"
                                  DockPanel.Dock="Right"
@@ -71,6 +73,7 @@
                            MinWidth="250"/>
                 </xctk:DropDownButton.DropDownContent>
             </xctk:DropDownButton>
+            -->
 
             <osr:ModernButton ToolTip="{Binding OpenOutFolder, Source={StaticResource Loc}, Mode=OneWay}"
                                   Command="{Binding OpenOutputFolderCommand}"
