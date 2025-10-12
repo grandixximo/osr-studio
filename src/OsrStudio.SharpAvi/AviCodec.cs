@@ -1,4 +1,4 @@
-﻿using SharpAvi;
+using SharpAvi;
 
 namespace OsrStudio.SharpAvi
 {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Shapes;
 using System.Windows;
 using System.Windows.Controls;

@@ -4,11 +4,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      xmlns:captura="clr-namespace:OsrStudio"
+      xmlns:osr="clr-namespace:OsrStudio"
       mc:Ignorable="d"
       Title="Trim">
     <Page.DataContext>
-        <captura:TrimmerViewModel/>
+        <osr:TrimmerViewModel/>
     </Page.DataContext>
     <Page.InputBindings>
         <KeyBinding Command="{Binding OpenCommand}"
@@ -36,7 +36,7 @@
 
         <DockPanel DockPanel.Dock="Bottom"
                    Margin="10,20">
-            <captura:ModernButton Margin="5,0"
+            <osr:ModernButton Margin="5,0"
                                   Command="{Binding PlayCommand}"
                                   Style="{Binding IsPlaying, Converter={StaticResource IsPlayingToButtonStyleConverter}}"/>
 

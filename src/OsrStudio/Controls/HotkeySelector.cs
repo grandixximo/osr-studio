@@ -1,9 +1,8 @@
-using OsrStudio.Models;
-using OsrStudio.Hotkeys;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using OsrStudio.Hotkeys;
 using Button = System.Windows.Controls.Button;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
@@ -33,13 +32,6 @@ namespace OsrStudio
                 {
                     if (E.PropertyName == nameof(Hotkey.IsActive))
                         selector.TextColor();
-                    
-                    // Update display when Key or Modifiers change
-                    if (E.PropertyName == nameof(Hotkey.Key) || E.PropertyName == nameof(Hotkey.Modifiers))
-                    {
-                        if (!selector._editing)
-                            selector.Content = hotkey.ToString();
-                    }
                 };
 
                 selector.Content = hotkey.ToString();

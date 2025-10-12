@@ -1,4 +1,4 @@
-﻿using Gma.System.MouseKeyHook;
+using Gma.System.MouseKeyHook;
 using System.Windows.Forms;
 
 namespace OsrStudio.MouseKeyHook

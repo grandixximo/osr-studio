@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Views
+namespace OsrStudio.Views
 {
     public partial class RecentPage
     {

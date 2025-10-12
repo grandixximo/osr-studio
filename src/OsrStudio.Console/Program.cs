@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using OsrStudio.Fakes;
@@ -39,8 +39,8 @@ namespace OsrStudio
         {
             var version = ServiceProvider.AppVersion.ToString(3);
 
-            WriteLine($@"Captura v{version}
-(c) {DateTime.Now.Year} Mathew Sachin
+            WriteLine($@"OSR Studio v{version}
+(c) {DateTime.Now.Year} Mathew Sachin, Mr. Chip, grandixximo
 ");
         }
     }

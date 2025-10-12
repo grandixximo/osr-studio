@@ -1,37 +1,18 @@
 using System.Windows;
-using System.Windows.Controls;
 using OsrStudio.Views;
 
 namespace OsrStudio
 {
     public partial class AboutPage
     {
-        void ViewLicenses(object Sender, RoutedEventArgs E)
+        void ViewLicenses(object Sender, RoutedEventArgs Args)
         {
-            // Navigate using the immediate parent Frame (AboutFrame), not the grandparent
-            var parentFrame = Parent as Frame;
-            if (parentFrame != null)
-            {
-                parentFrame.Navigate(new LicensesPage());
-            }
-            else
-            {
-                NavigationService?.Navigate(new LicensesPage());
-            }
+            LicensesWindow.ShowInstance();
         }
 
-        void ViewCrashLogs(object Sender, RoutedEventArgs E)
+        void ViewCrashLogs(object Sender, RoutedEventArgs Args)
         {
-            // Navigate using the immediate parent Frame (AboutFrame), not the grandparent
-            var parentFrame = Parent as Frame;
-            if (parentFrame != null)
-            {
-                parentFrame.Navigate(new CrashLogsPage());
-            }
-            else
-            {
-                NavigationService?.Navigate(new CrashLogsPage());
-            }
+            CrashLogsWindow.ShowInstance();
         }
     }
 }

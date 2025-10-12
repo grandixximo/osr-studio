@@ -1,3 +1,5 @@
+using System.Windows;
+using System.Windows.Input;
 using OsrStudio.Models;
 using OsrStudio.ViewModels;
 
@@ -15,11 +17,14 @@ namespace OsrStudio
             };
 
             InitializeComponent();
-            
-            ServiceProvider.Get<MainViewModel>().Refreshed += () =>
+        }
+
+        void SetSoundFile(object Sender, MouseButtonEventArgs E)
+        {
+            if (Sender is FrameworkElement element && element.DataContext is SoundsViewModelItem vm)
             {
-                AudioSourcesPanel?.Shake();
-            };
+                vm.SetCommand.ExecuteIfCan();
+            }
         }
     }
 }

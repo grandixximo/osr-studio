@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Video
+namespace OsrStudio.Video
 {
     public class DiscardWriterItem : IVideoWriterItem
     {

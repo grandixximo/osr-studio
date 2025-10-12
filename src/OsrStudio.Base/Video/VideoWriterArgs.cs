@@ -1,4 +1,3 @@
-using OsrStudio;
 using OsrStudio.Audio;
 
 namespace OsrStudio.Video

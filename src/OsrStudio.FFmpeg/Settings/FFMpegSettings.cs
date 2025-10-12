@@ -18,7 +18,7 @@ namespace OsrStudio.FFmpeg
 
             if (!string.IsNullOrWhiteSpace(path))
             {
-                return path.Replace(ServiceProvider.CapturaPathConstant,
+                return path.Replace(ServiceProvider.OsrStudioPathConstant,
                     ServiceProvider.AppDir);
             }
 

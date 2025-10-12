@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OsrStudio.Audio;
 using OsrStudio.Video;
 using Moq;

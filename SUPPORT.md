@@ -1,7 +1,7 @@
 # Support
 
 ## GitHub Issues
-Use [GitHub issues](https://github.com/mrchipset/Captura/issues) for Bug Reports, Feature Requests and Questions.
+Use [GitHub issues](https://github.com/grandixximo/osr-studio/issues) for Bug Reports, Feature Requests and Questions.
 
 
 ## Mail

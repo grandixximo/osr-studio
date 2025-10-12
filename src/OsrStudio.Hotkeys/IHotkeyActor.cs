@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Hotkeys
+namespace OsrStudio.Hotkeys
 {
     public interface IHotkeyActor
     {

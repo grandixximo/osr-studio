@@ -1,10 +1,10 @@
 ; Override version before compiling
-;#define MyAppVersion "6.0.0"
+;#define MyAppVersion "10.6.0"
 
-#define MyAppName "OSR Studio Classic"
+#define MyAppName "OSR Studio"
 #define MyAppPublisher "grandixximo"
 #define MyAppURL "https://github.com/grandixximo/osr-studio"
-#define MyAppExeName "captura.exe"
+#define MyAppExeName "osr-studio.exe"
 
 [Setup]
 AppId={{C1670C5E-5042-4300-9491-6BFFF963823F}
@@ -15,9 +15,9 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\{#MyAppName}
+DefaultDirName={pf}\OSR-Studio
 DisableProgramGroupPage=yes
-OutputBaseFilename=OSR-Studio-Classic-Setup
+OutputBaseFilename=OSR-Studio-Setup
 Compression=lzma
 SolidCompression=yes
 SetupIconFile=src/OsrStudio/Images/OsrStudio.ico

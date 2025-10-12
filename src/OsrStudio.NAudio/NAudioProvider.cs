@@ -1,4 +1,4 @@
-﻿using NAudio.Wave;
+using NAudio.Wave;
 using Wf = NAudio.Wave.WaveFormat;
 
 namespace OsrStudio.Audio
@@ -12,7 +12,7 @@ namespace OsrStudio.Audio
             this.WaveIn = WaveIn;
 
             NAudioWaveFormat = WaveIn.WaveFormat;
-            WaveFormat = WaveIn.WaveFormat.ToCaptura();
+            WaveFormat = WaveIn.WaveFormat.ToOsrStudio();
         }
 
         public virtual void Dispose()

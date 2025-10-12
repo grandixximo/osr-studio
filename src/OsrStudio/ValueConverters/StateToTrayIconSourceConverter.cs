@@ -17,7 +17,7 @@ namespace OsrStudio
                     return "/Images/pause.ico";
 
                 default:
-                    return "/Images/Captura.ico";
+                    return "/Images/OsrStudio.ico";
             }
         }
     }

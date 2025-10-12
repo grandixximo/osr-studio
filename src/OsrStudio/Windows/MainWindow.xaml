@@ -5,10 +5,10 @@
         xmlns:local="clr-namespace:OsrStudio"
         DataContext="{Binding MainViewModel, Source={StaticResource ServiceLocator}}"
         ResizeMode="CanMinimize"
-        Icon="../Images/Captura.ico"
+        Icon="../Images/OsrStudio.ico"
         SizeToContent="Height"
         MaxWidth="450"
-        Title="{Binding TimerModel.TimeSpan, Source={StaticResource ServiceLocator}, StringFormat='Captura - {0}', TargetNullValue='Captura', FallbackValue='Captura'}"
+        Title="{Binding TimerModel.TimeSpan, Source={StaticResource ServiceLocator}, StringFormat='OSR Studio - {0}', TargetNullValue='OSR Studio', FallbackValue='OSR Studio'}"
         Left="{Binding Settings.UI.MainWindowLeft}"
         Top="{Binding Settings.UI.MainWindowTop}"
         BorderThickness="1"
@@ -22,7 +22,7 @@
     </WindowChrome.WindowChrome>
     <Window.TaskbarItemInfo>
         <TaskbarItemInfo Overlay="{Binding RecordingViewModel.RecorderState, Source={StaticResource ServiceLocator}, Converter={StaticResource StateToTaskbarOverlayConverter}}"
-                         Description="Captura">
+                         Description="OSR Studio">
             <TaskbarItemInfo.ThumbButtonInfos>
                 <ThumbButtonInfo Command="{Binding ScreenShotViewModel.ScreenShotCommand, Source={StaticResource ServiceLocator}}"
                                  Description="{Binding ScreenShot, Source={StaticResource Loc}, Mode=OneWay}"
@@ -44,7 +44,7 @@
         <!-- NotifyIcon -->
         <tb:TaskbarIcon x:Name="SystemTray"
                         IconSource="{Binding RecordingViewModel.RecorderState, Source={StaticResource ServiceLocator}, Converter={StaticResource StateToTrayIconSourceConverter}}"
-                        ToolTipText="Captura"
+                        ToolTipText="OSR Studio"
                         MenuActivation="RightClick"
                         LeftClickCommand="{Binding TrayLeftClickCommand}"
                         TrayMouseDoubleClick="SystemTray_TrayMouseDoubleClick">

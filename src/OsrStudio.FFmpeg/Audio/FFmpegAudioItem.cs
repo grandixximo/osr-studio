@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using OsrStudio.Audio;
 
 namespace OsrStudio.FFmpeg

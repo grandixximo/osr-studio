@@ -1,4 +1,4 @@
-﻿using MediaFoundation.Transform;
+using MediaFoundation.Transform;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
 using SharpDX.MediaFoundation;

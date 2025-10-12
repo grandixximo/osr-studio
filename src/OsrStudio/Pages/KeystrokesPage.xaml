@@ -1,7 +1,7 @@
 <Page x:Class="OsrStudio.KeystrokesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:captura="clr-namespace:OsrStudio"
+      xmlns:osr="clr-namespace:OsrStudio"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <Grid>
         <ScrollViewer DataContext="{Binding AboutViewModel, Source={StaticResource ServiceLocator}}">
@@ -27,7 +27,7 @@
                               DisplayMemberPath="Name"/>
                 </DockPanel>
 
-                <captura:TextOverlaySettingsControl Visibility="{Binding SeparateTextFile, Converter={StaticResource NegatingConverter}}"
+                <osr:TextOverlaySettingsControl Visibility="{Binding SeparateTextFile, Converter={StaticResource NegatingConverter}}"
                                                     Margin="0,3"/>
 
                 <Grid Margin="0,3"

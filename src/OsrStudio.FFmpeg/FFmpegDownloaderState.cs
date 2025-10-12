@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.FFmpeg
+namespace OsrStudio.FFmpeg
 {
     public enum FFmpegDownloaderState
     {

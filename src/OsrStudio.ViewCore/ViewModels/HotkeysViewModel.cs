@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using OsrStudio.Hotkeys;
@@ -10,8 +9,6 @@ namespace OsrStudio.ViewModels
     public class HotkeysViewModel
     {
         public ReadOnlyObservableCollection<Hotkey> Hotkeys { get; }
-
-        public IEnumerable<Service> AllServices => HotKeyManager.AllServices;
 
         public HotkeysViewModel(HotKeyManager HotKeyManager)
         {

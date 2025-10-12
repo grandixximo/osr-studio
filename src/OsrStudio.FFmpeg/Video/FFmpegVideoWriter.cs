@@ -23,7 +23,7 @@ namespace OsrStudio.FFmpeg
 
         readonly ConcurrentQueue<byte[]> _bufferPool = new ConcurrentQueue<byte[]>();
 
-        static string GetPipeName() => $"captura-{Guid.NewGuid()}";
+        static string GetPipeName() => $"osr-studio-{Guid.NewGuid()}";
 
         /// <summary>
         /// Creates a new instance of <see cref="FFmpegWriter"/>.

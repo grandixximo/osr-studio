@@ -4,7 +4,6 @@ using OsrStudio.Audio;
 using OsrStudio.Native;
 using OsrStudio.Video;
 using OsrStudio.Windows.DirectX;
-using OsrStudio.Windows.MediaFoundation;
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;

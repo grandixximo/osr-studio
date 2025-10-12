@@ -3,15 +3,15 @@
     <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
-    <ProjectReference Include="..\OsrStudio.FFmpeg\OsrStudio.FFmpeg.csproj" />
-    <ProjectReference Include="..\OsrStudio.Hotkeys\OsrStudio.Hotkeys.csproj" />
-    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
-    <ProjectReference Include="..\OsrStudio.MouseKeyHook\OsrStudio.MouseKeyHook.csproj" />
-    <ProjectReference Include="..\OsrStudio.NAudio\OsrStudio.NAudio.csproj" />
-    <ProjectReference Include="..\OsrStudio.SharpAvi\OsrStudio.SharpAvi.csproj" />
-    <ProjectReference Include="..\OsrStudio.Windows\OsrStudio.Windows.csproj" />
-    <ProjectReference Include="..\OsrStudio.YouTube\OsrStudio.YouTube.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.FFmpeg\\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Hotkeys\\OsrStudio.Hotkeys.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.MouseKeyHook\\OsrStudio.MouseKeyHook.csproj" />
+    <ProjectReference Include="..\\OsrStudio.NAudio\\OsrStudio.NAudio.csproj" />
+    <ProjectReference Include="..\\OsrStudio.SharpAvi\\OsrStudio.SharpAvi.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Windows\\OsrStudio.Windows.csproj" />
+    <ProjectReference Include="..\\OsrStudio.YouTube\\OsrStudio.YouTube.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>

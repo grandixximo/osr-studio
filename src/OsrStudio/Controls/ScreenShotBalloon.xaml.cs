@@ -4,6 +4,7 @@ using System.IO;
 using System.Diagnostics;
 using System;
 using System.Windows.Media.Imaging;
+using OsrStudio.Models;
 
 namespace OsrStudio
 {
@@ -45,8 +46,8 @@ namespace OsrStudio
 
         void EditButton_OnClick(object Sender, RoutedEventArgs E)
         {
-            // Image editor removed in this version
-            MessageBox.Show("Image Editor has been removed.", "Feature Removed", MessageBoxButton.OK, MessageBoxImage.Information);
+            var winserv = ServiceProvider.Get<IMainWindow>();
+            winserv.EditImage(_filePath);
         }
     }
 }

@@ -1,10 +1,9 @@
 using System.Drawing;
 using System.Linq;
-using OsrStudio.Models;
-using OsrStudio.ViewModels;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using OsrStudio.Models;
 
 namespace OsrStudio
 {
@@ -32,7 +31,7 @@ namespace OsrStudio
             {
                 RepositionWindowIfOutside();
 
-                // WebcamPage.SetupPreview() removed in modern version
+                ServiceProvider.Get<WebcamPlacementPreviewPage>().SetupPreview();
 
                 _helper.HotkeySetup.ShowUnregistered();
             };
@@ -59,17 +58,17 @@ namespace OsrStudio
                     WindowState = WindowState.Normal;
                 }
 
-                this.ShowAndFocus();
+                Activate();
             });
         }
 
         void RepositionWindowIfOutside()
         {
             // Window dimensions taking care of DPI
-            var rect = new Rectangle((int)(Left * Dpi.X),
-                (int)(Top * Dpi.Y),
-                (int)(ActualWidth * Dpi.X),
-                (int)(ActualHeight * Dpi.Y));
+            var rect = new RectangleF((float) Left,
+                (float) Top,
+                (float) ActualWidth,
+                (float) ActualHeight).ApplyDpi();
             
             if (!Screen.AllScreens.Any(M => M.Bounds.Contains(rect)))
             {
@@ -102,26 +101,15 @@ namespace OsrStudio
             {
                 Hide();
             }
-            else
-            {
-                Show();
-
-                WindowState = WindowState.Normal;
-
-                Activate();
-            }
+            else this.ShowAndFocus();
         }
 
         bool TryExit()
         {
-            var recordingViewModel = ServiceProvider.Get<RecordingViewModel>();
-            
-            if (!recordingViewModel.CanExit())
+            if (!_helper.RecordingViewModel.CanExit())
                 return false;
 
-            _helper.MainViewModel.Dispose();
-
-            SystemTray.Dispose();
+            ServiceProvider.Dispose();
 
             return true;
         }
@@ -130,9 +118,6 @@ namespace OsrStudio
 
         void HideButton_Click(object Sender, RoutedEventArgs Args) => Hide();
 
-        void ShowMainWindow(object Sender, RoutedEventArgs E)
-        {
-            this.ShowAndFocus();
-        }
+        void ShowMainWindow(object Sender, RoutedEventArgs E) => this.ShowAndFocus();
     }
 }

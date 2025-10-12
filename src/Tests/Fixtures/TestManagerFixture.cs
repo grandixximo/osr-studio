@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using OsrStudio.Fakes;
 using OsrStudio.Video;
@@ -36,12 +36,12 @@ namespace OsrStudio.Tests
 
         public static string GetCliPath()
         {
-            return GetPath("Captura.Console", "captura-cli.exe");
+            return GetPath("OsrStudio.Console", "osr-cli.exe");
         }
 
         public static string GetUiPath()
         {
-            return GetPath("OsrStudio", "captura.exe");
+            return GetPath("OsrStudio", "OsrStudio.exe");
         }
     }
 }

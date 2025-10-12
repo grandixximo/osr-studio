@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Models
+namespace OsrStudio.Models
 {
     public enum RecentFileType
     {

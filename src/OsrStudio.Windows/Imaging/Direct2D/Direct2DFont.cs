@@ -1,4 +1,4 @@
-﻿using SharpDX.DirectWrite;
+using SharpDX.DirectWrite;
 
 namespace OsrStudio.Windows.DirectX
 {

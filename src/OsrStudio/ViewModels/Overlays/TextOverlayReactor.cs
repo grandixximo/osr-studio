@@ -1,4 +1,4 @@
-﻿using System.Reactive.Linq;
+using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Media;
 using OsrStudio.Video;

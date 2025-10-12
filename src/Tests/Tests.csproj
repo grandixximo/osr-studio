@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>OsrStudio.Tests</AssemblyName>
     <TargetFramework>net472</TargetFramework>
@@ -6,10 +6,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
-    <ProjectReference Include="..\OsrStudio.Core\OsrStudio.Core.csproj" />
-    <ProjectReference Include="..\OsrStudio.Fakes\OsrStudio.Fakes.csproj" />
-    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Core\\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Fakes\\OsrStudio.Fakes.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
-﻿using Wf = NAudio.Wave.WaveFormat;
+using Wf = NAudio.Wave.WaveFormat;
 using WfEnc = NAudio.Wave.WaveFormatEncoding;
 
 namespace OsrStudio.Audio
 {
     static class WaveFormatExtensions
     {
-        public static WaveFormat ToCaptura(this Wf Wf)
+        public static WaveFormat ToOsrStudio(this Wf Wf)
         {
             return Wf.Encoding == WfEnc.IeeeFloat
                 ? WaveFormat.CreateIeeeFloatWaveFormat(Wf.SampleRate, Wf.Channels)

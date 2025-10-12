@@ -1,7 +1,7 @@
 <Application x:Class="OsrStudio.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:captura="clr-namespace:OsrStudio"
+             xmlns:osr="clr-namespace:OsrStudio"
              xmlns:loc="clr-namespace:OsrStudio.Loc;assembly=OsrStudio.Loc"
              ShutdownMode="OnMainWindowClose"
              StartupUri="Windows/MainWindow.xaml"
@@ -28,7 +28,7 @@
             <x:Static x:Key="Loc"
                       Member="loc:LanguageManager.Instance"/>
 
-            <captura:ServiceLocator x:Key="ServiceLocator"/>
+            <osr:ServiceLocator x:Key="ServiceLocator"/>
 
             <DrawingImage x:Key="RecordStopImageSource">
                 <DrawingImage.Drawing>

@@ -1,6 +1,5 @@
 using System.Windows.Controls;
 using System.Windows.Input;
-using OsrStudio.Models;
 using OsrStudio.Video;
 
 namespace OsrStudio
@@ -12,7 +11,7 @@ namespace OsrStudio
             InitializeComponent();
             Loaded += (s, e) =>
             {
-                System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList] Control loaded.");
+                System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList] Control loaded. ItemsSource type: {((ListView)this.Content).ItemsSource?.GetType().Name}");
                 if (((ListView)this.Content).ItemsSource != null)
                 {
                     var count = 0;
@@ -21,10 +20,10 @@ namespace OsrStudio
                         count++;
                         if (item is IVideoSourceProvider provider)
                         {
-                            System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList] Item {count}: {provider.Name}");
+                            System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList]   Item {count}: {provider.Name}, Icon={provider.Icon?.Substring(0, System.Math.Min(50, provider.Icon?.Length ?? 0))}");
                         }
                     }
-                    System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList] Total items: {count}");
+                    System.Diagnostics.Debug.WriteLine($"[VideoSourceKindList] Total items in ItemsSource: {count}");
                 }
             };
         }

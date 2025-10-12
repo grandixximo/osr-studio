@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OsrStudio.Windows.DirectX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;

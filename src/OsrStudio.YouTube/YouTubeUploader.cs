@@ -5,7 +5,6 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
-using OsrStudio;
 
 namespace OsrStudio.YouTube
 {
@@ -74,7 +73,7 @@ namespace OsrStudio.YouTube
             _youtubeService = new YouTubeService(new BaseClientService.Initializer
             {
                 HttpClientInitializer = credential,
-                ApplicationName = "OsrStudio"
+                ApplicationName = "OSR-Studio"
             });
         }
     }
