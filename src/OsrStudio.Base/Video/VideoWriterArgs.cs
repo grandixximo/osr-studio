@@ -1,4 +1,5 @@
-﻿using Captura.Audio;
+using OsrStudio;
+using OsrStudio.Audio;
 
 namespace OsrStudio.Video
 {

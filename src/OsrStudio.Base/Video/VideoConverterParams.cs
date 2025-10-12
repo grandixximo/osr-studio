@@ -1,4 +1,6 @@
-﻿namespace Captura.Video
+using OsrStudio.Video;
+
+namespace Captura.Video
 {
     public class VideoConverterArgs : VideoWriterArgs
     {

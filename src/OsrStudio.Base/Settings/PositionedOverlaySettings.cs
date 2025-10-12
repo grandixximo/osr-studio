@@ -1,4 +1,6 @@
-﻿// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+using Captura;
+
 namespace OsrStudio.Video
 {
     public class PositionedOverlaySettings : PropertyStore
