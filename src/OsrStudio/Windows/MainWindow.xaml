@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:OsrStudio"
         DataContext="{Binding MainViewModel, Source={StaticResource ServiceLocator}}"
         ResizeMode="CanMinimize"
-        Icon="../Images/Captura.ico"
+        Icon="../Images/OsrStudio.ico"
         SizeToContent="Height"
         MaxWidth="450"
         Title="{Binding TimerModel.TimeSpan, Source={StaticResource ServiceLocator}, StringFormat='Captura - {0}', TargetNullValue='Captura', FallbackValue='Captura'}"
