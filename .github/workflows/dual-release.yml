@@ -11,6 +11,10 @@ on:
     tags:
       - "v*"
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-modern-ui:
     name: Build nCaptura (Modern UI)
@@ -137,10 +141,10 @@ jobs:
       Solution_Name: src/Captura.sln
 
     steps:
-    - name: Checkout classic-ui-modern-fixes branch
+    - name: Checkout classic-ui branch
       uses: actions/checkout@v4
       with:
-        ref: classic-ui-modern-fixes
+        ref: classic-ui
         fetch-depth: 0
 
     - name: Install .NET Core

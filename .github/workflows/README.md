@@ -8,7 +8,7 @@ This repository uses streamlined GitHub Actions workflows to minimize server loa
 **Trigger:** Automatic when you push a version tag (e.g., `v10.3.0`)
 
 **What it does:**
-- Builds **both** Modern UI (from `main` branch) and Classic UI (from `classic-ui-modern-fixes` branch)
+- Builds **both** Modern UI (from `main` branch) and Classic UI (from `classic-ui` branch)
 - Creates 4 downloadable files:
   - `nCaptura-vX.X.X-Setup.exe` (Modern UI installer)
   - `nCaptura-vX.X.X-Portable.zip` (Modern UI portable)
@@ -62,15 +62,20 @@ git push origin v10.3.0
 - **Development** - `debug-builds.yml` runs manually when you need it
 - **No redundancy** - Each workflow has a single, clear purpose
 
-## 📊 Comparison with Old Setup
+## 🧹 Streamlined Workflow Structure
 
-| Old Workflows | New Workflows |
-|---------------|---------------|
-| 4 workflow files | 2 workflow files |
-| Runs on every push | Runs only on tags |
-| Runs on every PR | Manual only for testing |
-| 2-3 builds per tag | 1 unified dual build |
-| Hard to control | Full control |
+This repository now uses **3 optimized workflows** (down from 8):
+
+1. **`dual-release.yml`** - Production releases (automatic on tags)
+2. **`debug-builds.yml`** - Manual testing (full control)
+3. **`test-cursor-branches.yml`** - Auto-test Cursor branches only
+
+**Removed obsolete workflows:**
+- ❌ `build.yml` (replaced by dual-release)
+- ❌ `build-dotnet-desktop-pull-request.yml` (old template)
+- ❌ `release-build-dotnet-desktop.yml` (replaced by dual-release)
+- ❌ `test-modern-ui.yml` (ran on every push - excessive)
+- ❌ `test-classic-ui.yml` (merged into dual-release)
 
 ## 🚀 Usage Examples
 
@@ -98,7 +103,7 @@ git checkout main
 git commit -m "Bump to 10.3.1"
 git push
 
-git checkout classic-ui-modern-fixes  
+git checkout classic-ui
 # Edit version to 10.3.1
 git commit -m "Bump to 10.3.1"
 git push

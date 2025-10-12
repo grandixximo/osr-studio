@@ -13,6 +13,10 @@ on:
           - classic
           - both
 
+concurrency:
+  group: debug-${{ github.run_id }}
+  cancel-in-progress: false
+
 jobs:
   build-modern:
     name: Build Modern UI (Debug)
