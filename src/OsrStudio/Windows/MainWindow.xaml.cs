@@ -31,7 +31,7 @@ namespace OsrStudio
             {
                 RepositionWindowIfOutside();
 
-                ServiceProvider.Get<WebcamPage>().SetupPreview();
+                ServiceProvider.Get<WebcamPlacementPreviewPage>().SetupPreview();
 
                 _helper.HotkeySetup.ShowUnregistered();
             };

@@ -44,12 +44,16 @@ namespace OsrStudio.Video
                 return;
             }
 
-            var win = MainWindow.Instance;
+            var win = PreviewWindow.Instance;
+            
+            if (win == null)
+            {
+                Frame.Dispose();
+                return;
+            }
 
             win.Dispatcher.Invoke(() =>
             {
-                win.DisplayImage.Image = null;
-
                 _lastFrame?.Dispose();
                 _lastFrame = Frame;
 
@@ -69,22 +73,23 @@ namespace OsrStudio.Video
                         }
                         catch { return; }
 
-                        win.WinFormsHost.Visibility = Visibility.Visible;
-                        win.DisplayImage.Image = drawingFrame.Bitmap;
+                        // Convert System.Drawing.Bitmap to WPF BitmapSource
+                        using (var memory = new System.IO.MemoryStream())
+                        {
+                            drawingFrame.Bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                            memory.Position = 0;
+                            var bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
+                            bitmapImage.BeginInit();
+                            bitmapImage.StreamSource = memory;
+                            bitmapImage.CacheOption = System.Windows.Media.Imaging.BitmapCacheOption.OnLoad;
+                            bitmapImage.EndInit();
+                            bitmapImage.Freeze();
+                            win.DisplayImage.Source = bitmapImage;
+                        }
                         break;
 
                     case Texture2DFrame texture2DFrame:
-                        win.WinFormsHost.Visibility = Visibility.Collapsed;
-                        if (_d3D9PreviewAssister == null)
-                        {
-                            _d3D9PreviewAssister = new D3D9PreviewAssister(ServiceProvider.Get<IPlatformServices>());
-                            _texture = _d3D9PreviewAssister.GetSharedTexture(texture2DFrame.PreviewTexture);
-
-                            using var surface = _texture.GetSurfaceLevel(0);
-                            _backBufferPtr = surface.NativePointer;
-                        }
-
-                        Invalidate(_backBufferPtr, texture2DFrame.Width, texture2DFrame.Height);
+                        // D3D preview not supported in classic UI separate window mode
                         break;
                 }
             });
@@ -92,37 +97,26 @@ namespace OsrStudio.Video
 
         void Invalidate(IntPtr BackBufferPtr, int Width, int Height)
         {
-            var win = MainWindow.Instance;
-
-            win.D3DImage.Lock();
-            win.D3DImage.SetBackBuffer(D3DResourceType.IDirect3DSurface9, BackBufferPtr);
-
-            if (BackBufferPtr != IntPtr.Zero)
-                win.D3DImage.AddDirtyRect(new Int32Rect(0, 0, Width, Height));
-
-            win.D3DImage.Unlock();
+            // D3D preview not supported in classic UI separate window mode
         }
 
         public void Dispose()
         {
-            var win = MainWindow.Instance;
+            var win = PreviewWindow.Instance;
+
+            if (win == null)
+                return;
 
             win.Dispatcher.Invoke(() =>
             {
-                win.DisplayImage.Image = null;
-                win.WinFormsHost.Visibility = Visibility.Collapsed;
+                win.DisplayImage.Source = null;
 
                 _lastFrame?.Dispose();
                 _lastFrame = null;
 
                 if (_d3D9PreviewAssister != null)
                 {
-                    Invalidate(IntPtr.Zero, 0, 0);
-
-                    _texture.Dispose();
-
                     _d3D9PreviewAssister.Dispose();
-
                     _d3D9PreviewAssister = null;
                 }
             });

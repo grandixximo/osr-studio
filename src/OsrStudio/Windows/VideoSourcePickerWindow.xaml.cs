@@ -206,6 +206,11 @@ namespace OsrStudio
             }
         }
 
+        void WindowMouseLeftButtonUp(object Sender, MouseButtonEventArgs E)
+        {
+            // Mouse up handled by mouse down event
+        }
+
         public static IScreen PickScreen()
         {
             var picker = new VideoSourcePickerWindow(VideoPickerMode.Screen);

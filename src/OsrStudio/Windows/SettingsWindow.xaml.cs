@@ -55,11 +55,11 @@ namespace OsrStudio
 
         public static void ShowFFmpegLogs() => ShowPage("FFmpegLogs");
 
-        public static void ShowWebcamPage()
+        public static void ShowWebcamPlacementPreviewPage()
         {
             ShowInstance();
 
-            _instance.NavFrame.Navigate(ServiceProvider.Get<WebcamPage>());
+            _instance.NavFrame.Navigate(ServiceProvider.Get<WebcamPlacementPreviewPage>());
         }
 
         void OnGoBack(object Sender, RoutedEventArgs E)
