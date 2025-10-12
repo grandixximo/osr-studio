@@ -31,26 +31,14 @@ jobs:
       id: detect
       shell: pwsh
       run: |
-        # Check if this branch is based on classic-ui-modern-fixes
-        $baseBranch = git merge-base --fork-point origin/classic-ui-modern-fixes HEAD 2>$null
-        $isClassic = $LASTEXITCODE -eq 0
+        # Skip branch detection and proceed with build
+        # Set artifact name based on branch name
+        $branchName = "${{ github.ref_name }}"
+        $artifactName = "Cursor-$($branchName -replace '/', '-')-Debug"
         
-        if (-not $isClassic) {
-          $baseBranch = git merge-base --fork-point origin/main HEAD 2>$null
-          $isModern = $LASTEXITCODE -eq 0
-          
-          if ($isModern) {
-            echo "UI_TYPE=Modern" >> $env:GITHUB_OUTPUT
-            echo "ARTIFACT_NAME=Cursor-Modern-UI-Debug" >> $env:GITHUB_OUTPUT
-          } else {
-            # Default to modern if can't determine
-            echo "UI_TYPE=Modern (default)" >> $env:GITHUB_OUTPUT
-            echo "ARTIFACT_NAME=Cursor-UI-Debug" >> $env:GITHUB_OUTPUT
-          }
-        } else {
-          echo "UI_TYPE=Classic" >> $env:GITHUB_OUTPUT
-          echo "ARTIFACT_NAME=Cursor-Classic-UI-Debug" >> $env:GITHUB_OUTPUT
-        }
+        echo "UI_TYPE=Auto-detected" >> $env:GITHUB_OUTPUT
+        echo "ARTIFACT_NAME=$artifactName" >> $env:GITHUB_OUTPUT
+        echo "Branch: $branchName, Artifact: $artifactName"
 
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
