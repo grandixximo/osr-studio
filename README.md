@@ -65,29 +65,6 @@ OSR Studio continues this legacy with important enhancements:
 - **Mr. Chip (mrchipset)** - Excellent maintainer who kept the project alive with nCaptura
 - **Cursor & Claude** - AI tools that made these enhancements possible
 
-### Two UI Versions Available
-
-Each release includes **two versions** of OSR Studio to choose from:
-
-**OSR Studio (Modern UI)**
-- Based on the latest modern interface
-- Streamlined and updated design
-- Built from `main` branch
-
-**OSR Studio Classic**
-- Original 8.0.0 classic interface
-- Traditional layout and workflow
-- Built from `classic-ui` branch with all modern fixes
-
-Both versions have identical features and functionality—choose the one that matches your preference!
-
-**Huge thanks to:**
-- **Mathew Sachin** for creating Captura
-- **Mr. Chip (mrchipset)** for his excellent maintenance work
-- **Cursor & Claude** for helping make these fixes possible
-
-![Captura-Repository](docs/Screenshots/Captura_Github_Repo.png)
-
 
 ## ✨ Features
 
