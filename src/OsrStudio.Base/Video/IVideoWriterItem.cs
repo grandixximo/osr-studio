@@ -1,6 +1,4 @@
-using OsrStudio.Video;
-
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     /// <summary>
     /// Items to show in Video Writers list.

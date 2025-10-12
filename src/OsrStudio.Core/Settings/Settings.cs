@@ -154,7 +154,7 @@ namespace OsrStudio
         {
             var path = OutPath;
 
-            string DefaultOutDir() => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), nameof(Captura));
+            string DefaultOutDir() => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OsrStudio");
 
             // If Output Dircetory is not set, fallback to default
             path = string.IsNullOrWhiteSpace(path)

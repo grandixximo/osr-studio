@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Captura.Video;
 
 namespace OsrStudio.Video
 {

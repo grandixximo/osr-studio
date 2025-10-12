@@ -1,6 +1,4 @@
-using OsrStudio;
-
-namespace Captura.Audio
+namespace OsrStudio.Audio
 {
     public class AudioSettings : PropertyStore
     {

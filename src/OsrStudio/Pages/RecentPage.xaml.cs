@@ -1,4 +1,4 @@
-﻿namespace Captura.Views
+﻿namespace OsrStudio.Views
 {
     public partial class RecentPage
     {

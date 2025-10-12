@@ -1,4 +1,4 @@
-﻿namespace Captura.YouTube
+namespace OsrStudio.YouTube
 {
     public interface IYouTubeApiKeys
     {

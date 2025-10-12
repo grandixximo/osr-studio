@@ -1,4 +1,4 @@
-﻿using Captura.Audio;
+using OsrStudio.Audio;
 using SharpDX.MediaFoundation;
 using System;
 using System.Collections.Generic;

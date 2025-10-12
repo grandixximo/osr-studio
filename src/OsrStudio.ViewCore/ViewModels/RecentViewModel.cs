@@ -1,4 +1,4 @@
-﻿using Captura.Models;
+using OsrStudio.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using OsrStudio.Loc;

@@ -1,4 +1,4 @@
-﻿using Captura.Models;
+using OsrStudio.Models;
 
 namespace OsrStudio
 {

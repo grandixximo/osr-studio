@@ -1,5 +1,3 @@
-using Captura.Video;
-
 namespace OsrStudio.Video
 {
     public interface IVideoSourceProvider

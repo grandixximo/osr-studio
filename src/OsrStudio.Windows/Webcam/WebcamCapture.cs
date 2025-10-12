@@ -202,7 +202,7 @@ namespace OsrStudio.Webcam
 
             try
             {
-                Captura.ServiceProvider.MessageProvider?.ShowError(message, title);
+                OsrStudio.ServiceProvider.MessageProvider?.ShowError(message, title);
             }
             catch
             {

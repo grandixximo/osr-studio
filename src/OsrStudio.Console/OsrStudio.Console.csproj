@@ -12,7 +12,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\Captura\Images\OsrStudio.ico</ApplicationIcon>
+    <ApplicationIcon>..\OsrStudio\Images\OsrStudio.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

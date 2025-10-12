@@ -93,7 +93,7 @@ namespace OsrStudio
             try
             {
                 // Best-effort FFmpeg cleanup in case any is still running
-                Captura.FFmpeg.FFmpegService.KillAll();
+                OsrStudio.FFmpeg.FFmpegService.KillAll();
             }
             catch { }
         }

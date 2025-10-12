@@ -25,14 +25,14 @@ namespace OsrStudio.Windows
                     GpuVendor = DetectVendor(adapter);
                     
                     // Set encoder availability based on vendor
-                    HasAmdEncoder = GpuVendor == Captura.GpuVendor.AMD;
-                    HasNvidiaEncoder = GpuVendor == Captura.GpuVendor.NVIDIA;
-                    HasIntelQuickSync = GpuVendor == Captura.GpuVendor.Intel;
+                    HasAmdEncoder = GpuVendor == GpuVendor.AMD;
+                    HasNvidiaEncoder = GpuVendor == GpuVendor.NVIDIA;
+                    HasIntelQuickSync = GpuVendor == GpuVendor.Intel;
                 }
                 else
                 {
                     GpuName = "No GPU detected";
-                    GpuVendor = Captura.GpuVendor.Unknown;
+                    GpuVendor = GpuVendor.Unknown;
                     HasAmdEncoder = false;
                     HasNvidiaEncoder = false;
                     HasIntelQuickSync = false;
@@ -43,7 +43,7 @@ namespace OsrStudio.Windows
                 // If detection fails, default to unknown and allow all encoders
                 // (better to show too many options than too few)
                 GpuName = "Detection failed";
-                GpuVendor = Captura.GpuVendor.Unknown;
+                GpuVendor = GpuVendor.Unknown;
                 HasAmdEncoder = true; // Allow all when detection fails
                 HasNvidiaEncoder = true;
                 HasIntelQuickSync = true;
@@ -61,9 +61,9 @@ namespace OsrStudio.Windows
             
             return vendorId switch
             {
-                0x1002 => Captura.GpuVendor.AMD,
-                0x10DE => Captura.GpuVendor.NVIDIA,
-                0x8086 => Captura.GpuVendor.Intel,
+                0x1002 => GpuVendor.AMD,
+                0x10DE => GpuVendor.NVIDIA,
+                0x8086 => GpuVendor.Intel,
                 _ => DetermineVendorFromName(adapter.Description.Description)
             };
         }
@@ -71,20 +71,20 @@ namespace OsrStudio.Windows
         private static GpuVendor DetermineVendorFromName(string gpuName)
         {
             if (string.IsNullOrEmpty(gpuName))
-                return Captura.GpuVendor.Unknown;
+                return GpuVendor.Unknown;
 
             var lowerName = gpuName.ToLowerInvariant();
             
             if (lowerName.Contains("amd") || lowerName.Contains("radeon") || lowerName.Contains("ati"))
-                return Captura.GpuVendor.AMD;
+                return GpuVendor.AMD;
                 
             if (lowerName.Contains("nvidia") || lowerName.Contains("geforce") || lowerName.Contains("quadro") || lowerName.Contains("tesla"))
-                return Captura.GpuVendor.NVIDIA;
+                return GpuVendor.NVIDIA;
                 
             if (lowerName.Contains("intel") || lowerName.Contains("hd graphics") || lowerName.Contains("uhd graphics") || lowerName.Contains("iris"))
-                return Captura.GpuVendor.Intel;
+                return GpuVendor.Intel;
             
-            return Captura.GpuVendor.Unknown;
+            return GpuVendor.Unknown;
         }
     }
 }

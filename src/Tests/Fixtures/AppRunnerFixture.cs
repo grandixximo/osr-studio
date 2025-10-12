@@ -15,7 +15,7 @@ namespace OsrStudio.Tests.Views
         {
             App = Application.Launch(new ProcessStartInfo(TestManagerFixture.GetUiPath(), "--no-persist"));
 
-            MainWindow = App.GetWindow(nameof(Captura));
+            MainWindow = App.GetWindow("OsrStudio");
         }
 
         public void Dispose()

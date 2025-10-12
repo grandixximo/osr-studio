@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Captura.Video;
 
 namespace OsrStudio.Video
 {

@@ -1,4 +1,4 @@
-﻿using Captura.Audio;
+using OsrStudio.Audio;
 
 namespace OsrStudio.Fakes
 {

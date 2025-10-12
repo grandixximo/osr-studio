@@ -1,4 +1,4 @@
-﻿using Captura.Audio;
+using OsrStudio.Audio;
 using OsrStudio.FFmpeg;
 using OsrStudio.Models;
 using OsrStudio.Video;

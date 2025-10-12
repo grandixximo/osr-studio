@@ -1,6 +1,4 @@
-using OsrStudio;
-
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public class VideoSettings : PropertyStore
     {
