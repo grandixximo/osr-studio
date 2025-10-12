@@ -16,10 +16,10 @@ namespace OsrStudio
                         return "English";
 
                     case "zh-CN":
-                        return "Chinese (Simplified) (????)";
+                        return "Chinese (Simplified) (简体中文)";
 
                     case "zh-TW":
-                        return "Chinese (Traditional) (????)";
+                        return "Chinese (Traditional) (繁體中文)";
 
                     default:
                         return $"{c.DisplayName} ({c.NativeName})";
