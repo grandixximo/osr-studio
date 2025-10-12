@@ -50,10 +50,34 @@ body {
     align-items: center;
 }
 
-.nav-brand h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand .logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Show light logo by default, hide dark logo */
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+/* Switch logos for dark mode */
+@media (prefers-color-scheme: dark) {
+    .logo-light {
+        display: none;
+    }
+    
+    .logo-dark {
+        display: block;
+    }
 }
 
 .nav-menu {
