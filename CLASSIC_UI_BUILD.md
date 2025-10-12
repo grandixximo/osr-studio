@@ -1,6 +1,6 @@
-# Captura 10.3.0 - Classic UI Build
+# OSR Studio Classic - Classic UI Build
 
-This branch (`classic-ui-modern-fixes`) contains the latest Captura improvements and fixes while maintaining the classic 8.0.0 UI design with a modern twist - crediting all three contributors!
+This branch contains the latest OSR Studio (formerly Captura) improvements and fixes while maintaining the classic 8.0.0 UI design - fully rebranded to OSR Studio while preserving the beloved classic interface!
 
 ## What's Different from Main
 
@@ -55,10 +55,10 @@ This branch (`classic-ui-modern-fixes`) contains the latest Captura improvements
 ### Windows (Recommended)
 ```bash
 # Using Visual Studio 2019 or newer
-# Open src/Captura.sln and build
+# Open src/OsrStudio.sln and build
 
 # Or using command line
-dotnet build src/Captura.sln --configuration Release
+dotnet build src/OsrStudio.sln --configuration Release
 ```
 
 ### Notes
@@ -116,8 +116,16 @@ This build is for users who:
 - [x] Test FFmpeg download with new mirrors
 - [x] Verify all recording features work
 
+## Rebranding Notice
+
+This is **OSR Studio Classic** - a complete rebrand of Captura:
+- All namespaces: `Captura.*` → `OsrStudio.*`
+- All folders and projects renamed
+- Classic UI fully preserved
+- All features and functionality maintained
+
 ## License
-Maintains the original Captura license. See LICENSE.md for details.
+Maintains the original MIT license. See LICENSE.md for details.
 
 ## Contributors
 

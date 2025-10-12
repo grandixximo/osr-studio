@@ -17,8 +17,8 @@ void PopulateOutput()
     // Copy License files
     CopyDirectory(licensesFolder, distFolder + Directory("licenses"));
 
-    var consoleBinFolder = sourceFolder + Directory("Captura.Console/bin") + Directory(configuration);
-    var uiBinFolder = sourceFolder + Directory("Captura/bin") + Directory(configuration);
+    var consoleBinFolder = sourceFolder + Directory("OsrStudio.Console/bin") + Directory(configuration);
+    var uiBinFolder = sourceFolder + Directory("OsrStudio/bin") + Directory(configuration);
     
     // Copy Languages
     CopyDirectory(uiBinFolder + Directory("Languages"), distFolder + Directory("languages"));
@@ -132,7 +132,7 @@ var packChocoTask = Task("Pack-Choco")
 
 var testTask = Task("Test")
     .IsDependentOn(buildTask)
-    .Does(() => XUnit2(sourceFolder + File($"Tests/bin/{configuration}/**/Captura.Tests.dll")));
+    .Does(() => XUnit2(sourceFolder + File($"Tests/bin/{configuration}/**/OsrStudio.Tests.dll")));
 
 var defaultTask = Task("Default")
     .IsDependentOn(packPortableTask)

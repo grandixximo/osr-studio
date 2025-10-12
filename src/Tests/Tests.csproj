@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>Captura.Tests</AssemblyName>
+    <AssemblyName>OsrStudio.Tests</AssemblyName>
     <TargetFramework>net472</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Captura.Base\Captura.Base.csproj" />
-    <ProjectReference Include="..\Captura.Core\Captura.Core.csproj" />
-    <ProjectReference Include="..\Captura.Fakes\Captura.Fakes.csproj" />
-    <ProjectReference Include="..\Captura.Loc\Captura.Loc.csproj" />
+    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\OsrStudio.Core\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\OsrStudio.Fakes\OsrStudio.Fakes.csproj" />
+    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>

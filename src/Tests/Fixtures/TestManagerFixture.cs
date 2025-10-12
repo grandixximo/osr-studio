@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
-using Captura.Fakes;
-using Captura.Video;
+using OsrStudio.Fakes;
+using OsrStudio.Video;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class TestManagerFixture : IDisposable

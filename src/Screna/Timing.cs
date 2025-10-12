@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Captura.Models
+namespace OsrStudio.Models
 {
     public class Timing
     {

@@ -36,8 +36,8 @@ void HandleVersion()
     else throw new ArgumentException("Invalid Version Format", "build_version");
 
     var assemblyInfoFile = File("Properties/AssemblyInfo.cs");
-    var uiAssemblyInfo = sourceFolder + Directory("Captura") + assemblyInfoFile;
-    var consoleAssemblyInfo = sourceFolder + Directory("Captura.Console") + assemblyInfoFile;
+    var uiAssemblyInfo = sourceFolder + Directory("OsrStudio") + assemblyInfoFile;
+    var consoleAssemblyInfo = sourceFolder + Directory("OsrStudio.Console") + assemblyInfoFile;
 
     // Update AssemblyInfo files
     CreateBackup(uiAssemblyInfo, tempFolder + File("AssemblyInfo.cs"));

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     /// <summary>
     /// Applies Overlays on an <see cref="IImageProvider"/>.
