@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OSR Studio - Powerful screen recording and capture software for Windows. Capture screen, webcam, audio, cursor, mouse clicks and keystrokes.">
+    <title>OSR Studio - Screen Recording & Capture Software</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>OSR Studio</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#docs">Docs</a></li>
+                    <li><a href="https://github.com/grandixximo/osr-studio" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Powerful Screen Recording Made Simple</h2>
+                    <p class="hero-subtitle">Capture screen, webcam, audio, cursor, mouse clicks and keystrokes with OSR Studio - the modern, lightweight screen recording software for Windows.</p>
+                    <div class="hero-buttons">
+                        <a href="https://github.com/grandixximo/osr-studio/releases/latest" class="btn btn-primary">Download Latest Release</a>
+                        <a href="https://github.com/grandixximo/osr-studio" class="btn btn-secondary">View on GitHub</a>
+                    </div>
+                    <div class="badges">
+                        <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License">
+                        <img src="https://github.com/grandixximo/osr-studio/actions/workflows/build.yml/badge.svg" alt="Build Status">
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="docs/Screenshots/Captura.png" alt="OSR Studio Screenshot" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎬</div>
+                        <h3>Screen Recording</h3>
+                        <p>Record your screen in multiple formats including AVI, GIF, and MP4 with hardware acceleration support.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📸</div>
+                        <h3>Screenshots</h3>
+                        <p>Capture specific regions, screens, or windows with mouse cursor and click indicators.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎙️</div>
+                        <h3>Audio Recording</h3>
+                        <p>Mix audio from microphone and speaker output for professional recordings.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📹</div>
+                        <h3>WebCam Support</h3>
+                        <p>Capture from your webcam alongside screen recording for video tutorials and streams.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⌨️</div>
+                        <h3>Keystroke Capture</h3>
+                        <p>Record mouse clicks and keystrokes for detailed tutorials and demonstrations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Hardware Encoding</h3>
+                        <p>AMD AMF and other hardware encoding support for efficient, high-quality recordings.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Windows Graphics Capture</h3>
+                        <p>Modern WGC API support for reliable screen recording on Windows 10 1903+.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Multi-Language</h3>
+                        <p>Available in multiple languages with configurable hotkeys and command-line support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <h2 class="section-title">Download OSR Studio</h2>
+                <div class="download-options">
+                    <div class="download-card">
+                        <h3>🚀 Installer</h3>
+                        <p>Recommended for most users</p>
+                        <code>OSR-Studio-Setup.exe</code>
+                        <a href="https://github.com/grandixximo/osr-studio/releases/latest" class="btn btn-primary">Download Installer</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>📦 Portable</h3>
+                        <p>No installation required</p>
+                        <code>OSR-Studio-Portable.zip</code>
+                        <a href="https://github.com/grandixximo/osr-studio/releases/latest" class="btn btn-primary">Download Portable</a>
+                    </div>
+                </div>
+                <p class="download-note">
+                    For building from source, see the <a href="docs/Build.html">Build Notes</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">About This Project</h2>
+                <div class="about-content">
+                    <p><strong>OSR Studio</strong> is a complete rebrand of the excellent screen recording software originally known as Captura. This project builds upon the foundation laid by its predecessors while establishing a fresh identity for better visibility and continued development.</p>
+                    
+                    <h3>Recent Enhancements</h3>
+                    <ul class="enhancement-list">
+                        <li>✅ Fixed FFmpeg download window initialization issue</li>
+                        <li>✅ Updated FFmpeg download mirrors for reliability</li>
+                        <li>✅ Improved build and release workflows</li>
+                        <li>✅ Added AMD AMF hardware encoding support</li>
+                        <li>✅ Implemented Windows Graphics Capture (WGC) for Windows 10 1903+</li>
+                        <li>✅ Complete rebrand for better project visibility</li>
+                    </ul>
+
+                    <h3>Credits</h3>
+                    <div class="credits">
+                        <p><strong>Huge thanks to:</strong></p>
+                        <ul>
+                            <li><strong>Mathew Sachin</strong> - Original creator of Captura</li>
+                            <li><strong>Mr. Chip (mrchipset)</strong> - Maintainer of nCaptura fork</li>
+                            <li><strong>Cursor & Claude</strong> - AI tools that made these enhancements possible</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="docs" class="docs">
+            <div class="container">
+                <h2 class="section-title">Documentation</h2>
+                <div class="docs-grid">
+                    <a href="docs/Build.html" class="doc-link">📋 Build Notes</a>
+                    <a href="docs/System-Requirements.html" class="doc-link">💻 System Requirements</a>
+                    <a href="CONTRIBUTING.html" class="doc-link">🤝 Contributing</a>
+                    <a href="docs/Cmdline/README.html" class="doc-link">⌨️ Command-line</a>
+                    <a href="docs/FAQ.html" class="doc-link">❓ FAQ</a>
+                    <a href="docs/FFmpeg.html" class="doc-link">🎬 FFmpeg</a>
+                    <a href="docs/Changelogs/README.html" class="doc-link">📝 Changelog</a>
+                    <a href="CODE_OF_CONDUCT.html" class="doc-link">📜 Code of Conduct</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>OSR Studio</h4>
+                    <p>Modern screen recording software for Windows</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Copyright</h4>
+                    <p>&copy; 2019 Mathew Sachin</p>
+                    <p>&copy; 2024 Mr. Chip</p>
+                    <p>&copy; 2025 grandixximo</p>
+                </div>
+                <div class="footer-section">
+                    <h4>License</h4>
+                    <p><a href="LICENSE.html">MIT License</a></p>
+                    <p><a href="licenses/">Dependency Licenses</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ by the OSR Studio community</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+# Site settings
+title: OSR Studio
+description: Powerful screen recording and capture software for Windows. Capture screen, webcam, audio, cursor, mouse clicks and keystrokes.
+url: "https://grandixximo.github.io"
+baseurl: "/osr-studio"
+
+# GitHub Pages settings
+repository: grandixximo/osr-studio
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+# Exclude from processing
+exclude:
+  - src/
+  - scripts/
+  - choco/
+  - build.cake
+  - appveyor.yml
+  - Inno.iss
+  - crowdin.yml
+  - "*.sln"
+  - "*.csproj"
+  - "*.config"
+  - "*.cs"
+  - "*.xaml"
+
+# Include markdown files
+include:
+  - docs/
+  - README.md
+  - LICENSE.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SEO settings
+author: grandixximo
+twitter:
+  username: osrstudio
+social:
+  name: OSR Studio
+  links:
+    - https://github.com/grandixximo/osr-studio
+
+# Site navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Features
+    url: /#features
+  - title: Download
+    url: /#download
+  - title: Documentation
+    url: /docs/
+  - title: GitHub
+    url: https://github.com/grandixximo/osr-studio
