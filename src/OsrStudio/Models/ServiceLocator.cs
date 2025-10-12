@@ -17,8 +17,6 @@ namespace OsrStudio
             ServiceProvider.LoadModule(new MainModule());
         }
 
-        public WebcamPage WebcamPage => ServiceProvider.Get<WebcamPage>();
-
         public WebcamPlacementPreviewPage WebcamPlacementPreviewPage => ServiceProvider.Get<WebcamPlacementPreviewPage>();
         
         public MainViewModel MainViewModel => ServiceProvider.Get<MainViewModel>();

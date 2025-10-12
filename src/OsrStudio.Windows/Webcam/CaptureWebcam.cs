@@ -8,7 +8,7 @@ namespace OsrStudio.Webcam
     /// <summary>
     /// Clean DirectShow-based webcam capture implementation
     /// </summary>
-    class CaptureWebcam : ISampleGrabberCB, IDisposable
+    public class CaptureWebcam : ISampleGrabberCB, IDisposable
     {
         #region Fields
         readonly Filter _videoDevice;
