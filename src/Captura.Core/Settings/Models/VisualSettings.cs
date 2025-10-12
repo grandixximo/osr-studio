@@ -61,5 +61,11 @@ namespace Captura
             get => Get("en");
             set => Set(value);
         }
+
+        public bool RegionSelectorDrawingTools
+        {
+            get => Get(true);  // Default to true (always visible)
+            set => Set(value);
+        }
     }
 }

@@ -160,7 +160,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "OSR-Studio-${version}-Portable.zip"
+        $portableZip = "nCaptura-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "PORTABLE_ZIP=$portableZip" >> $env:GITHUB_ENV
         
@@ -183,7 +183,7 @@ jobs:
         & $innoPath "/DMyAppVersion=$version" "Inno.iss"
         
         # Rename output file
-        $installerName = "OSR-Studio-${{ github.ref_name }}-Setup.exe"
+        $installerName = "nCaptura-${{ github.ref_name }}-Setup.exe"
         Move-Item -Path "temp/Captura-Setup.exe" -Destination $installerName -Force
         echo "INSTALLER_EXE=$installerName" >> $env:GITHUB_ENV
       shell: pwsh
@@ -192,7 +192,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: OSR-Studio-${{ github.ref_name }}-Release
+        name: nCaptura-${{ github.ref_name }}-Release
         path: |
           ${{ env.PORTABLE_ZIP }}
           ${{ env.INSTALLER_EXE }}
@@ -208,9 +208,9 @@ jobs:
           ${{ env.INSTALLER_EXE }}
         draft: false
         prerelease: false
-        name: "OSR Studio ${{ github.ref_name }}"
+        name: "nCaptura ${{ github.ref_name }}"
         body: |
-          ## OSR Studio ${{ github.ref_name }}
+          ## nCaptura ${{ github.ref_name }}
 
           ### What's New
 
@@ -221,8 +221,8 @@ jobs:
           ### Download
 
           Choose one:
-          - **Installer** (`OSR-Studio-${{ github.ref_name }}-Setup.exe`) - Recommended for most users
-          - **Portable** (`OSR-Studio-${{ github.ref_name }}-Portable.zip`) - No installation required
+          - **Installer** (`nCaptura-${{ github.ref_name }}-Setup.exe`) - Recommended for most users
+          - **Portable** (`nCaptura-${{ github.ref_name }}-Portable.zip`) - No installation required
 
           ---
 

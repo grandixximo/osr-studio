@@ -1,9 +1,9 @@
 ; Override version before compiling
-;#define MyAppVersion "10.6.0"
+;#define MyAppVersion "6.0.0"
 
-#define MyAppName "OSR Studio"
-#define MyAppPublisher "grandixximo"
-#define MyAppURL "https://github.com/grandixximo/osr-studio"
+#define MyAppName "Captura"
+#define MyAppPublisher "Mathew Sachin"
+#define MyAppURL "https://MathewSachin.github.io/Captura"
 #define MyAppExeName "captura.exe"
 
 [Setup]
@@ -15,7 +15,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\OSR-Studio
+DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
 OutputBaseFilename=Captura-Setup
 Compression=lzma

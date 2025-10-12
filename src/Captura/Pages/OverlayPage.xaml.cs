@@ -378,9 +378,6 @@ namespace Captura
 
         void UIElement_OnMouseMove(object Sender, MouseEventArgs E)
         {
-            if (ServiceProvider.Get<Settings>().MousePointerOverlay.DisplayHighlight)
-                MousePointer.Visibility = Visibility.Visible;
-
             var position = E.GetPosition(Grid);
 
             if (IsOutsideGrid(position))
@@ -389,6 +386,12 @@ namespace Captura
 
                 return;
             }
+
+            // Show/hide circle based on DisplayHighlight setting
+            if (ServiceProvider.Get<Settings>().MousePointerOverlay.DisplayHighlight)
+                MousePointer.Visibility = Visibility.Visible;
+            else
+                MousePointer.Visibility = Visibility.Collapsed;
 
             if (_dragging)
             {

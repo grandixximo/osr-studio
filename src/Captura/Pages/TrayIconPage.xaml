@@ -1,4 +1,4 @@
-﻿<Page x:Class="Captura.TrayIconPage"
+<Page x:Class="Captura.TrayIconPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:hotkeys="clr-namespace:Captura.Hotkeys;assembly=Captura.Hotkeys"

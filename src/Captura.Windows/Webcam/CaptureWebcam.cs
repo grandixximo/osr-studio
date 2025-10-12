@@ -8,7 +8,7 @@ namespace Captura.Webcam
     /// <summary>
     /// Clean DirectShow-based webcam capture implementation
     /// </summary>
-    class CaptureWebcam : ISampleGrabberCB, IDisposable
+    public class CaptureWebcam : ISampleGrabberCB, IDisposable
     {
         #region Fields
         readonly Filter _videoDevice;
@@ -481,7 +481,6 @@ namespace Captura.Webcam
                         _videoWindow = null;
                         return;
                     }
-                    _currentOwner = _previewWindow;
 
                     hr = _videoWindow.put_MessageDrain(_form.Handle);
                     if (hr < 0)
@@ -505,6 +504,7 @@ namespace Captura.Webcam
                         _videoWindow = null;
                         return;
                     }
+                    _currentOwner = _previewWindow;
                 }
                 catch
                 {

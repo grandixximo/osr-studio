@@ -5,13 +5,7 @@
       xmlns:loc="clr-namespace:Captura.Loc;assembly=Captura.Loc"
       DataContext="{Binding MainViewModel, Source={StaticResource ServiceLocator}}"
       Title="UI">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer>
+    <ScrollViewer>
             <StackPanel Margin="5">
                 <DockPanel Margin="5,5,0,5">
                     <Path Data="{Binding Icons.Translate, Source={StaticResource ServiceLocator}}"
@@ -40,11 +34,13 @@
                           IsChecked="{Binding Settings.UI.MainWindowTopmost}"
                           Margin="0,2"/>
 
+                <!-- Theme Settings: System Follow or Manual Selection -->
                 <CheckBox IsChecked="{Binding Settings.UI.FollowSystemTheme}"
                           Click="FollowSystemThemeClick"
                           Content="{Binding FollowSystemTheme, Source={StaticResource Loc}, Mode=OneWay}"
                           Margin="0,5"/>
 
+                <!-- Manual Theme Selection (hidden when following system theme) -->
                 <DockPanel Margin="0,5"
                            x:Name="ThemeModePanel"
                            Visibility="{Binding Settings.UI.FollowSystemTheme, Converter={StaticResource NegatingConverter}}">
@@ -76,19 +72,6 @@
                                       Margin="0,5"
                                       Grid.Column="1"/>
                 </Grid>
-            </StackPanel>
-        </ScrollViewer>
-        <GridSplitter Grid.Column="1"
-                      Width="1"
-                      Margin="7,0"/>
-        <DockPanel Grid.Column="2">
-            <Label Margin="0,10"
-                   Content="{Binding TrayIcon, Source={StaticResource Loc}, Mode=OneWay}"
-                   FontWeight="Bold"
-                   FontSize="15"
-                   DockPanel.Dock="Top"/>
-
-            <Frame Source="TrayIconPage.xaml"/>
-        </DockPanel>
-    </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

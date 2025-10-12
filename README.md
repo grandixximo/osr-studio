@@ -9,10 +9,13 @@
 &copy; [Copyright 2024](LICENSE.md) Mr. Chip  
 &copy; [Copyright 2025](LICENSE.md) grandixximo
 
+To read the story of **Capture** in following
+:link: <https://mathewsachin.github.io/Captura/>
+
 Capture Screen, WebCam, Audio, Cursor, Mouse Clicks and Keystrokes.
 
 
-![OSR Studio](docs/Screenshots/Captura.png)
+![Captura](docs/Screenshots/Captura.png)
 
 
 ## About This Project
@@ -28,6 +31,9 @@ OSR Studio continues this legacy with important enhancements:
 - ✅ Fixed the FFmpeg download window initialization issue
 - ✅ Updated FFmpeg download mirrors to ensure reliability
 - ✅ Improved build and release workflows
+- ✅ Restored and fixed the classic 8.0.0 UI (dual-release with modern UI)
+- ✅ Fixed numerous data binding issues, UI bugs, and preview windows
+- ✅ Added shake animations, live region updates, and improved UX
 - ✅ Added AMD AMF hardware encoding support (inspired by OBS Studio)
 - ✅ Implemented Windows Graphics Capture (WGC) for reliable screen recording (Windows 10 1903+)
 - ✅ Complete rebrand for better project visibility
@@ -37,7 +43,28 @@ OSR Studio continues this legacy with important enhancements:
 - **Mr. Chip (mrchipset)** - Excellent maintainer who kept the project alive with nCaptura
 - **Cursor & Claude** - AI tools that made these enhancements possible
 
-![OSR Studio Repository](docs/Screenshots/Captura_Github_Repo.png)
+### Two UI Versions Available
+
+Each release includes **two versions** of OSR Studio to choose from:
+
+**OSR Studio (Modern UI)**
+- Based on the latest modern interface
+- Streamlined and updated design
+- Built from `main` branch
+
+**OSR Studio Classic**
+- Original 8.0.0 classic interface
+- Traditional layout and workflow
+- Built from `classic-ui` branch with all modern fixes
+
+Both versions have identical features and functionality—choose the one that matches your preference!
+
+**Huge thanks to:**
+- **Mathew Sachin** for creating Captura
+- **Mr. Chip (mrchipset)** for his excellent maintenance work
+- **Cursor & Claude** for helping make these fixes possible
+
+![Captura-Repository](docs/Screenshots/Captura_Github_Repo.png)
 
 
 ## Features
@@ -60,8 +87,8 @@ OSR Studio continues this legacy with important enhancements:
 Portable and Setup builds for the latest release can be downloaded from [here][latest].
 
 **Choose one:**
-- **Installer** (`OSR-Studio-Setup.exe`) - Recommended for most users
-- **Portable** (`OSR-Studio-Portable.zip`) - No installation required
+- **Installer** (`OSR-Studio-Setup.exe` or `OSR-Studio-Classic-Setup.exe`) - Recommended for most users
+- **Portable** (`OSR-Studio-Portable.zip` or `OSR-Studio-Classic-Portable.zip`) - No installation required
 
 ### Build from Source
 
