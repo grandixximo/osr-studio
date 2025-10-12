@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OsrStudio.Windows.MediaFoundation;
 using OsrStudio.Video;
 using SharpDX.Direct2D1;

@@ -1,4 +1,4 @@
-# Captura.Webcam
+# OsrStudio.Webcam
 
 DirectShow-based webcam capture implementation.
 

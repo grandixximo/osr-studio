@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reactive.Linq;
 using OsrStudio.Loc;
 using Reactive.Bindings;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using TestStack.White;
 using TestStack.White.UIItems.WindowItems;
@@ -15,7 +15,7 @@ namespace OsrStudio.Tests.Views
         {
             App = Application.Launch(new ProcessStartInfo(TestManagerFixture.GetUiPath(), "--no-persist"));
 
-            MainWindow = App.GetWindow("OsrStudio");
+            MainWindow = App.GetWindow("OSR Studio");
         }
 
         public void Dispose()

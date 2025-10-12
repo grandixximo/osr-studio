@@ -4,7 +4,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

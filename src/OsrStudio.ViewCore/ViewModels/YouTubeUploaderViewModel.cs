@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reactive.Linq;
@@ -21,7 +21,7 @@ namespace OsrStudio.ViewModels
         readonly IMessageProvider _messageProvider;
         Task _uploadTask;
         string _fileName, _link, _title;
-        string _description = "\n\n\n\n--------------------------------------------------\n\nUploaded using Captura (https://mathewsachin.github.io/Captura/)";
+        string _description = "\n\n\n\n--------------------------------------------------\n\nUploaded using OSR Studio (https://grandixximo.github.io/osr-studio/)";
         YouTubePrivacyStatus _privacyStatus;
         int _progress;
         bool _beganUploading;

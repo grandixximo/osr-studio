@@ -1,34 +1,42 @@
 using System;
-using System.Windows.Media.Imaging;
+using System.Windows;
+using System.Windows.Interop;
+using OsrStudio.Windows.DirectX;
+using OsrStudio.Windows.Gdi;
+using Reactive.Bindings.Extensions;
+using SharpDX.Direct3D9;
 
 namespace OsrStudio.Video
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class PreviewWindowService : IPreviewWindow
     {
-        readonly PreviewWindow _previewWindow;
+        D3D9PreviewAssister _d3D9PreviewAssister;
+        IntPtr _backBufferPtr;
+        Texture _texture;
+        readonly VisualSettings _visualSettings;
 
         public void Show()
         {
-            // Show the actual PreviewWindow for classic UI
-            _previewWindow.ShowAndFocus();
+            _visualSettings.Expanded = true;
         }
 
-        public bool IsVisible => _previewWindow.IsVisible;
+        public bool IsVisible { get; private set; }
 
-        public PreviewWindowService()
+        public PreviewWindowService(VisualSettings VisualSettings)
         {
-            // Use singleton PreviewWindow instance
-            _previewWindow = PreviewWindow.Instance;
+            _visualSettings = VisualSettings;
+
+            VisualSettings.ObserveProperty(M => M.Expanded)
+                .Subscribe(M => IsVisible = M);
         }
+
+        IBitmapFrame _lastFrame;
 
         public void Display(IBitmapFrame Frame)
         {
             if (Frame is RepeatFrame)
-            {
-                Frame.Dispose();
                 return;
-            }
 
             if (!IsVisible)
             {
@@ -36,41 +44,88 @@ namespace OsrStudio.Video
                 return;
             }
 
-            try
+            var win = MainWindow.Instance;
+
+            win.Dispatcher.Invoke(() =>
             {
-                // Render frame to the Image control
-                _previewWindow.Dispatcher.Invoke(() =>
+                win.DisplayImage.Image = null;
+
+                _lastFrame?.Dispose();
+                _lastFrame = Frame;
+
+                Frame = Frame.Unwrap();
+
+                switch (Frame)
                 {
-                    var bitmap = new WriteableBitmap(Frame.Width, Frame.Height, 96, 96,
-                        System.Windows.Media.PixelFormats.Bgr32, null);
+                    case DrawingFrame drawingFrame:
+                        try
+                        {
+                            // TODO: Preview is not shown during Webcam only recordings
+                            // This check swallows errors
+                            var h = drawingFrame.Bitmap.Height;
 
-                    bitmap.Lock();
-                    try
-                    {
-                        Frame.CopyTo(bitmap.BackBuffer);
-                        bitmap.AddDirtyRect(new System.Windows.Int32Rect(0, 0, Frame.Width, Frame.Height));
-                    }
-                    finally
-                    {
-                        bitmap.Unlock();
-                    }
+                            if (h == 0)
+                                return;
+                        }
+                        catch { return; }
 
-                    _previewWindow.UpdateImage(bitmap);
-                });
-            }
-            catch
-            {
-                // Ignore preview errors
-            }
-            finally
-            {
-                Frame.Dispose();
-            }
+                        win.WinFormsHost.Visibility = Visibility.Visible;
+                        win.DisplayImage.Image = drawingFrame.Bitmap;
+                        break;
+
+                    case Texture2DFrame texture2DFrame:
+                        win.WinFormsHost.Visibility = Visibility.Collapsed;
+                        if (_d3D9PreviewAssister == null)
+                        {
+                            _d3D9PreviewAssister = new D3D9PreviewAssister(ServiceProvider.Get<IPlatformServices>());
+                            _texture = _d3D9PreviewAssister.GetSharedTexture(texture2DFrame.PreviewTexture);
+
+                            using var surface = _texture.GetSurfaceLevel(0);
+                            _backBufferPtr = surface.NativePointer;
+                        }
+
+                        Invalidate(_backBufferPtr, texture2DFrame.Width, texture2DFrame.Height);
+                        break;
+                }
+            });
+        }
+
+        void Invalidate(IntPtr BackBufferPtr, int Width, int Height)
+        {
+            var win = MainWindow.Instance;
+
+            win.D3DImage.Lock();
+            win.D3DImage.SetBackBuffer(D3DResourceType.IDirect3DSurface9, BackBufferPtr);
+
+            if (BackBufferPtr != IntPtr.Zero)
+                win.D3DImage.AddDirtyRect(new Int32Rect(0, 0, Width, Height));
+
+            win.D3DImage.Unlock();
         }
 
         public void Dispose()
         {
-            // PreviewWindow is singleton, don't close it
+            var win = MainWindow.Instance;
+
+            win.Dispatcher.Invoke(() =>
+            {
+                win.DisplayImage.Image = null;
+                win.WinFormsHost.Visibility = Visibility.Collapsed;
+
+                _lastFrame?.Dispose();
+                _lastFrame = null;
+
+                if (_d3D9PreviewAssister != null)
+                {
+                    Invalidate(IntPtr.Zero, 0, 0);
+
+                    _texture.Dispose();
+
+                    _d3D9PreviewAssister.Dispose();
+
+                    _d3D9PreviewAssister = null;
+                }
+            });
         }
     }
 }

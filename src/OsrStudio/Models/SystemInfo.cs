@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Management;
 using System.Text;
 using OsrStudio.Audio;
@@ -13,7 +13,7 @@ namespace OsrStudio.Models
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"{"OsrStudio"} v{AboutViewModel.Version}");
+            sb.AppendLine($"OSR Studio v{AboutViewModel.Version}");
             sb.AppendLine(OsInfo());
             sb.AppendLine($"{(Environment.Is64BitOperatingSystem ? 64 : 32)}-bit OS");
             sb.AppendLine($"{(Environment.Is64BitProcess ? 64 : 32)}-bit Process");

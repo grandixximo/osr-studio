@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows.Input;
 using OsrStudio.Audio;
 using OsrStudio.Models;

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <RootNamespace>OsrStudio</RootNamespace>
-    <AssemblyName>captura</AssemblyName>
+    <AssemblyName>OsrStudio</AssemblyName>
     <TargetFramework>net472</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <UseWPF>true</UseWPF>
@@ -21,26 +21,28 @@
     <Copy SourceFiles="app.config" DestinationFiles="$(OutputPath)$(AssemblyName).exe.config" />
   </Target>
   <ItemGroup>
-    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\logo-dark.png" />
+    <Resource Include="Images\logo-light.png" />
     <Resource Include="Images\record.ico" />
     <Resource Include="Images\OsrStudio.ico" />
     <Resource Include="Images\pause.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Management" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
-    <ProjectReference Include="..\OsrStudio.Core\OsrStudio.Core.csproj" />
-    <ProjectReference Include="..\OsrStudio.FFmpeg\OsrStudio.FFmpeg.csproj" />
-    <ProjectReference Include="..\OsrStudio.Hotkeys\OsrStudio.Hotkeys.csproj" />
-    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
-    <ProjectReference Include="..\OsrStudio.MouseKeyHook\OsrStudio.MouseKeyHook.csproj" />
-    <ProjectReference Include="..\OsrStudio.SharpAvi\OsrStudio.SharpAvi.csproj" />
-    <ProjectReference Include="..\OsrStudio.ViewCore\OsrStudio.ViewCore.csproj" />
-    <ProjectReference Include="..\OsrStudio.Windows\OsrStudio.Windows.csproj" />
-    <ProjectReference Include="..\OsrStudio.YouTube\OsrStudio.YouTube.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Core\\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\\OsrStudio.FFmpeg\\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Hotkeys\\OsrStudio.Hotkeys.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.MouseKeyHook\\OsrStudio.MouseKeyHook.csproj" />
+    <ProjectReference Include="..\\OsrStudio.SharpAvi\\OsrStudio.SharpAvi.csproj" />
+    <ProjectReference Include="..\\OsrStudio.ViewCore\\OsrStudio.ViewCore.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Windows\\OsrStudio.Windows.csproj" />
+    <ProjectReference Include="..\\OsrStudio.YouTube\\OsrStudio.YouTube.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>

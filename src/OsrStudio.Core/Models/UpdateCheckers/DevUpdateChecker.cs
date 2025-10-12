@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
@@ -24,18 +24,26 @@ namespace OsrStudio.Models
             Process.Start(DownloadsUrl);
         }
 
-        const string DownloadsUrl = "https://ci.appveyor.com/project/MathewSachin/captura/branch/master";
-        const string MasterBuildUrl = "https://ci.appveyor.com/api/projects/MathewSachin/Captura/branch/master";
+        const string DownloadsUrl = "https://github.com/grandixximo/osr-studio/releases";
+        const string LatestReleaseUrl = "https://api.github.com/repos/grandixximo/osr-studio/releases/latest";
 
         public async Task<Version> Check()
         {
             using (var w = new WebClient { Proxy = _proxySettings.GetWebProxy() })
             {
-                var result = await w.DownloadStringTaskAsync(MasterBuildUrl);
+                // User Agent header required by GitHub API
+                w.Headers.Add("user-agent", "OSR-Studio");
+
+                var result = await w.DownloadStringTaskAsync(LatestReleaseUrl);
 
                 var jObj = JObject.Parse(result);
 
-                var version = Version.Parse(jObj["build"]["version"].ToString());
+                // tag_name format: v10.0.0 or v10.0.0-beta1
+                var tagName = jObj["tag_name"].ToString();
+                var versionString = tagName.TrimStart('v');
+                
+                // Parse version, handling pre-release tags
+                var version = Version.Parse(versionString.Split('-')[0]);
 
                 if (version > _currentVersion)
                 {

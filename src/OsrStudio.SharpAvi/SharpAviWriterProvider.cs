@@ -1,4 +1,4 @@
-﻿using SharpAvi.Codecs;
+using SharpAvi.Codecs;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

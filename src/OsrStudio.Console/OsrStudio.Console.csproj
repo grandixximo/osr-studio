@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>OsrStudio</RootNamespace>
-    <AssemblyName>captura-cli</AssemblyName>
+    <AssemblyName>osr-cli</AssemblyName>
     <TargetFramework>net472</TargetFramework>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -26,17 +26,17 @@
     <Copy SourceFiles="App.config" DestinationFiles="$(OutputPath)$(AssemblyName).exe.config" />
   </Target>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
-    <ProjectReference Include="..\OsrStudio.Core\OsrStudio.Core.csproj" />
-    <ProjectReference Include="..\OsrStudio.Fakes\OsrStudio.Fakes.csproj" />
-    <ProjectReference Include="..\OsrStudio.FFmpeg\OsrStudio.FFmpeg.csproj" />
-    <ProjectReference Include="..\OsrStudio.Loc\OsrStudio.Loc.csproj" />
-    <ProjectReference Include="..\OsrStudio.MouseKeyHook\OsrStudio.MouseKeyHook.csproj" />
-    <ProjectReference Include="..\OsrStudio.SharpAvi\OsrStudio.SharpAvi.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Core\\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Fakes\\OsrStudio.Fakes.csproj" />
+    <ProjectReference Include="..\\OsrStudio.FFmpeg\\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.MouseKeyHook\\OsrStudio.MouseKeyHook.csproj" />
+    <ProjectReference Include="..\\OsrStudio.SharpAvi\\OsrStudio.SharpAvi.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Captura\Images\OsrStudio.ico">
+    <Content Include="..\OsrStudio\Images\OsrStudio.ico">
       <Link>OsrStudio.ico</Link>
     </Content>
   </ItemGroup>

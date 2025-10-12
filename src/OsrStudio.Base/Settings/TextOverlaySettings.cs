@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
 namespace OsrStudio.Video

@@ -3,8 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="clr-namespace:OsrStudio"
       xmlns:hotkeys="clr-namespace:OsrStudio.Hotkeys;assembly=OsrStudio.Hotkeys"
-      DataContext="{Binding HotkeysViewModel, Source={StaticResource ServiceLocator}}">
+      DataContext="{Binding HotkeysViewModel, Source={StaticResource ServiceLocator}}"
+      Title="{Binding Hotkeys, Source={StaticResource Loc}, Mode=OneWay}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <DockPanel Margin="5">
             <Grid DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
@@ -61,7 +67,7 @@
                                 <local:ModernButton DockPanel.Dock="Right"
                                                     CommandParameter="{Binding}"
                                                     IconData="{Binding Icons.Close, Source={StaticResource ServiceLocator}}"
-                                                    Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=Page}}">
+                                                    Command="{Binding HotkeysViewModel.RemoveCommand, Source={StaticResource ServiceLocator}}">
                                     <local:ModernButton.LayoutTransform>
                                         <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
                                     </local:ModernButton.LayoutTransform>
@@ -86,5 +92,17 @@
                 </ItemsControl>
             </ScrollViewer>
         </DockPanel>
+        <GridSplitter Grid.Column="1"
+                      Width="1"
+                      Margin="7,0"/>
+        <StackPanel Margin="5"
+                    Grid.Column="2">
+            <Label Content="Toggle Region Picker"
+                   FontWeight="Bold"
+                   Margin="0,5"/>
+
+            <CheckBox IsChecked="{Binding AboutViewModel.Settings.RegionPickerHotkeyAutoStartRecording, Source={StaticResource ServiceLocator}}"
+                      Content="Automatically start recording"/>
+        </StackPanel>
     </Grid>
 </Page>

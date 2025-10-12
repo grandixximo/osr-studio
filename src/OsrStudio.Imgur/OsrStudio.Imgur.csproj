@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+<<<<<<<< HEAD:src/OsrStudio.Loc/OsrStudio.Loc.csproj
+    <ProjectReference Include="..\OsrStudio.Base\OsrStudio.Base.csproj" />
+========
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+>>>>>>>> origin/main:src/OsrStudio.Imgur/OsrStudio.Imgur.csproj
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+</Project>

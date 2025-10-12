@@ -1,4 +1,4 @@
-﻿using System.Reactive.Linq;
+using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Windows;
 using Reactive.Bindings;

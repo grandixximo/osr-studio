@@ -51,7 +51,7 @@ namespace OsrStudio.FFmpeg
                     };
                     
                     // Set timeout and user agent
-                    webClient.Headers.Add("User-Agent", "nCaptura-FFmpegDownloader/1.0");
+                    webClient.Headers.Add("User-Agent", "OSR-Studio-FFmpegDownloader/1.0");
                     
                     await webClient.DownloadFileTaskAsync(mirror, FFmpegArchivePath);
                     

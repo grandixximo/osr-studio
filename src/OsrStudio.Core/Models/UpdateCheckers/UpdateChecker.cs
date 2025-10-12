@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
@@ -24,15 +24,15 @@ namespace OsrStudio.Models
             Process.Start(DownloadsUrl);
         }
 
-        const string DownloadsUrl = "https://mathewsachin.github.io/Captura/download";
-        const string LatestReleaseUrl = "https://api.github.com/repos/MathewSachin/Captura/releases/latest";
+        const string DownloadsUrl = "https://grandixximo.github.io/osr-studio";
+        const string LatestReleaseUrl = "https://api.github.com/repos/grandixximo/osr-studio/releases/latest";
 
         public async Task<Version> Check()
         {
             using (var w = new WebClient { Proxy = _proxySettings.GetWebProxy() })
             {
                 // User Agent header required by GitHub api
-                w.Headers.Add("user-agent", "OsrStudio");
+                w.Headers.Add("user-agent", "OSR-Studio");
 
                 var result = await w.DownloadStringTaskAsync(LatestReleaseUrl);
 

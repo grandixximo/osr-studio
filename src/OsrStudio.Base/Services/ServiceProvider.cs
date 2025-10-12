@@ -12,7 +12,7 @@ namespace OsrStudio
 {
     public static class ServiceProvider
     {
-        public const string CapturaPathConstant = "%CAPTURA_PATH%";
+        public const string OsrStudioPathConstant = "%OSRSTUDIO_PATH%";
 
         static string _settingsDir;
 
@@ -46,7 +46,7 @@ namespace OsrStudio
                 if (string.IsNullOrWhiteSpace(value))
                     return;
 
-                value = value.Replace(CapturaPathConstant, AppDir);
+                value = value.Replace(OsrStudioPathConstant, AppDir);
 
                 _settingsDir = value;
 

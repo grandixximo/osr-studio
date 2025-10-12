@@ -8,7 +8,6 @@ using OsrStudio.FFmpeg;
 using OsrStudio.Hotkeys;
 using OsrStudio.Loc;
 using OsrStudio.Video;
-using OsrStudio.Webcam;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
@@ -21,9 +20,6 @@ namespace OsrStudio.ViewModels
 
         readonly RememberByName _rememberByName;
         readonly IDialogService _dialogService;
-        readonly WebcamModel _webcamModel;
-        readonly AudioSourceViewModel _audioSource;
-        readonly VideoWritersViewModel _videoWritersViewModel;
 
         public ICommand ShowPreviewCommand { get; }
         public ICommand OpenOutputFolderCommand { get; }
@@ -31,7 +27,6 @@ namespace OsrStudio.ViewModels
         public ICommand SelectFFmpegFolderCommand { get; }
         public ICommand ResetFFmpegFolderCommand { get; }
         public ICommand TrayLeftClickCommand { get; }
-        public ICommand RefreshCommand { get; }
 
         public IReadOnlyReactiveProperty<string> OutFolderDisplay { get; }
 
@@ -42,16 +37,10 @@ namespace OsrStudio.ViewModels
             IDialogService DialogService,
             RecordingModel RecordingModel,
             IFFmpegViewsProvider FFmpegViewsProvider,
-            RememberByName RememberByName,
-            WebcamModel WebcamModel,
-            AudioSourceViewModel AudioSource,
-            VideoWritersViewModel VideoWritersViewModel) : base(Settings, Loc)
+            RememberByName RememberByName) : base(Settings, Loc)
         {
             _dialogService = DialogService;
             _rememberByName = RememberByName;
-            _webcamModel = WebcamModel;
-            _audioSource = AudioSource;
-            _videoWritersViewModel = VideoWritersViewModel;
 
             OutFolderDisplay = Settings
                 .ObserveProperty(M => M.OutPath)
@@ -76,22 +65,8 @@ namespace OsrStudio.ViewModels
 
             TrayLeftClickCommand = new ReactiveCommand()
                 .WithSubscribe(() => HotKeyManager.FakeHotkey(Settings.Tray.LeftClickAction));
-
-            RefreshCommand = new DelegateCommand(Refresh);
             #endregion
         }
-
-        void Refresh()
-        {
-            _webcamModel.Refresh();
-            _audioSource.RefreshCommand.Execute(null);
-            _videoWritersViewModel.RefreshCodecs();
-            
-            // Notify UI elements to shake
-            Refreshed?.Invoke();
-        }
-
-        public event Action Refreshed;
 
         public void Init(bool Persist, bool Remembered)
         {

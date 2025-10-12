@@ -13,6 +13,10 @@ on:
           - classic
           - both
 
+concurrency:
+  group: debug-${{ github.run_id }}
+  cancel-in-progress: false
+
 jobs:
   build-modern:
     name: Build Modern UI (Debug)
@@ -20,7 +24,7 @@ jobs:
     if: ${{ github.event.inputs.ui_version == 'modern' || github.event.inputs.ui_version == 'both' }}
     
     env:
-      Solution_Name: src/Captura.sln
+      Solution_Name: src/OsrStudio.sln
 
     steps:
     - name: Checkout main branch
@@ -46,11 +50,11 @@ jobs:
     - name: Upload Modern UI Debug Build
       uses: actions/upload-artifact@v4
       with:
-        name: nCaptura-Debug
+        name: OsrStudio-Debug
         path: |
-          src/Captura/bin/Debug/
-          !src/Captura/bin/Debug/*.pdb
-          !src/Captura/bin/Debug/*.xml
+          src/OsrStudio/bin/Debug/
+          !src/OsrStudio/bin/Debug/*.pdb
+          !src/OsrStudio/bin/Debug/*.xml
         retention-days: 7
 
   build-classic:
@@ -59,13 +63,13 @@ jobs:
     if: ${{ github.event.inputs.ui_version == 'classic' || github.event.inputs.ui_version == 'both' }}
     
     env:
-      Solution_Name: src/Captura.sln
+      Solution_Name: src/OsrStudio.sln
 
     steps:
-    - name: Checkout classic-ui-modern-fixes branch
+    - name: Checkout classic-ui branch
       uses: actions/checkout@v4
       with:
-        ref: classic-ui-modern-fixes
+        ref: classic-ui
         fetch-depth: 0
 
     - name: Install .NET Core
@@ -85,11 +89,11 @@ jobs:
     - name: Upload Classic UI Debug Build
       uses: actions/upload-artifact@v4
       with:
-        name: Captura-Classic-Debug
+        name: OSR-Studio-Classic-Debug
         path: |
-          src/Captura/bin/Debug/
-          !src/Captura/bin/Debug/*.pdb
-          !src/Captura/bin/Debug/*.xml
+          src/OsrStudio/bin/Debug/
+          !src/OsrStudio/bin/Debug/*.pdb
+          !src/OsrStudio/bin/Debug/*.xml
         retention-days: 7
 
   summary:

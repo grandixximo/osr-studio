@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Native
+namespace OsrStudio.Native
 {
     enum GetWindowLongValue
     {

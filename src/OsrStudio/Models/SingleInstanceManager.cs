@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,10 +12,10 @@ namespace OsrStudio.Models
         static Task _task;
 
         // Mutex allows us to know whether another instance is already open
-        const string MutexId = "captura-mutex-304bae7c-e520-4bfe-a308-c99476062091";
+        const string MutexId = "osr-studio-mutex-304bae7c-e520-4bfe-a308-c99476062091";
 
         // EventWaitHandle allows us to communicate to a already running instance
-        const string EventWaitHandleId = "captura-wait-304bae7c-e520-4bfe-a308-c99476062091";
+        const string EventWaitHandleId = "osr-studio-wait-304bae7c-e520-4bfe-a308-c99476062091";
 
         public static void SingleInstanceCheck()
         {

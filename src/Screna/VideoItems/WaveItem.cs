@@ -1,4 +1,4 @@
-﻿namespace OsrStudio.Audio
+namespace OsrStudio.Audio
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class WaveItem : IAudioWriterItem

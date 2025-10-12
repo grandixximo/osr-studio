@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 
 namespace OsrStudio.Video
@@ -9,10 +8,7 @@ namespace OsrStudio.Video
     {
         public IWindow PickWindow(Predicate<IWindow> Filter = null)
         {
-            // Convert Predicate to list of skipped window handles
-            // Modern API uses IEnumerable<IntPtr> instead of Predicate
-            // For now, just pass null (no skip windows)
-            return VideoSourcePickerWindow.PickWindow((IEnumerable<IntPtr>)null);
+            return VideoSourcePickerWindow.PickWindow(Filter);
         }
 
         public IScreen PickScreen()

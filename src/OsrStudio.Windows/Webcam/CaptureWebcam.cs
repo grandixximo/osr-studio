@@ -2,14 +2,13 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using DirectShowLib;
-using OsrStudio;
 
 namespace OsrStudio.Webcam
 {
     /// <summary>
     /// Clean DirectShow-based webcam capture implementation
     /// </summary>
-    public class CaptureWebcam : ISampleGrabberCB, IDisposable
+    class CaptureWebcam : ISampleGrabberCB, IDisposable
     {
         #region Fields
         readonly Filter _videoDevice;
@@ -482,6 +481,7 @@ namespace OsrStudio.Webcam
                         _videoWindow = null;
                         return;
                     }
+                    _currentOwner = _previewWindow;
 
                     hr = _videoWindow.put_MessageDrain(_form.Handle);
                     if (hr < 0)
@@ -505,7 +505,6 @@ namespace OsrStudio.Webcam
                         _videoWindow = null;
                         return;
                     }
-                    _currentOwner = _previewWindow;
                 }
                 catch
                 {
@@ -629,7 +628,7 @@ namespace OsrStudio.Webcam
             }
         }
 
-        public IBitmapImage GetFrame(IBitmapLoader BitmapLoader)
+        public OsrStudio.IBitmapImage GetFrame(OsrStudio.IBitmapLoader BitmapLoader)
         {
             lock (_lock)
             {

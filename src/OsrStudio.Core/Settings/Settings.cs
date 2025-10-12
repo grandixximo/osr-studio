@@ -47,7 +47,7 @@ namespace OsrStudio
             };
         }
 
-        static string GetPath() => Path.Combine(ServiceProvider.SettingsDir, "Captura.json");
+        static string GetPath() => Path.Combine(ServiceProvider.SettingsDir, "OsrStudio.json");
 
         public bool Load()
         {
@@ -159,7 +159,7 @@ namespace OsrStudio
             // If Output Dircetory is not set, fallback to default
             path = string.IsNullOrWhiteSpace(path)
                 ? DefaultOutDir()
-                : path.Replace(ServiceProvider.CapturaPathConstant, ServiceProvider.AppDir);
+                : path.Replace(ServiceProvider.OsrStudioPathConstant, ServiceProvider.AppDir);
 
             // If drive is not present, fallback to default
             if (!Directory.Exists(Path.GetPathRoot(path)))

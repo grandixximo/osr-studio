@@ -46,8 +46,51 @@ namespace OsrStudio
 
         void ShowSplashScreen()
         {
-            var splashScreen = new SplashScreen("Images/Logo.png");
+            bool isDarkTheme = DetermineThemeForSplash();
+            string logoPath = isDarkTheme ? "Images/logo-dark.png" : "Images/logo-light.png";
+            
+            var splashScreen = new SplashScreen(logoPath);
             splashScreen.Show(true);
+        }
+
+        bool DetermineThemeForSplash()
+        {
+            try
+            {
+                // Try to load settings early to check user preference
+                var settingsPath = Path.Combine(ServiceProvider.SettingsDir, "OsrStudio.json");
+                
+                if (File.Exists(settingsPath))
+                {
+                    var json = File.ReadAllText(settingsPath);
+                    var settings = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
+                    
+                    // Check if FollowSystemTheme is set
+                    bool followSystemTheme = settings?.UI?.FollowSystemTheme ?? true;
+                    
+                    if (followSystemTheme)
+                    {
+                        // Use system theme
+                        return SystemThemeDetector.IsSystemDarkTheme();
+                    }
+                    else
+                    {
+                        // Use manual theme preference
+                        string themeMode = settings?.UI?.ThemeMode ?? "Dark";
+                        return themeMode == "Dark";
+                    }
+                }
+                else
+                {
+                    // No settings file exists, follow system theme by default
+                    return SystemThemeDetector.IsSystemDarkTheme();
+                }
+            }
+            catch
+            {
+                // If anything fails, default to system theme
+                return SystemThemeDetector.IsSystemDarkTheme();
+            }
         }
 
         void Application_Startup(object Sender, StartupEventArgs Args)

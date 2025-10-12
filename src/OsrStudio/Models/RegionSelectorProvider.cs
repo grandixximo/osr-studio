@@ -9,15 +9,17 @@ namespace OsrStudio.Video
     public class RegionSelectorProvider : IRegionProvider
     {
         readonly Lazy<RegionSelector> _regionSelector;
+        readonly RegionItem _regionItem;
         readonly RegionSelectorViewModel _viewModel;
 
         public RegionSelectorProvider(RegionSelectorViewModel ViewModel,
-            IPlatformServices PlatformServices,
-            IVideoSourcePicker VideoSourcePicker)
+            IPlatformServices PlatformServices)
         {
             _viewModel = ViewModel;
 
-            _regionSelector = new Lazy<RegionSelector>(() => new RegionSelector(VideoSourcePicker));
+            _regionSelector = new Lazy<RegionSelector>(() => new RegionSelector(ViewModel));
+
+            _regionItem = new RegionItem(this, PlatformServices);
         }
 
         public bool SelectorVisible
@@ -33,30 +35,11 @@ namespace OsrStudio.Video
 
         public Rectangle SelectedRegion
         {
-            get => _regionSelector.IsValueCreated ? _regionSelector.Value.SelectedRegion : _viewModel.SelectedRegion;
-            set
-            {
-                System.Diagnostics.Debug.WriteLine($"[RegionSelectorProvider] SelectedRegion setter: {value}");
-                _viewModel.SelectedRegion = value;
-                
-                // Also update the actual RegionSelector window if it's been created
-                if (_regionSelector.IsValueCreated)
-                {
-                    System.Diagnostics.Debug.WriteLine($"[RegionSelectorProvider] Forwarding to RegionSelector window");
-                    _regionSelector.Value.SelectedRegion = value;
-                }
-            }
+            get => _viewModel.SelectedRegion;
+            set => _viewModel.SelectedRegion = value;
         }
 
-        public IVideoItem VideoSource
-        {
-            get
-            {
-                // Ensure RegionSelector is created so we have a RegionItem to return
-                // This ensures there's only one RegionItem instance (the one in RegionSelector)
-                return _regionSelector.Value.VideoSource;
-            }
-        }
+        public IVideoItem VideoSource => _regionItem;
 
         public IntPtr Handle => _regionSelector.Value.Handle;
     }

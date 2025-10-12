@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsrStudio.Core\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Core\\OsrStudio.Core.csproj" />
     <ProjectReference Include="..\Screna\Screna.csproj" />
   </ItemGroup>
   <ItemGroup>

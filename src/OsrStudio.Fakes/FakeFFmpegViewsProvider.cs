@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OsrStudio.FFmpeg;
 
 namespace OsrStudio.Fakes
@@ -12,7 +12,7 @@ namespace OsrStudio.Fakes
 
         public void ShowUnavailable()
         {
-            Console.Error.WriteLine("FFmpeg is not available.\nYou can install ffmpeg by calling: captura ffmpeg --install [path]");
+            Console.Error.WriteLine("FFmpeg is not available.\nYou can install ffmpeg by calling: osr-cli ffmpeg --install [path]");
         }
 
         public void ShowDownloader()

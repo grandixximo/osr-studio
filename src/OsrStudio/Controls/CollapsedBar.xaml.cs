@@ -1,10 +1,17 @@
+using System.Windows;
+
 namespace OsrStudio
 {
-    public partial class CollapsedBar
+    public partial class ConfigPage
     {
-        public CollapsedBar()
+        void OpenOverlayManager(object Sender, RoutedEventArgs E)
         {
-            InitializeComponent();
+            OverlayWindow.ShowInstance();
+        }
+
+        void OpenSettings(object Sender, RoutedEventArgs E)
+        {
+            SettingsWindow.ShowInstance();
         }
     }
 }

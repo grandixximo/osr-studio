@@ -1,6 +1,5 @@
 using System.Drawing;
 using OsrStudio.Loc;
-using System.ComponentModel;
 
 namespace OsrStudio.Video
 {
@@ -20,19 +19,6 @@ namespace OsrStudio.Video
 
             Source = RegionProvider.VideoSource;
             Icon = Icons.Region;
-            
-            // Subscribe to property changes on the RegionItem to notify binding updates
-            if (Source is INotifyPropertyChanged notifyPropertyChanged)
-            {
-                notifyPropertyChanged.PropertyChanged += (sender, args) =>
-                {
-                    if (args.PropertyName == nameof(IVideoItem.Name))
-                    {
-                        // Notify that Source has changed to force WPF to re-evaluate Source.Name binding
-                        RaisePropertyChanged(nameof(Source));
-                    }
-                };
-            }
         }
 
         public override IVideoItem Source { get; }

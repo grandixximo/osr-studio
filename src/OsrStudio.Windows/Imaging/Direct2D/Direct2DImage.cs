@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using SharpDX.Direct2D1;
 
 namespace OsrStudio.Windows.DirectX

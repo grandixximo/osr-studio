@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Data;
 using System.Globalization;
 
@@ -16,10 +16,10 @@ namespace OsrStudio
                         return "English";
 
                     case "zh-CN":
-                        return "Chinese (Simplified) (中文简体)";
+                        return "Chinese (Simplified) (????)";
 
                     case "zh-TW":
-                        return "Chinese (Traditional) (中文繁体)";
+                        return "Chinese (Traditional) (????)";
 
                     default:
                         return $"{c.DisplayName} ({c.NativeName})";

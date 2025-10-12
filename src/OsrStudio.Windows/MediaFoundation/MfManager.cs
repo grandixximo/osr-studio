@@ -1,4 +1,4 @@
-﻿using SharpDX.MediaFoundation;
+using SharpDX.MediaFoundation;
 
 namespace OsrStudio.Windows.MediaFoundation
 {

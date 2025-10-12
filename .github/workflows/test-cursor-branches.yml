@@ -9,13 +9,17 @@ on:
     branches:
       - 'cursor/**'
 
+concurrency:
+  group: cursor-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build Cursor Branch
     runs-on: windows-2022
     
     env:
-      Solution_Name: src/Captura.sln
+      Solution_Name: src/OsrStudio.sln
 
     steps:
     - name: Checkout
@@ -66,7 +70,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ steps.detect.outputs.ARTIFACT_NAME }}
-        path: src/Captura/bin/Debug/*
+        path: src/OsrStudio/bin/Debug/*
         retention-days: 7
 
     - name: Build Summary
