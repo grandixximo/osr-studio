@@ -20,7 +20,34 @@ namespace OsrStudio
             };
         }
 
-        public static WebCamWindow Instance { get; } = new WebCamWindow();
+        static WebCamWindow _instance;
+        static readonly object _lockObject = new object();
+
+        public static WebCamWindow Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lockObject)
+                    {
+                        if (_instance == null)
+                        {
+                            // Ensure creation on UI thread
+                            if (Application.Current?.Dispatcher.CheckAccess() == true)
+                            {
+                                _instance = new WebCamWindow();
+                            }
+                            else if (Application.Current != null)
+                            {
+                                Application.Current.Dispatcher.Invoke(() => _instance = new WebCamWindow());
+                            }
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
 
         public WebcamControl GetWebCamControl() => WebCameraControl;
 
