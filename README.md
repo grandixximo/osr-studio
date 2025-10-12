@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="https://grandixximo.github.io/osr-studio/logo-light.svg#gh-light-mode-only" alt="OSR Studio" width="300">
-  <img src="https://grandixximo.github.io/osr-studio/logo-dark.svg#gh-dark-mode-only" alt="OSR Studio" width="300">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://grandixximo.github.io/osr-studio/logo-dark.svg">
+    <img src="https://grandixximo.github.io/osr-studio/logo-light.svg" alt="OSR Studio" width="300">
+  </picture>
   
   <h3>Powerful Screen Recording Made Simple</h3>
   <p>Capture screen, webcam, audio, cursor, mouse clicks and keystrokes</p>
