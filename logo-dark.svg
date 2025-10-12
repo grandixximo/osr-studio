@@ -1,0 +1,32 @@
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark theme logo - for use on dark backgrounds -->
+  <defs>
+    <linearGradient id="gradient-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(5, 5)">
+    <!-- Outer recording circle -->
+    <circle cx="25" cy="25" r="24" fill="url(#gradient-dark)" opacity="0.25"/>
+    
+    <!-- Screen/Monitor -->
+    <rect x="12" y="15" width="26" height="18" rx="2" fill="none" stroke="url(#gradient-dark)" stroke-width="2.5"/>
+    
+    <!-- Record indicator dot -->
+    <circle cx="32" cy="19" r="3.5" fill="#ff5f56"/>
+    
+    <!-- Recording symbol (inner circle) -->
+    <circle cx="25" cy="25" r="5" fill="url(#gradient-dark)"/>
+  </g>
+  
+  <!-- Text: OSR Studio -->
+  <g fill="#ffffff" font-family="Inter, sans-serif" font-weight="700">
+    <!-- OSR -->
+    <text x="65" y="27" font-size="22">OSR</text>
+    <!-- Studio -->
+    <text x="65" y="45" font-size="14" font-weight="500" fill="rgba(255, 255, 255, 0.7)">Studio</text>
+  </g>
+</svg>
