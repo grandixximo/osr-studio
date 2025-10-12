@@ -173,16 +173,37 @@ body {
     align-items: center;
 }
 
-.placeholder-image {
+.screenshot-showcase {
     width: 100%;
     max-width: 600px;
+    position: relative;
 }
 
-.placeholder-image svg {
+.screenshot-showcase img {
     width: 100%;
     height: auto;
     border-radius: 1rem;
     box-shadow: var(--shadow-xl);
+}
+
+/* Show light screenshot by default, hide dark screenshot */
+.screenshot-light {
+    display: block;
+}
+
+.screenshot-dark {
+    display: none;
+}
+
+/* Switch screenshots for dark mode */
+@media (prefers-color-scheme: dark) {
+    .screenshot-light {
+        display: none;
+    }
+    
+    .screenshot-dark {
+        display: block;
+    }
 }
 
 /* Features Section */
@@ -298,6 +319,47 @@ body {
 
 .download-note a:hover {
     text-decoration: underline;
+}
+
+/* Classic UI Section */
+.classic-ui-section {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    padding: 3rem;
+    background: var(--bg-light);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.classic-ui-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.classic-ui-description {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
+
+.classic-ui-showcase {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.classic-ui-showcase img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+}
+
+.classic-ui-download {
+    margin-top: 2rem;
 }
 
 /* About Section */
@@ -432,6 +494,19 @@ footer {
     .features-grid,
     .download-options {
         grid-template-columns: 1fr;
+    }
+
+    .classic-ui-section {
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+
+    .classic-ui-title {
+        font-size: 1.5rem;
+    }
+
+    .classic-ui-description {
+        font-size: 1rem;
     }
 }
 
