@@ -9,19 +9,12 @@ If you become a regular contributor to Captura, you may request for the Resharpe
 
 ### Crowdin
 Great thanks to [Crowdin](https://crowdin.com/) for providing open-source license.
-The translation for Captura is done on Crowdin.
-Also, thanks to everyone who contributed the translations.
-
-### AppVeyor
-We use [AppVeyor](https://www.appveyor.com/) for Continuous Integration. The build and release processes run there.
-It's free for open-source projects and especially good for .NET projects.
+The translation for the original Captura was done on Crowdin.
+Thanks to everyone who contributed the translations.
 
 ### GitHub
-I can't thank [GitHub](https://github.com/) enough for being an open platform for developers.
-The source code and the website are both hosted here.
-
-### Cake Build
-[Cake](https://cakebuild.net/) allows us to write our build scripts in C# instead of using other scripting languages.
+Thanks to [GitHub](https://github.com/) for being an open platform for developers.
+The source code, CI/CD (via GitHub Actions), and releases are all hosted here.
 
 ### Visual Studio Community
 [Visual Studio IDE](https://visualstudio.microsoft.com/) for free for open-source and small organisations.
