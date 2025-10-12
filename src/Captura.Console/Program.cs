@@ -39,8 +39,8 @@ namespace Captura
         {
             var version = ServiceProvider.AppVersion.ToString(3);
 
-            WriteLine($@"Captura v{version}
-(c) {DateTime.Now.Year} Mathew Sachin
+            WriteLine($@"OSR Studio v{version}
+(c) {DateTime.Now.Year} Mathew Sachin, Mr. Chip, grandixximo
 ");
         }
     }

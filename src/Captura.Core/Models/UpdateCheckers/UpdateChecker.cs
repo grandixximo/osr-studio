@@ -24,8 +24,8 @@ namespace Captura.Models
             Process.Start(DownloadsUrl);
         }
 
-        const string DownloadsUrl = "https://mathewsachin.github.io/Captura/download";
-        const string LatestReleaseUrl = "https://api.github.com/repos/MathewSachin/Captura/releases/latest";
+        const string DownloadsUrl = "https://grandixximo.github.io/osr-studio";
+        const string LatestReleaseUrl = "https://api.github.com/repos/grandixximo/osr-studio/releases/latest";
 
         public async Task<Version> Check()
         {

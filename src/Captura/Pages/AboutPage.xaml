@@ -35,72 +35,45 @@
                     </TextBlock>
                 </DockPanel>
 
-                <Button Command="{Binding HyperlinkCommand}"
-                        CommandParameter="https://github.com/grandixximo/osr-studio"
-                        Margin="3">
-                    <DockPanel>
-                        <Path Data="{Binding Icons.Web, Source={StaticResource ServiceLocator}}"
-                              Width="15"
-                              Height="15"
-                              Stretch="Uniform"
-                              Margin="0,0,10,0"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"/>
+                <WrapPanel HorizontalAlignment="Center">
+                    <captura:ModernButton Content="GitHub"
+                                          IconData="{Binding Icons.GitHub, Source={StaticResource ServiceLocator}}"
+                                          Command="{Binding HyperlinkCommand}"
+                                          CommandParameter="https://github.com/grandixximo/osr-studio/"/>
 
-                        <TextBlock Text="{Binding Website, Source={StaticResource Loc}, Mode=OneWay}"/>
-                    </DockPanel>
-                </Button>
+                    <captura:ModernButton Content="{Binding Website, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Web, Source={StaticResource ServiceLocator}}"
+                                          Command="{Binding HyperlinkCommand}"
+                                          CommandParameter="https://github.com/grandixximo/osr-studio"/>
+                </WrapPanel>
 
-                <Button Margin="3,15"
-                        Command="{Binding HyperlinkCommand}"
-                        CommandParameter="https://mathewsachin.github.io/Captura/translation">
-                    <DockPanel>
-                        <Path Data="{Binding Icons.Translate, Source={StaticResource ServiceLocator}}"
-                              Width="15"
-                              Height="15"
-                              Stretch="Uniform"
-                              Margin="0,0,10,0"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"/>
+                <GridSplitter Height="3"
+                              IsEnabled="False"
+                              Margin="0,10"/>
 
-                        <TextBlock Text="{Binding WantToTranslate, Source={StaticResource Loc}, Mode=OneWay}"/>
-                    </DockPanel>
-                </Button>
+                <WrapPanel HorizontalAlignment="Center">
+                    <captura:ModernButton Content="{Binding WantToTranslate, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Translate, Source={StaticResource ServiceLocator}}"
+                                          Command="{Binding HyperlinkCommand}"
+                                          CommandParameter="https://grandixximo.github.io/osr-studio/translation"/>
 
-                <Button Click="ViewLicenses"
-                        Content="{Binding ViewLicenses, Source={StaticResource Loc}, Mode=OneWay}"
-                        Margin="3"/>
+                    <captura:ModernButton Content="{Binding Changelog, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.History, Source={StaticResource ServiceLocator}}"
+                                          Command="{Binding HyperlinkCommand}"
+                                          CommandParameter="https://grandixximo.github.io/osr-studio/changelog"/>
+                </WrapPanel>
 
-                <Button Command="{Binding HyperlinkCommand}"
-                        CommandParameter="https://mathewsachin.github.io/Captura/changelog"
-                        Margin="3">
-                    <DockPanel>
-                        <Path Data="{Binding Icons.History, Source={StaticResource ServiceLocator}}"
-                              Width="15"
-                              Height="15"
-                              Stretch="Uniform"
-                              Margin="0,0,10,0"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"/>
+                <WrapPanel HorizontalAlignment="Center">
+                    <captura:ModernButton Content="{Binding ViewLicenses, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.NewFile, Source={StaticResource ServiceLocator}}"
+                                          Command="GoToPage"
+                                          CommandParameter="/Pages/LicensesPage.xaml"/>
 
-                        <TextBlock Text="{Binding Changelog, Source={StaticResource Loc}, Mode=OneWay}"/>
-                    </DockPanel>
-                </Button>
-
-                <Button Click="ViewCrashLogs"
-                        Margin="3">
-                    <DockPanel>
-                        <Path Data="{Binding Icons.Error, Source={StaticResource ServiceLocator}}"
-                              Width="15"
-                              Height="15"
-                              Margin="0,0,10,0"
-                              Stretch="Uniform"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"/>
-
-                        <TextBlock Text="{Binding ViewCrashLogs, Source={StaticResource Loc}, Mode=OneWay}"/>
-                    </DockPanel>
-                </Button>
+                    <captura:ModernButton Content="{Binding ViewCrashLogs, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Error, Source={StaticResource ServiceLocator}}"
+                                          Command="GoToPage"
+                                          CommandParameter="/Pages/CrashLogsPage.xaml"/>
+                </WrapPanel>
 
             </StackPanel>
         </ScrollViewer>

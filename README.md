@@ -94,13 +94,13 @@ OSR Studio continues this legacy with important enhancements:
 
 ### ⚙️ Advanced
 - **Command-line** - [CLI support](docs/Cmdline/README.md) (*BETA*)
-- **Hotkeys** - [Configurable shortcuts](https://mathewsachin.github.io/Captura/hotkeys)
+- **Hotkeys** - [Configurable shortcuts](docs/hotkeys.md)
 
 </td>
 <td width="50%">
 
 ### 🌍 Accessibility  
-- **Multi-language** - [Available in multiple languages](https://mathewsachin.github.io/Captura/translation)
+- **Multi-language** - [Available in multiple languages](docs/translation.md)
 - **Portable** - No installation required option
 
 </td>
@@ -136,13 +136,13 @@ See the [Build Notes](docs/Build.md) for detailed instructions on building from 
 
 ### Configuration
 - [Command-line Usage](docs/Cmdline/README.md)
-- [Hotkeys](https://mathewsachin.github.io/Captura/hotkeys)
+- [Hotkeys](docs/hotkeys.md)
 - [FFmpeg Setup](docs/FFmpeg.md)
 
 ### Development
 - [Build Notes](docs/Build.md)
 - [Contributing](CONTRIBUTING.md)
-- [Continuous Integration](docs/CI.md)
+- [GitHub Actions Workflows](.github/workflows/README.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Changelog](docs/Changelogs/README.md)
 
