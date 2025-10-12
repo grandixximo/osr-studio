@@ -21,7 +21,7 @@
 
                     <osr:ModernButton Content="{Binding WebCam, Source={StaticResource Loc}, Mode=OneWay}"
                                           IconData="{Binding Icons.Webcam, Source={StaticResource ServiceLocator}}"
-                                          CommandParameter="{Binding WebcamPage, Source={StaticResource ServiceLocator}}"/>
+                                          CommandParameter="/Pages/WebcamPage.xaml"/>
 
                     <osr:ModernButton Content="{Binding Audio, Source={StaticResource Loc}, Mode=OneWay}"
                                           IconData="{Binding Icons.Speaker, Source={StaticResource ServiceLocator}}"
