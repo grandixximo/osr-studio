@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.IO;
 using static System.Text.Encoding;
 
-namespace Captura.Audio
+namespace OsrStudio.Audio
 {
     /// <summary>
     /// Writes an Audio file.

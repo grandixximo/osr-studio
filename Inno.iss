@@ -4,7 +4,7 @@
 #define MyAppName "OSR Studio"
 #define MyAppPublisher "grandixximo"
 #define MyAppURL "https://github.com/grandixximo/osr-studio"
-#define MyAppExeName "captura.exe"
+#define MyAppExeName "osr-studio.exe"
 
 [Setup]
 AppId={{C1670C5E-5042-4300-9491-6BFFF963823F}
@@ -17,10 +17,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\OSR-Studio
 DisableProgramGroupPage=yes
-OutputBaseFilename=Captura-Setup
+OutputBaseFilename=OSR-Studio-Setup
 Compression=lzma
 SolidCompression=yes
-SetupIconFile=src/Captura/Images/Captura.ico
+SetupIconFile=src/OsrStudio/Images/OsrStudio.ico
 OutputDir=temp
 
 [Languages]

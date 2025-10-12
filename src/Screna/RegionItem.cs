@@ -1,4 +1,4 @@
-﻿namespace Captura.Video
+namespace OsrStudio.Video
 {
     public class RegionItem : NotifyPropertyChanged, IVideoItem
     {

@@ -1,10 +1,10 @@
-﻿using System;
-using Captura.Audio;
-using Captura.Video;
+using System;
+using OsrStudio.Audio;
+using OsrStudio.Video;
 using Moq;
 using Xunit;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     [Collection(nameof(Tests))]
     public class RecorderTests

@@ -1,0 +1,80 @@
+<Page x:Class="OsrStudio.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:osr="clr-namespace:OsrStudio"
+      Title="{Binding Configure, Source={StaticResource Loc}, Mode=OneWay}">
+    <DockPanel>
+        <ScrollViewer>
+            <StackPanel>
+                <WrapPanel VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           MaxWidth="800">
+                    <WrapPanel.Resources>
+                        <Style TargetType="osr:ModernButton" BasedOn="{StaticResource IconButton}">
+                            <Setter Property="Command" Value="GoToPage"/>
+                        </Style>
+                    </WrapPanel.Resources>
+
+                    <osr:ModernButton Content="{Binding Video, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Video, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/VideoPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding WebCam, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Webcam, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="{Binding WebcamPage, Source={StaticResource ServiceLocator}}"/>
+
+                    <osr:ModernButton Content="{Binding Audio, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Speaker, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/AudioPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding ScreenShot, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Region, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/ScreenShotsPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding Recent, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.History, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/RecentPage.xaml"/>
+
+                    <osr:ModernButton Content="UI"
+                                          IconData="{Binding Icons.Window, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/InterfacePage.xaml"/>
+
+                    <osr:ModernButton Content="FFmpeg"
+                                          IconData="{Binding Icons.VideoFile, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/FFmpegPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding Hotkeys, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Keyboard, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/HotkeysPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding Proxy, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Web, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/ProxyPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding FileNaming, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.NewFile, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/FileNameFormatPage.xaml"/>
+
+                    <osr:ModernButton Content="{Binding Overlays, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Arrow, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="{x:Static osr:OverlayPage.Instance}"/>
+
+                    <osr:ModernButton Content="{Binding About, Source={StaticResource Loc}, Mode=OneWay}"
+                                          IconData="{Binding Icons.Help, Source={StaticResource ServiceLocator}}"
+                                          CommandParameter="/Pages/AboutPage.xaml"/>
+                </WrapPanel>
+                
+                <osr:ModernButton Content="{Binding Trim, Source={StaticResource Loc}, Mode=OneWay}"
+                                      IconData="{Binding Icons.Trim, Source={StaticResource ServiceLocator}}"
+                                      HorizontalAlignment="Center"
+                                      CommandParameter="/Pages/TrimmerPage.xaml">
+                    <osr:ModernButton.Style>
+                        <Style TargetType="osr:ModernButton" BasedOn="{StaticResource IconButton}">
+                            <Setter Property="Command" Value="GoToPage"/>
+                        </Style>
+                    </osr:ModernButton.Style>
+                </osr:ModernButton>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

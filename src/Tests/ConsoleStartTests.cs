@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Threading;
 using Xunit;
 
-namespace Captura.Tests.Console
+namespace OsrStudio.Tests.Console
 {
     [Collection(nameof(Tests))]
     public class ConsoleStartTests

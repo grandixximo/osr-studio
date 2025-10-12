@@ -1,5 +1,5 @@
 # Dual Release Workflow
-# Builds both nCaptura (modern UI) and Captura (classic UI)
+# Builds both OSR Studio (modern UI) and OSR Studio (classic UI)
 # Creates 4 packages: 2 installers + 2 portable versions
 
 name: Dual Release - Modern & Classic UI
@@ -17,11 +17,11 @@ concurrency:
 
 jobs:
   build-modern-ui:
-    name: Build nCaptura (Modern UI)
+    name: Build OSR Studio (Modern UI)
     runs-on: windows-2022
     
     env:
-      Solution_Name: src/Captura.sln
+      Solution_Name: src/OsrStudio.sln
 
     steps:
     - name: Checkout main branch
@@ -49,8 +49,8 @@ jobs:
         New-Item -ItemType Directory -Force -Path dist
         New-Item -ItemType Directory -Force -Path temp
         
-        $consoleBinFolder = "src/Captura.Console/bin/Release"
-        $uiBinFolder = "src/Captura/bin/Release"
+        $consoleBinFolder = "src/OsrStudio.Console/bin/Release"
+        $uiBinFolder = "src/OsrStudio/bin/Release"
         
         # Copy License files
         Copy-Item -Path "licenses" -Destination "dist/licenses" -Recurse -Force
@@ -63,11 +63,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/captura-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/captura-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/captura.exe.config") {
-          Copy-Item -Path "$uiBinFolder/captura.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
@@ -91,7 +91,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "nCaptura-${version}-Portable.zip"
+        $portableZip = "OSR-Studio-Modern-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "MODERN_PORTABLE=$portableZip" >> $env:GITHUB_OUTPUT
         
@@ -110,17 +110,17 @@ jobs:
         $version = "${{ github.ref_name }}".TrimStart('v')
         $innoPath = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
         
-        # Create custom Inno script for nCaptura
+        # Create custom Inno script for OSR Studio Modern UI
         $innoContent = Get-Content "Inno.iss" -Raw
-        $innoContent = $innoContent -replace '#define MyAppName "Captura"', '#define MyAppName "nCaptura"'
-        $innoContent = $innoContent -replace 'OutputBaseFilename=Captura-Setup', 'OutputBaseFilename=nCaptura-Setup'
+        $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Modern UI)"'
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', 'OutputBaseFilename=OSR-Studio-Modern-Setup'
         $innoContent | Set-Content "Inno-modern.iss"
         
         & $innoPath "/DMyAppVersion=$version" "Inno-modern.iss"
         
         # Rename output file
-        $installerName = "nCaptura-${{ github.ref_name }}-Setup.exe"
-        Move-Item -Path "temp/nCaptura-Setup.exe" -Destination $installerName -Force
+        $installerName = "OSR-Studio-Modern-Setup.exe"
+        Move-Item -Path "temp/OSR-Studio-Modern-Setup.exe" -Destination $installerName -Force
         echo "MODERN_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_modern
@@ -128,17 +128,17 @@ jobs:
     - name: Upload modern UI artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: nCaptura-Modern-UI
+        name: OSR-Studio-Modern-UI
         path: |
           ${{ steps.package_modern.outputs.MODERN_PORTABLE }}
           ${{ steps.installer_modern.outputs.MODERN_INSTALLER }}
 
   build-classic-ui:
-    name: Build Captura (Classic UI)
+    name: Build OSR Studio (Classic UI)
     runs-on: windows-2022
     
     env:
-      Solution_Name: src/Captura.sln
+      Solution_Name: src/OsrStudio.sln
 
     steps:
     - name: Checkout classic-ui branch
@@ -166,8 +166,8 @@ jobs:
         New-Item -ItemType Directory -Force -Path dist
         New-Item -ItemType Directory -Force -Path temp
         
-        $consoleBinFolder = "src/Captura.Console/bin/Release"
-        $uiBinFolder = "src/Captura/bin/Release"
+        $consoleBinFolder = "src/OsrStudio.Console/bin/Release"
+        $uiBinFolder = "src/OsrStudio/bin/Release"
         
         # Copy License files
         Copy-Item -Path "licenses" -Destination "dist/licenses" -Recurse -Force
@@ -180,11 +180,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/captura-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/captura-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/captura.exe.config") {
-          Copy-Item -Path "$uiBinFolder/captura.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
@@ -208,7 +208,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "Captura-${version}-Classic-Portable.zip"
+        $portableZip = "OSR-Studio-Classic-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "CLASSIC_PORTABLE=$portableZip" >> $env:GITHUB_OUTPUT
         
@@ -227,12 +227,17 @@ jobs:
         $version = "${{ github.ref_name }}".TrimStart('v')
         $innoPath = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
         
-        # Use original Inno script (keeps Captura name)
-        & $innoPath "/DMyAppVersion=$version" "Inno.iss"
+        # Create custom Inno script for OSR Studio Classic UI
+        $innoContent = Get-Content "Inno.iss" -Raw
+        $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Classic UI)"'
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', 'OutputBaseFilename=OSR-Studio-Classic-Setup'
+        $innoContent | Set-Content "Inno-classic.iss"
+        
+        & $innoPath "/DMyAppVersion=$version" "Inno-classic.iss"
         
         # Rename output file
-        $installerName = "Captura-${{ github.ref_name }}-Classic-Setup.exe"
-        Move-Item -Path "temp/Captura-Setup.exe" -Destination $installerName -Force
+        $installerName = "OSR-Studio-Classic-Setup.exe"
+        Move-Item -Path "temp/OSR-Studio-Classic-Setup.exe" -Destination $installerName -Force
         echo "CLASSIC_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_classic
@@ -240,7 +245,7 @@ jobs:
     - name: Upload classic UI artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Captura-Classic-UI
+        name: OSR-Studio-Classic-UI
         path: |
           ${{ steps.package_classic.outputs.CLASSIC_PORTABLE }}
           ${{ steps.installer_classic.outputs.CLASSIC_INSTALLER }}
@@ -254,13 +259,13 @@ jobs:
     - name: Download modern UI artifacts
       uses: actions/download-artifact@v4
       with:
-        name: nCaptura-Modern-UI
+        name: OSR-Studio-Modern-UI
         path: ./artifacts/modern
 
     - name: Download classic UI artifacts
       uses: actions/download-artifact@v4
       with:
-        name: Captura-Classic-UI
+        name: OSR-Studio-Classic-UI
         path: ./artifacts/classic
 
     - name: Delete existing release (if exists)
@@ -286,23 +291,23 @@ jobs:
           
           ---
           
-          ### 🆕 nCaptura (Modern UI)
+          ### 🆕 OSR Studio (Modern UI)
           
           The updated interface with modern design improvements.
           
           **Download:**
-          - 💾 **Installer**: `nCaptura-${{ github.ref_name }}-Setup.exe` *(Recommended)*
-          - 📦 **Portable**: `nCaptura-${{ github.ref_name }}-Portable.zip` *(No installation required)*
+          - 💾 **Installer**: `OSR-Studio-Modern-Setup.exe` *(Recommended)*
+          - 📦 **Portable**: `OSR-Studio-Modern-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
           
-          ### 🎨 Captura Classic (8.0.0 UI)
+          ### 🎨 OSR Studio Classic (8.0.0 UI)
           
           Original interface design with all modern fixes - best of both worlds!
           
           **Download:**
-          - 💾 **Installer**: `Captura-${{ github.ref_name }}-Classic-Setup.exe` *(Recommended)*
-          - 📦 **Portable**: `Captura-${{ github.ref_name }}-Classic-Portable.zip` *(No installation required)*
+          - 💾 **Installer**: `OSR-Studio-Classic-Setup.exe` *(Recommended)*
+          - 📦 **Portable**: `OSR-Studio-Classic-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
           
@@ -317,8 +322,8 @@ jobs:
           
           Both versions have **identical functionality** - the only difference is the UI design:
           
-          - **nCaptura (Modern UI)** - Modern interface with updated layout
-          - **Captura Classic** - Original 8.0.0 UI design with vertical button layout
+          - **OSR Studio (Modern UI)** - Modern interface with updated layout
+          - **OSR Studio Classic** - Original 8.0.0 UI design with vertical button layout
           
           **💡 Recommendation:** Choose based on your UI preference - both have all the same features and bug fixes!
           

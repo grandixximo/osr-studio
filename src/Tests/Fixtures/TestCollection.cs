@@ -1,6 +1,6 @@
-﻿using Xunit;
+using Xunit;
 
-namespace Captura.Tests.Fixtures
+namespace OsrStudio.Tests.Fixtures
 {
     [CollectionDefinition(nameof(Tests))]
     public class TestCollection : ICollectionFixture<TestManagerFixture>, ICollectionFixture<MoqFixture> { }

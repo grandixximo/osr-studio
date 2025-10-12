@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Xunit;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     [Collection(nameof(Tests))]
     public class WindowTests

@@ -5,7 +5,7 @@
 ### Resharper
 Kudos to Jetbrains for providing open-source license for [Resharper Ultimate](https://www.jetbrains.com/resharper/).
 Resharper makes development much intutive and easier. You should really check it out.
-If you become a regular contributor to Captura, you may request for the Resharper license.
+If you become a regular contributor to OSR Studio, you may request for the Resharper license.
 
 ### Crowdin
 Great thanks to [Crowdin](https://crowdin.com/) for providing open-source license.
@@ -23,7 +23,7 @@ The source code, CI/CD (via GitHub Actions), and releases are all hosted here.
 [Visual Studio Code](https://code.visualstudio.com) is an open-source text editor used to build the website and write the documentation.
 
 ### Inno Setup
-Setup files for Captura are built using [Inno Setup](http://www.jrsoftware.org/isinfo.php).
+Setup files for OSR Studio are built using [Inno Setup](http://www.jrsoftware.org/isinfo.php).
 
 ## Libraries
 

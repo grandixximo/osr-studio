@@ -35,17 +35,17 @@
 4. **Build the solution**
    
    **Option A: Using Visual Studio**
-   - Open `src/Captura.sln` in Visual Studio
+   - Open `src/OsrStudio.sln` in Visual Studio
    - Build → Rebuild Solution (or press `Ctrl+Shift+B`)
    - Run the project
 
    **Option B: Using MSBuild (Command Line)**
    ```bash
    # Restore NuGet packages
-   nuget restore src/Captura.sln
+   nuget restore src/OsrStudio.sln
    
    # Build the solution
-   msbuild src/Captura.sln /p:Configuration=Release /p:Platform="Any CPU"
+   msbuild src/OsrStudio.sln /p:Configuration=Release /p:Platform="Any CPU"
    ```
 
 ## Building Release Packages
@@ -75,11 +75,11 @@ If you need to build packages locally:
 **Portable Version:**
 ```bash
 # Build in Release mode
-msbuild src/Captura.sln /p:Configuration=Release
+msbuild src/OsrStudio.sln /p:Configuration=Release
 
 # Create dist folder and copy files
 New-Item -ItemType Directory -Force -Path dist
-Copy-Item -Path "src/Captura/bin/Release/*" -Destination "dist/" -Recurse
+Copy-Item -Path "src/OsrStudio/bin/Release/*" -Destination "dist/" -Recurse
 
 # Create portable markers
 New-Item -ItemType Directory -Force -Path "dist/Settings"

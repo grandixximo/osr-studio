@@ -1,7 +1,7 @@
-﻿using System;
-using Captura.Models;
+using System;
+using OsrStudio.Models;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public class MultiDisposeFrame : IBitmapFrame, IFrameWrapper
     {

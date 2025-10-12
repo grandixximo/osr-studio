@@ -1,0 +1,22 @@
+using System;
+using System.Drawing;
+using OsrStudio.Video;
+
+namespace OsrStudio.Webcam
+{
+    public interface IWebcamCapture : IDisposable
+    {
+        IBitmapImage Capture(IBitmapLoader BitmapLoader);
+
+        int Width { get; }
+
+        int Height { get; }
+
+        void UpdatePreview(IWindow Window, Rectangle Location);
+
+        // Control preview window visibility without tearing down the camera graph
+        void SetPreviewVisibility(bool IsVisible);
+
+        string GetCameraProperties();
+    }
+}

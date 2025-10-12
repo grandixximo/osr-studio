@@ -1,0 +1,21 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:osr="clr-namespace:OsrStudio">
+    <osr:StateToRecordButtonGeometryConverter x:Key="StateToRecordButtonGeometryConverter"/>
+    <osr:StateToTaskbarOverlayConverter x:Key="StateToTaskbarOverlayConverter"/>
+    <osr:NotRecordingConverter x:Key="NotRecordingConverter"/>
+    <osr:NotNullConverter x:Key="NotNullConverter"/>
+    <osr:NegatingConverter x:Key="NegatingConverter"/>
+    <osr:StateToTrayIconSourceConverter x:Key="StateToTrayIconSourceConverter"/>
+    <osr:DrawingToWpfColorConverter x:Key="WpfColorConverter"/>
+    <osr:InkToolToIconConverter x:Key="InkToolToIconConverter"/>
+    <osr:TimeSpanToSecondsConverter x:Key="TimeSpanToSecondsConverter"/>
+    <osr:SecondsToTimeSpanConverter x:Key="SecondsToTimeSpanConverter"/>
+    <osr:IsPlayingToButtonStyleConverter x:Key="IsPlayingToButtonStyleConverter"/>
+    <osr:IntegralTimeSpanConverter x:Key="IntegralTimeSpanConverter"/>
+    <osr:GetTypeConverter x:Key="GetTypeConverter"/>
+    <osr:StaticResourceConverter x:Key="StaticResourceConverter"/>
+    <osr:IsLessThanConverter x:Key="IsLessThanConverter"/>
+    <osr:LanguageConverter x:Key="LanguageConverter"/>
+    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+</ResourceDictionary>

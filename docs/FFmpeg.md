@@ -7,7 +7,7 @@ It adds support for more output formats like **H.264** for Video and **Mp3**, **
 
 ## Screen Capture Methods
 
-Captura offers multiple screen capture methods (Settings → Video page):
+OSR Studio offers multiple screen capture methods (Settings → Video page):
 
 - **Windows Graphics Capture (WGC)** - Modern API (Windows 10 1903+)
   - ✅ Recommended for all modern systems
@@ -24,7 +24,7 @@ Captura offers multiple screen capture methods (Settings → Video page):
 
 ## Hardware Encoding Support
 
-Captura supports hardware-accelerated encoding through FFmpeg:
+OSR Studio supports hardware-accelerated encoding through FFmpeg:
 
 - **AMD GPUs**: AMF - H.264, HEVC (H.265), AV1
   - Requires AMD Radeon HD 7000+ or APU with GCN architecture

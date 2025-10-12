@@ -13,7 +13,7 @@
   GitHub Actions workflows for CI/CD (automated builds and releases).
 
 - **mathew**
-  Original project information and license from Mathew Sachin (Captura creator).
+  Original project information and license from Mathew Sachin (original Captura creator).
 
 - **temp** (created during build)
   Temporary files generated during the build process.

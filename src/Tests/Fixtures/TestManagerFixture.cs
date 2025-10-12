@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.IO;
-using Captura.Fakes;
-using Captura.Video;
+using OsrStudio.Fakes;
+using OsrStudio.Video;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class TestManagerFixture : IDisposable
@@ -36,12 +36,12 @@ namespace Captura.Tests
 
         public static string GetCliPath()
         {
-            return GetPath("Captura.Console", "captura-cli.exe");
+            return GetPath("OsrStudio.Console", "osr-cli.exe");
         }
 
         public static string GetUiPath()
         {
-            return GetPath(nameof(Captura), "captura.exe");
+            return GetPath("OsrStudio", "OsrStudio.exe");
         }
     }
 }
