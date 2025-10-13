@@ -10,5 +10,5 @@ Argument         | Description
 e.g. Take a screenshot containing cursor.
 
 ```
-captura-cli shot --cursor
+osr-cli shot --cursor
 ```

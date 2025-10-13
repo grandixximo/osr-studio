@@ -1,9 +1,9 @@
-﻿using System;
-using Captura.Audio;
-using Captura.Video;
+using System;
+using OsrStudio.Audio;
+using OsrStudio.Video;
 using Moq;
 
-namespace Captura.Tests
+namespace OsrStudio.Tests
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class MoqFixture : IDisposable

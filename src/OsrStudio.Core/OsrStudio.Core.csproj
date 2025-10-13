@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.FFmpeg\\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Hotkeys\\OsrStudio.Hotkeys.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.MouseKeyHook\\OsrStudio.MouseKeyHook.csproj" />
+    <ProjectReference Include="..\\OsrStudio.NAudio\\OsrStudio.NAudio.csproj" />
+    <ProjectReference Include="..\\OsrStudio.SharpAvi\\OsrStudio.SharpAvi.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Windows\\OsrStudio.Windows.csproj" />
+    <ProjectReference Include="..\\OsrStudio.YouTube\\OsrStudio.YouTube.csproj" />
+    <ProjectReference Include="..\Screna\Screna.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="ReactiveProperty" Version="6.1.3" />
+  </ItemGroup>
+</Project>

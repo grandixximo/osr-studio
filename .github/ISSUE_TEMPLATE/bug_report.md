@@ -27,7 +27,7 @@ If applicable, add screenshots to help explain your problem.
  - RAM: [e.g. 4GB]
  - CPU: [e.g. i5 2GHz]
  - Graphic Card:
- - Captura Version: [e.g. v8.0.0]
+ - OSR Sudio Version: [e.g. v10.6.0]
 
 **Additional context**
 Add any other context about the problem here like FFmpeg Log or error messages.

@@ -1,4 +1,4 @@
-Captura.Webcam is adapted from ScreenToGif
+OsrStudio.Webcam is adapted from ScreenToGif
 
 # Microsoft Public License (Ms-PL)
 

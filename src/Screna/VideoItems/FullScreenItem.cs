@@ -1,4 +1,4 @@
-﻿namespace Captura.Video
+namespace OsrStudio.Video
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     class FullScreenItem : NotifyPropertyChanged, IVideoItem

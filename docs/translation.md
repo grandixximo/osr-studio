@@ -35,7 +35,7 @@ OSR Studio currently supports the following languages:
 
 OSR Studio uses a **JSON-based localization system**:
 
-1. **Language Files**: Each language has a JSON file in `src/Captura.Loc/Languages/`
+1. **Language Files**: Each language has a JSON file in `src/OsrStudio.Loc/Languages/`
 2. **Default Language**: English (`en.json`) serves as the base/fallback language
 3. **Format**: Simple key-value pairs in JSON format
 4. **Loading**: The `LanguageManager` class loads translations at runtime
@@ -71,7 +71,7 @@ Translation files follow this simple structure:
 
 ### How It Works in Code
 
-The translation system is implemented in the `Captura.Loc` namespace:
+The translation system is implemented in the `OsrStudio.Loc` namespace:
 
 - **`LanguageManager`**: Singleton that manages all languages
   - Scans the `Languages/` folder for `.json` files
@@ -93,7 +93,7 @@ There are **two ways** to contribute translations to OSR Studio:
 
 ### Option 1: Crowdin (Recommended by Original Project)
 
-The original Captura project used [Crowdin](https://crowdin.com/) for managing translations. Crowdin provides:
+The original OSR Studio project used [Crowdin](https://crowdin.com/) for managing translations. Crowdin provides:
 
 - ✅ Professional translation management interface
 - ✅ Translation memory and suggestions
@@ -129,17 +129,17 @@ cd osr-studio
 ```bash
 # Open the language file you want to improve
 # Example: Spanish
-notepad src/Captura.Loc/Languages/es.json
+notepad src/OsrStudio.Loc/Languages/es.json
 ```
 
 **B. Add a New Language**
 
 ```bash
 # Copy the English template
-cp src/Captura.Loc/Languages/en.json src/Captura.Loc/Languages/YOUR-LANGUAGE-CODE.json
+cp src/OsrStudio.Loc/Languages/en.json src/OsrStudio.Loc/Languages/YOUR-LANGUAGE-CODE.json
 
 # Example: for Swedish
-cp src/Captura.Loc/Languages/en.json src/Captura.Loc/Languages/sv.json
+cp src/OsrStudio.Loc/Languages/en.json src/OsrStudio.Loc/Languages/sv.json
 ```
 
 > **Language Code Format**: Use standard culture codes (ISO 639-1):
@@ -182,7 +182,7 @@ The application will automatically detect your new language file if it's a valid
 #### Step 5: Commit and Push
 
 ```bash
-git add src/Captura.Loc/Languages/YOUR-LANGUAGE-CODE.json
+git add src/OsrStudio.Loc/Languages/YOUR-LANGUAGE-CODE.json
 git commit -m "Add/Update YOUR-LANGUAGE translation"
 git push origin main
 ```
@@ -235,7 +235,7 @@ When translating, consider:
 ### Files to Translate
 
 There is **only ONE file per language** to translate:
-- `src/Captura.Loc/Languages/[language-code].json`
+- `src/OsrStudio.Loc/Languages/[language-code].json`
 
 All UI strings are centralized in this single file.
 
@@ -243,7 +243,7 @@ All UI strings are centralized in this single file.
 
 ### Why was the original creator (Mathew Sachin) hesitant about translation PRs?
 
-The original Captura project used Crowdin for translations because:
+The original OSR Studio project used Crowdin for translations because:
 
 1. **Coordination**: Multiple people might submit translations for the same language simultaneously, creating conflicts
 2. **Quality Control**: Crowdin provides review and validation workflows
@@ -288,5 +288,5 @@ Special thanks to all the community contributors who have helped translate OSR S
 
 ---
 
-**Want to contribute?** Start by checking the [Contributing Guide](../CONTRIBUTING.md) and the existing [language files](../src/Captura.Loc/Languages/).
+**Want to contribute?** Start by checking the [Contributing Guide](../CONTRIBUTING.md) and the existing [language files](../src/OsrStudio.Loc/Languages/).
 

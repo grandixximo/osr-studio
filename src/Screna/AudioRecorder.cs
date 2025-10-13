@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Captura.Audio
+namespace OsrStudio.Audio
 {
     public class AudioRecorder : IRecorder
     {

@@ -10,10 +10,10 @@ This repository uses streamlined GitHub Actions workflows to minimize server loa
 **What it does:**
 - Builds **both** Modern UI (from `main` branch) and Classic UI (from `classic-ui` branch)
 - Creates 4 downloadable files:
-  - `nCaptura-vX.X.X-Setup.exe` (Modern UI installer)
-  - `nCaptura-vX.X.X-Portable.zip` (Modern UI portable)
-  - `Captura-vX.X.X-Classic-Setup.exe` (Classic UI installer)
-  - `Captura-vX.X.X-Classic-Portable.zip` (Classic UI portable)
+  - `OSR-Studio-Modern-Setup.exe` (Modern UI installer)
+  - `OSR-Studio-Modern-vX.X.X-Portable.zip` (Modern UI portable)
+  - `OSR-Studio-Classic-Setup.exe` (Classic UI installer)
+  - `OSR-Studio-Classic-vX.X.X-Portable.zip` (Classic UI portable)
 - Publishes a GitHub Release with all 4 files
 
 **When to use:**

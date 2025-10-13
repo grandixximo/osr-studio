@@ -13,5 +13,5 @@ Displays the following information:
 - Available Speaker output sources
 
 ```
-captura list
+osr-cli list
 ```

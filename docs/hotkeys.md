@@ -86,7 +86,7 @@ OSR Studio's hotkey system is implemented using Windows' global hotkey registrat
    - Uses `RegisterHotKey` Windows API
 
 2. **Key Storage**: Hotkeys are saved to a configuration file
-   - Location: `%AppData%/Captura/Hotkeys.json` (or your settings directory)
+   - Location: `%AppData%/OsrStudio/Hotkeys.json` (or your settings directory)
    - Format: JSON with key codes and modifiers
 
 3. **Conflict Detection**: Windows will prevent registration if another app uses the same hotkey
@@ -217,7 +217,7 @@ Unfortunately, Windows doesn't provide a built-in way to see this. Try:
 
 Check that:
 - OSR Studio has write permission to its settings directory
-- The settings directory exists: `%AppData%/Captura/`
+- The settings directory exists: `%AppData%/OsrStudio/`
 - The `Hotkeys.json` file isn't read-only
 
 ### Restore deleted Hotkeys.json
@@ -225,7 +225,7 @@ Check that:
 If you accidentally delete the configuration file:
 
 1. Close OSR Studio
-2. Delete `%AppData%/Captura/Hotkeys.json` (if it exists)
+2. Delete `%AppData%/OsrStudio/Hotkeys.json` (if it exists)
 3. Restart OSR Studio
 4. Use the "Reset" button in Hotkeys settings to restore defaults
 
@@ -236,7 +236,7 @@ If you accidentally delete the configuration file:
 For advanced users, you can edit the hotkeys file directly:
 
 1. **Close OSR Studio** (important!)
-2. **Navigate to**: `%AppData%/Captura/`
+2. **Navigate to**: `%AppData%/OsrStudio/`
 3. **Open**: `Hotkeys.json` in a text editor
 4. **Edit** the JSON following the format above
 5. **Save** and restart OSR Studio

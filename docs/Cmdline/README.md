@@ -2,8 +2,8 @@
 
 Project      | Executable
 -------------|----------------
-UI           | captura.exe
-Command-line | captura-cli.exe
+UI           | osr-studio.exe
+Command-line | osr-cli.exe
 
 We use the [CommandLineParser](https://nuget.org/packages/CommandLineParser) NuGet package.
 
@@ -29,10 +29,10 @@ Argument     | Description
 --no-hotkey  | Don't Register Hotkeys.
 --settings   | Custom settings folder
 
-e.g. Start captura minimized to tray
+e.g. Start osr-studio minimized to tray
 
 ```
-captura --tray
+osr-studio --tray
 ```
 
 ### Implemented Verbs

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     public class CensorOverlay : IOverlay
     {

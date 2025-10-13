@@ -1,0 +1,72 @@
+using OsrStudio.Audio;
+using OsrStudio.Models;
+using System;
+using OsrStudio.Video;
+using OsrStudio.Webcam;
+using OsrStudio.Windows.Gdi;
+using OsrStudio.Windows.MediaFoundation;
+
+namespace OsrStudio.Windows
+{
+    public static class WindowsModule
+    {
+        public static void Load(IBinder Binder)
+        {
+            // Register hardware detection service first, as it's used by encoder providers
+            Binder.Bind<IHardwareInfoService, HardwareInfoService>();
+
+            if (Windows8OrAbove)
+            {
+                try
+                {
+                    MfManager.Startup();
+                    // MF provider now includes GPU detection and compatibility checks
+                    // Will automatically disable on incompatible hardware (AMD integrated graphics)
+                    Binder.BindAsInterfaceAndClass<IVideoWriterProvider, MfWriterProvider>();
+                }
+                catch
+                {
+                    // If MF fails to initialize, silently skip it
+                    // User will only see FFmpeg and SharpAvi options
+                }
+            }
+
+            Binder.BindSingleton<WindowsSettings>();
+            Binder.Bind<IPlatformServices, WindowsPlatformServices>();
+            Binder.Bind<IDialogService, DialogService>();
+            Binder.Bind<IClipboardService, ClipboardService>();
+            Binder.Bind<IImagingSystem, DrawingImagingSystem>();
+            Binder.Bind<IWebCamProvider, WebcamProvider>();
+
+            foreach (var audioItem in MfAudioItem.Items)
+            {
+                Binder.Bind<IAudioWriterItem>(() => audioItem);
+            }
+        }
+
+        public static void Unload()
+        {
+            if (Windows8OrAbove)
+            {
+                try
+                {
+                    MfManager.Shutdown();
+                }
+                catch
+                {
+                    // Ignore shutdown errors
+                }
+            }
+        }
+
+        static bool Windows8OrAbove
+        {
+            get
+            {
+                var version = new Version(6, 2, 9200, 0);
+                return Environment.OSVersion.Platform == PlatformID.Win32NT &&
+                       Environment.OSVersion.Version >= version;
+            }
+        }
+    }
+}

@@ -16,25 +16,25 @@
 
 ### ✅ ALWAYS SAFE (Backend):
 ```
-src/Captura.Core/                    - Core logic
-src/Captura.Audio/                   - Audio handling
-src/Captura.FFmpeg/                  - FFmpeg integration
-src/Captura.Windows/                 - Windows backend
-src/Screna/                          - Screen capture
-src/Captura.Hotkeys/                 - Hotkeys
-src/Captura.Imgur/                   - Imgur upload
+src/OsrStudio.Core/                    - Core logic
+src/OsrStudio.Audio/                   - Audio handling
+src/OsrStudio.FFmpeg/                  - FFmpeg integration
+src/OsrStudio.Windows/                 - Windows backend
+src/Screna/                            - Screen capture
+src/OsrStudio.Hotkeys/                 - Hotkeys
+src/OsrStudio.Imgur/                   - Imgur upload
 ```
 
 ### ⚠️ CHECK FIRST (ViewModels):
 ```
-src/Captura.ViewCore/                - May have UI-specific refs
+src/OsrStudio.ViewCore/                - May have UI-specific refs
 ```
 
 ### 🚫 NEVER Cherry-Pick (UI):
 ```
-src/Captura/Pages/                   - Different per branch
-src/Captura/Windows/                 - Different per branch
-src/Captura/Controls/                - Different per branch
+src/OsrStudio/Pages/                   - Different per branch
+src/OsrStudio/Windows/                 - Different per branch
+src/OsrStudio/Controls/                - Different per branch
 ```
 
 ---
@@ -58,8 +58,8 @@ git push origin classic-ui
 ### UI Change (Pages, Windows, Controls)
 ```bash
 # Check if files differ between branches
-git diff main:src/Captura/Pages/WebcamPage.xaml \
-         classic-ui:src/Captura/Pages/WebcamPage.xaml
+git diff main:src/OsrStudio/Pages/WebcamPage.xaml \
+         classic-ui:src/OsrStudio/Pages/WebcamPage.xaml
 
 # If different → Apply changes SEPARATELY on each branch
 # DO NOT cherry-pick
@@ -74,7 +74,7 @@ git diff main:src/Captura/Pages/WebcamPage.xaml \
 git branch --show-current
 
 # Verify by checking for classic UI marker
-ls src/Captura/Pages/ | grep ConfigPage
+ls src/OsrStudio/Pages/ | grep ConfigPage
 # Found → classic-ui
 # Not found → main
 ```

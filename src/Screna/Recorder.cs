@@ -2,12 +2,12 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using Captura.Audio;
-using Captura.Models;
+using OsrStudio.Audio;
+using OsrStudio.Models;
 
 // ReSharper disable MethodSupportsCancellation
 
-namespace Captura.Video
+namespace OsrStudio.Video
 {
     /// <summary>
     /// Default implementation of <see cref="IRecorder"/> interface.

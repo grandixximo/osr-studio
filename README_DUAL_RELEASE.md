@@ -2,14 +2,14 @@
 
 ## What We've Built
 
-This repository now automatically builds **TWO versions** of Captura with a single release:
+This repository now automatically builds **TWO versions** of OSR Studio with a single release:
 
 ### 📦 Release Packages (4 Files Per Release)
 
-1. **nCaptura-v{version}-Setup.exe** - Modern UI installer
-2. **nCaptura-v{version}-Portable.zip** - Modern UI portable
-3. **Captura-v{version}-Classic-Setup.exe** - Classic UI installer
-4. **Captura-v{version}-Classic-Portable.zip** - Classic UI portable
+1. **OSR-Studio-v{version}-Setup.exe** - Modern UI installer
+2. **OSR-Studio-v{version}-Portable.zip** - Modern UI portable
+3. **OSR-Studio-v{version}-Classic-Setup.exe** - Classic UI installer
+4. **OSR-Studio-v{version}-Classic-Portable.zip** - Classic UI portable
 
 ## 🚀 How to Create a Release
 
@@ -18,19 +18,19 @@ This repository now automatically builds **TWO versions** of Captura with a sing
 ```bash
 # 1. Update version on both branches (same version number)
 git checkout main
-# Edit src/Captura/Properties/AssemblyInfo.cs → change version to 10.1.0
+# Edit src/OsrStudio/Properties/AssemblyInfo.cs → change version to 10.1.0
 
 git checkout classic-ui-modern-fixes  
-# Edit src/Captura/Properties/AssemblyInfo.cs → change version to 10.1.0
+# Edit src/OsrStudio/Properties/AssemblyInfo.cs → change version to 10.1.0
 
 # 2. Commit and push both
 git checkout main
-git add src/Captura/Properties/AssemblyInfo.cs
+git add src/OsrStudio/Properties/AssemblyInfo.cs
 git commit -m "Bump version to 10.1.0"
 git push
 
 git checkout classic-ui-modern-fixes
-git add src/Captura/Properties/AssemblyInfo.cs
+git add src/OsrStudio/Properties/AssemblyInfo.cs
 git commit -m "Bump version to 10.1.0"
 git push
 
@@ -41,8 +41,8 @@ git push origin v10.1.0
 ```
 
 **That's it!** The GitHub Actions workflow will:
-- ✅ Build nCaptura (modern UI) from `main` branch
-- ✅ Build Captura Classic from `classic-ui-modern-fixes` branch
+- ✅ Build OSR Studio (modern UI) from `main` branch
+- ✅ Build OSR Studio Classic from `classic-ui-modern-fixes` branch
 - ✅ Create installers and portable versions for both
 - ✅ Package all 4 files into one GitHub Release
 
@@ -68,14 +68,14 @@ Documentation about the classic UI build on the `classic-ui-modern-fixes` branch
 
 ## 🔧 Technical Details
 
-| Aspect | nCaptura (Modern) | Captura Classic |
-|--------|------------------|-----------------|
+| Aspect | OSR Studio (Modern) | OSR Studio Classic |
+|--------|---------------------|-------------------|
 | **Branch** | main | classic-ui-modern-fixes |
 | **UI Version** | Latest (10.0+) | 8.0.0 style |
 | **About Page** | Modern layout | Classic layout |
 | **Author Credits** | All contributors | All contributors |
 | **Donation Link** | PayPal visible | PayPal visible |
-| **GitHub Link** | grandixximo/nCaptura | grandixximo/nCaptura |
+| **GitHub Link** | grandixximo/osr-studio | grandixximo/osr-studio |
 | **Functionality** | 100% identical | 100% identical |
 | **Bug Fixes** | All included | All included |
 
@@ -86,13 +86,13 @@ When you push tag `v10.1.0`, users will see:
 ```
 Release v10.1.0
 
-🆕 nCaptura (Modern UI)
-💾 nCaptura-v10.1.0-Setup.exe (15 MB)
-📦 nCaptura-v10.1.0-Portable.zip (14 MB)
+🆕 OSR Studio (Modern UI)
+💾 OSR-Studio-v10.1.0-Setup.exe (15 MB)
+📦 OSR-Studio-v10.1.0-Portable.zip (14 MB)
 
-🎨 Captura Classic (8.0.0 UI)
-💾 Captura-v10.1.0-Classic-Setup.exe (15 MB)
-📦 Captura-v10.1.0-Classic-Portable.zip (14 MB)
+🎨 OSR Studio Classic (8.0.0 UI)
+💾 OSR-Studio-v10.1.0-Classic-Setup.exe (15 MB)
+📦 OSR-Studio-v10.1.0-Classic-Portable.zip (14 MB)
 
 Choose your preferred UI - both have identical features!
 ```

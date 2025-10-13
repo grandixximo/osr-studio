@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OsrStudio</RootNamespace>
+    <AssemblyName>OsrStudio</AssemblyName>
+    <TargetFramework>net472</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseAppConfigForCompiler>true</UseAppConfigForCompiler>
+    <ApplicationIcon>Images\OsrStudio.ico</ApplicationIcon>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="CopyAppConfig" AfterTargets="Build">
+    <Copy SourceFiles="app.config" DestinationFiles="$(OutputPath)$(AssemblyName).exe.config" />
+  </Target>
+  <ItemGroup>
+    <Resource Include="Images\logo-dark.png" />
+    <Resource Include="Images\logo-light.png" />
+    <Resource Include="Images\record.ico" />
+    <Resource Include="Images\OsrStudio.ico" />
+    <Resource Include="Images\pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Management" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\OsrStudio.Base\\OsrStudio.Base.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Core\\OsrStudio.Core.csproj" />
+    <ProjectReference Include="..\\OsrStudio.FFmpeg\\OsrStudio.FFmpeg.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Hotkeys\\OsrStudio.Hotkeys.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Loc\\OsrStudio.Loc.csproj" />
+    <ProjectReference Include="..\\OsrStudio.MouseKeyHook\\OsrStudio.MouseKeyHook.csproj" />
+    <ProjectReference Include="..\\OsrStudio.SharpAvi\\OsrStudio.SharpAvi.csproj" />
+    <ProjectReference Include="..\\OsrStudio.ViewCore\\OsrStudio.ViewCore.csproj" />
+    <ProjectReference Include="..\\OsrStudio.Windows\\OsrStudio.Windows.csproj" />
+    <ProjectReference Include="..\\OsrStudio.YouTube\\OsrStudio.YouTube.csproj" />
+    <ProjectReference Include="..\Screna\Screna.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.2.1" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.0.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.0.8" />
+    <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
+    <PackageReference Include="SamOatesGames.ModernUI.Xceed.Toolkit" Version="1.0.0" />
+  </ItemGroup>
+  <Target Name="Delete unused libs" AfterTargets="Build">
+    <ItemGroup>
+      <AvalonDockLibs Include="$(OutputPath)Xceed.Wpf.AvalonDock*.dll" />
+    </ItemGroup>
+    <Delete Files="@(AvalonDockLibs)" />
+    <Delete Files="$(OutputPath)Xceed.Wpf.DataGrid.dll" />
+  </Target>
+  <Import Project="../PostBuild.targets" />
+</Project>

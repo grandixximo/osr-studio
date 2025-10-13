@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using TestStack.White;
 using TestStack.White.UIItems.WindowItems;
 
-namespace Captura.Tests.Views
+namespace OsrStudio.Tests.Views
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class AppRunnerFixture : IDisposable
@@ -15,7 +15,7 @@ namespace Captura.Tests.Views
         {
             App = Application.Launch(new ProcessStartInfo(TestManagerFixture.GetUiPath(), "--no-persist"));
 
-            MainWindow = App.GetWindow(nameof(Captura));
+            MainWindow = App.GetWindow("OSR Studio");
         }
 
         public void Dispose()
