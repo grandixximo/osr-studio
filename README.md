@@ -4,7 +4,7 @@
     <img src="https://grandixximo.github.io/osr-studio/logo-light.svg" alt="OSR Studio" width="300">
   </picture>
   
-  <h3>Powerful Screen Recording Made Simple</h3>
+  <h3>Open Screen Recorder - Powerful Screen Recording Made Simple</h3>
   <p>Capture screen, webcam, audio, cursor, mouse clicks and keystrokes</p>
 
   [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
@@ -39,13 +39,13 @@
 
 ## About This Project
 
-**OSR Studio** is a complete rebrand of the excellent screen recording software originally known as Captura. This project builds upon the foundation laid by its predecessors while establishing a fresh identity for better visibility and continued development.
+**OSR Studio (Open Screen Recorder)** is a complete rebrand of the excellent screen recording software originally known as Captura. This project builds upon the foundation laid by its predecessors while establishing a fresh identity for better visibility and continued development.
 
 ### Origins & Credits
 
 The original [Captura](https://github.com/MathewSachin/Captura) was created by **Mathew Sachin** - an exceptional tool that was small, portable, and just worked perfectly. When the original project was discontinued, [Mr. Chip (mrchipset)](https://github.com/mrchipset/nCaptura) maintained an excellent fork (nCaptura) that kept the project alive and functional.
 
-OSR Studio continues this legacy with important enhancements:
+Open Screen Recorder (OSR Studio) continues this legacy with important enhancements:
 
 - ✅ Fixed the FFmpeg download window initialization issue
 - ✅ Updated FFmpeg download mirrors to ensure reliability
