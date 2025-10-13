@@ -21,7 +21,7 @@
                         Executed="CloseClick"/>
     </Window.CommandBindings>
     <Grid MouseMove="WindowMouseMove"
-          MouseLeftButtonUp="WindowMouseLeftButtonUp"
+          MouseLeftButtonDown="WindowMouseLeftButtonDown"
           Name="Grid"
           Background="Transparent">
         <Grid.Resources>

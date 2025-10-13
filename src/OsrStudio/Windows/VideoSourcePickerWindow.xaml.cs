@@ -196,7 +196,7 @@ namespace OsrStudio
             }
         }
 
-        void WindowMouseLeftButtonUp(object Sender, MouseButtonEventArgs E)
+        void WindowMouseLeftButtonDown(object Sender, MouseButtonEventArgs E)
         {
             switch (_mode)
             {
