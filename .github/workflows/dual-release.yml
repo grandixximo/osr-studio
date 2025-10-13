@@ -113,11 +113,10 @@ jobs:
         
         # Create custom Inno script for OSR Studio Modern UI
         $innoContent = Get-Content "Inno.iss" -Raw
-        $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Modern UI)"'
         $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Modern-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-modern.iss"
         
-        & $innoPath "/DMyAppVersion=$version" "Inno-modern.iss"
+        & $innoPath "/DMyAppVersion=$version" "/DVariant=Modern" "Inno-modern.iss"
         
         # Rename output file
         $installerName = "OSR-Studio-Modern-${versionTag}-Setup.exe"
@@ -231,11 +230,10 @@ jobs:
         
         # Create custom Inno script for OSR Studio Classic UI
         $innoContent = Get-Content "Inno.iss" -Raw
-        $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Classic UI)"'
         $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Classic-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-classic.iss"
         
-        & $innoPath "/DMyAppVersion=$version" "Inno-classic.iss"
+        & $innoPath "/DMyAppVersion=$version" "/DVariant=Classic" "Inno-classic.iss"
         
         # Rename output file
         $installerName = "OSR-Studio-Classic-${versionTag}-Setup.exe"
