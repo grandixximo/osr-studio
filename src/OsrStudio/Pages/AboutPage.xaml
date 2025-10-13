@@ -39,7 +39,7 @@
                     <osr:ModernButton Content="{Binding Website, Source={StaticResource Loc}, Mode=OneWay}"
                                           IconData="{Binding Icons.Web, Source={StaticResource ServiceLocator}}"
                                           Command="{Binding HyperlinkCommand}"
-                                          CommandParameter="https://github.com/grandixximo/osr-studio"/>
+                                          CommandParameter="https://grandixximo.github.io/osr-studio/"/>
                 </WrapPanel>
 
                 <GridSplitter Height="3"
