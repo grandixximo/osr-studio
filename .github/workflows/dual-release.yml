@@ -63,11 +63,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
-          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/OsrStudio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/OsrStudio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
@@ -108,19 +108,20 @@ jobs:
     - name: Build installer with Inno Setup
       run: |
         $version = "${{ github.ref_name }}".TrimStart('v')
+        $versionTag = "${{ github.ref_name }}"
         $innoPath = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
         
         # Create custom Inno script for OSR Studio Modern UI
         $innoContent = Get-Content "Inno.iss" -Raw
         $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Modern UI)"'
-        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', 'OutputBaseFilename=OSR-Studio-Modern-Setup'
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Modern-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-modern.iss"
         
         & $innoPath "/DMyAppVersion=$version" "Inno-modern.iss"
         
         # Rename output file
-        $installerName = "OSR-Studio-Modern-Setup.exe"
-        Move-Item -Path "temp/OSR-Studio-Modern-Setup.exe" -Destination $installerName -Force
+        $installerName = "OSR-Studio-Modern-${versionTag}-Setup.exe"
+        Move-Item -Path "temp/OSR-Studio-Modern-${versionTag}-Setup.exe" -Destination $installerName -Force
         echo "MODERN_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_modern
@@ -180,11 +181,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
-          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/OsrStudio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/OsrStudio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
@@ -225,19 +226,20 @@ jobs:
     - name: Build installer with Inno Setup
       run: |
         $version = "${{ github.ref_name }}".TrimStart('v')
+        $versionTag = "${{ github.ref_name }}"
         $innoPath = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
         
         # Create custom Inno script for OSR Studio Classic UI
         $innoContent = Get-Content "Inno.iss" -Raw
         $innoContent = $innoContent -replace '#define MyAppName "OSR Studio"', '#define MyAppName "OSR Studio (Classic UI)"'
-        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', 'OutputBaseFilename=OSR-Studio-Classic-Setup'
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Classic-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-classic.iss"
         
         & $innoPath "/DMyAppVersion=$version" "Inno-classic.iss"
         
         # Rename output file
-        $installerName = "OSR-Studio-Classic-Setup.exe"
-        Move-Item -Path "temp/OSR-Studio-Classic-Setup.exe" -Destination $installerName -Force
+        $installerName = "OSR-Studio-Classic-${versionTag}-Setup.exe"
+        Move-Item -Path "temp/OSR-Studio-Classic-${versionTag}-Setup.exe" -Destination $installerName -Force
         echo "CLASSIC_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_classic
@@ -254,6 +256,8 @@ jobs:
     name: Create Dual Release
     needs: [build-modern-ui, build-classic-ui]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Download modern UI artifacts
@@ -296,7 +300,7 @@ jobs:
           The updated interface with modern design improvements.
           
           **Download:**
-          - 💾 **Installer**: `OSR-Studio-Modern-Setup.exe` *(Recommended)*
+          - 💾 **Installer**: `OSR-Studio-Modern-${{ github.ref_name }}-Setup.exe` *(Recommended)*
           - 📦 **Portable**: `OSR-Studio-Modern-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
@@ -306,7 +310,7 @@ jobs:
           Original interface design with all modern fixes - best of both worlds!
           
           **Download:**
-          - 💾 **Installer**: `OSR-Studio-Classic-Setup.exe` *(Recommended)*
+          - 💾 **Installer**: `OSR-Studio-Classic-${{ github.ref_name }}-Setup.exe` *(Recommended)*
           - 📦 **Portable**: `OSR-Studio-Classic-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
