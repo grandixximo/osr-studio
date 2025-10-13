@@ -31,7 +31,7 @@
                 <Frame Source="ConfigExtrasPage.xaml"/>
             </TabItem>
             <TabItem Header="{Binding Overlays, Source={StaticResource Loc}, Mode=OneWay}">
-                <Frame Source="OverlayConfigPage.xaml"/>
+                <Frame Source="OverlayPage.xaml"/>
             </TabItem>
             <TabItem Header="{Binding TrayIcon, Source={StaticResource Loc}, Mode=OneWay}">
                 <Frame Source="TrayIconPage.xaml"/>

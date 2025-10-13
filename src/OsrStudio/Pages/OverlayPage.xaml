@@ -1,13 +1,10 @@
 <Page x:Class="OsrStudio.OverlayPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OsrStudio"
-        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-        mc:Ignorable="d"
-        Title="{Binding Overlays, Source={StaticResource Loc}, Mode=OneWay}"
-        SizeChanged="OverlayWindow_OnSizeChanged">
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      xmlns:local="clr-namespace:OsrStudio"
+      Title="{Binding Overlays, Source={StaticResource Loc}, Mode=OneWay}"
+      SizeChanged="OverlayWindow_OnSizeChanged">
     <Grid Background="{DynamicResource WindowBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280" MinWidth="280"/>
@@ -23,10 +20,10 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
             <TabItem Header="{Binding Keystrokes, Source={StaticResource Loc}, Mode=OneWay}">
-                <Frame Source="../Pages/KeystrokesPage.xaml"/>
+                <Frame Source="KeystrokesPage.xaml"/>
             </TabItem>
             <TabItem Header="Mouse">
-                <Frame Source="../Pages/MouseOverlayPage.xaml"/>
+                <Frame Source="MouseOverlayPage.xaml"/>
             </TabItem>
             <TabItem Header="Elapsed"
                      DataContext="{Binding AboutViewModel, Source={StaticResource ServiceLocator}}">
@@ -39,13 +36,13 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Censor">
-                <Frame Source="../Pages/CensorOverlaysPage.xaml"/>
+                <Frame Source="CensorOverlaysPage.xaml"/>
             </TabItem>
             <TabItem Header="Text">
-                <Frame Source="../Pages/TextOverlaysPage.xaml"/>
+                <Frame Source="TextOverlaysPage.xaml"/>
             </TabItem>
             <TabItem Header="Images">
-                <Frame Source="../Pages/ImageOverlaysPage.xaml"/>
+                <Frame Source="ImageOverlaysPage.xaml"/>
             </TabItem>
         </TabControl>
 
