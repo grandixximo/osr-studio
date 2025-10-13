@@ -2,6 +2,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      xmlns:captura="clr-namespace:Captura"
       x:Class="Captura.AboutPage"
       DataContext="{Binding AboutViewModel, Source={StaticResource ServiceLocator}}">
     <Grid>
