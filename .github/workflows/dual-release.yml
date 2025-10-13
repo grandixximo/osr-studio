@@ -254,6 +254,8 @@ jobs:
     name: Create Dual Release
     needs: [build-modern-ui, build-classic-ui]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Download modern UI artifacts
