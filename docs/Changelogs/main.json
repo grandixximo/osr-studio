@@ -24,7 +24,8 @@
           "title": "Improvements",
           "items": [
             "Simplified installation process - both variants install as the complete app",
-            "Improved 64-bit support with proper Program Files directory detection"
+            "Improved 64-bit support with proper Program Files directory detection",
+            "Added 'Open Screen Recorder' full name to installer and branding"
           ]
         }
       ]

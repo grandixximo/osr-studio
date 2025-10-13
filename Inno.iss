@@ -6,7 +6,7 @@
   #define Variant "Modern"
 #endif
 
-#define MyAppName "OSR Studio"
+#define MyAppName "OSR Studio - Open Screen Recorder"
 #define MyAppPublisher "grandixximo"
 #define MyAppURL "https://github.com/grandixximo/osr-studio"
 #define MyAppExeName "OsrStudio.exe"
