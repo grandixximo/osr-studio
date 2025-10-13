@@ -4,6 +4,20 @@
   "description": "Changelog for OSR Studio Classic UI (classic-ui branch)",
   "releases": [
     {
+      "version": "10.7.1",
+      "date": "2025-10-13",
+      "title": "Bug Fixes",
+      "sections": [
+        {
+          "type": "fixed",
+          "title": "Bug Fixes",
+          "items": [
+            "Fixed overlay preview not respecting Display property for keystrokes and elapsed time overlays"
+          ]
+        }
+      ]
+    },
+    {
       "version": "10.7.0",
       "date": "2025-10-XX",
       "title": "OSR Studio - Classic UI Rebrand",
