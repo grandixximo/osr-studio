@@ -4,7 +4,7 @@
 #define MyAppName "OSR Studio"
 #define MyAppPublisher "grandixximo"
 #define MyAppURL "https://github.com/grandixximo/osr-studio"
-#define MyAppExeName "osr-studio.exe"
+#define MyAppExeName "OsrStudio.exe"
 
 [Setup]
 AppId={{C1670C5E-5042-4300-9491-6BFFF963823F}

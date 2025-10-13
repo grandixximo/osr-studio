@@ -63,11 +63,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
-          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/OsrStudio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/OsrStudio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
@@ -181,11 +181,11 @@ jobs:
         Copy-Item -Path "$uiBinFolder/*.exe" -Destination "dist/" -Force
         
         # Copy config files
-        if (Test-Path "$consoleBinFolder/osr-studio-cli.exe.config") {
-          Copy-Item -Path "$consoleBinFolder/osr-studio-cli.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$consoleBinFolder/osr-cli.exe.config") {
+          Copy-Item -Path "$consoleBinFolder/osr-cli.exe.config" -Destination "dist/" -Force
         }
-        if (Test-Path "$uiBinFolder/osr-studio.exe.config") {
-          Copy-Item -Path "$uiBinFolder/osr-studio.exe.config" -Destination "dist/" -Force
+        if (Test-Path "$uiBinFolder/OsrStudio.exe.config") {
+          Copy-Item -Path "$uiBinFolder/OsrStudio.exe.config" -Destination "dist/" -Force
         }
         
         # Copy Keymap files
