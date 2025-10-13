@@ -4,6 +4,32 @@
   "description": "Changelog for OSR Studio Classic UI (classic-ui branch)",
   "releases": [
     {
+      "version": "10.8.0",
+      "date": "2025-10-13",
+      "title": "Installer Improvements - Breaking Change",
+      "sections": [
+        {
+          "type": "changed",
+          "title": "Installation Changes",
+          "items": [
+            "Added variant detection to prevent parallel installation of Modern and Classic UI versions",
+            "Both Modern and Classic UI now install to the same location (mutually exclusive)",
+            "Installer will block installation if the other UI variant is already installed",
+            "Users must uninstall one variant before installing the other",
+            "Fixed installation directory to properly support 64-bit systems"
+          ]
+        },
+        {
+          "type": "improved",
+          "title": "Improvements",
+          "items": [
+            "Simplified installation process - both variants install as the complete app",
+            "Improved 64-bit support with proper Program Files directory detection"
+          ]
+        }
+      ]
+    },
+    {
       "version": "10.7.1",
       "date": "2025-10-13",
       "title": "Bug Fixes",
