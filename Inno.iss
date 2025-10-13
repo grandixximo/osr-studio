@@ -1,5 +1,5 @@
 ; Override version before compiling
-;#define MyAppVersion "6.0.0"
+;#define MyAppVersion "10.7.0"
 
 #define MyAppName "OSR Studio"
 #define MyAppPublisher "grandixximo"
