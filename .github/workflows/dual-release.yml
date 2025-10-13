@@ -298,8 +298,8 @@ jobs:
           The updated interface with modern design improvements.
           
           **Download:**
-          - 💾 **Installer**: `OSR-Studio-Modern-${{ github.ref_name }}-Setup.exe` *(Recommended)*
-          - 📦 **Portable**: `OSR-Studio-Modern-${{ github.ref_name }}-Portable.zip` *(No installation required)*
+          - 💾 **Installer**: `Open-Screen-Recorder-Modern-${{ github.ref_name }}-Setup.exe` *(Recommended)*
+          - 📦 **Portable**: `Open-Screen-Recorder-Modern-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
           
@@ -308,8 +308,8 @@ jobs:
           Original interface design with all modern fixes - best of both worlds!
           
           **Download:**
-          - 💾 **Installer**: `OSR-Studio-Classic-${{ github.ref_name }}-Setup.exe` *(Recommended)*
-          - 📦 **Portable**: `OSR-Studio-Classic-${{ github.ref_name }}-Portable.zip` *(No installation required)*
+          - 💾 **Installer**: `Open-Screen-Recorder-Classic-${{ github.ref_name }}-Setup.exe` *(Recommended)*
+          - 📦 **Portable**: `Open-Screen-Recorder-Classic-${{ github.ref_name }}-Portable.zip` *(No installation required)*
           
           ---
           
