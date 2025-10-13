@@ -91,7 +91,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "OSR-Studio-Modern-${version}-Portable.zip"
+        $portableZip = "Open-Screen-Recorder-Modern-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "MODERN_PORTABLE=$portableZip" >> $env:GITHUB_OUTPUT
         
@@ -113,14 +113,14 @@ jobs:
         
         # Create custom Inno script for OSR Studio Modern UI
         $innoContent = Get-Content "Inno.iss" -Raw
-        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Modern-${versionTag}-Setup"
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=Open-Screen-Recorder-Modern-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-modern.iss"
         
         & $innoPath "/DMyAppVersion=$version" "/DVariant=Modern" "Inno-modern.iss"
         
         # Rename output file
-        $installerName = "OSR-Studio-Modern-${versionTag}-Setup.exe"
-        Move-Item -Path "temp/OSR-Studio-Modern-${versionTag}-Setup.exe" -Destination $installerName -Force
+        $installerName = "Open-Screen-Recorder-Modern-${versionTag}-Setup.exe"
+        Move-Item -Path "temp/Open-Screen-Recorder-Modern-${versionTag}-Setup.exe" -Destination $installerName -Force
         echo "MODERN_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_modern
@@ -208,7 +208,7 @@ jobs:
         New-Item -ItemType Directory -Force -Path "dist/Codecs"
         
         $version = "${{ github.ref_name }}"
-        $portableZip = "OSR-Studio-Classic-${version}-Portable.zip"
+        $portableZip = "Open-Screen-Recorder-Classic-${version}-Portable.zip"
         Compress-Archive -Path "dist/*" -DestinationPath $portableZip
         echo "CLASSIC_PORTABLE=$portableZip" >> $env:GITHUB_OUTPUT
         
@@ -230,14 +230,14 @@ jobs:
         
         # Create custom Inno script for OSR Studio Classic UI
         $innoContent = Get-Content "Inno.iss" -Raw
-        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=OSR-Studio-Classic-${versionTag}-Setup"
+        $innoContent = $innoContent -replace 'OutputBaseFilename=OSR-Studio-Setup', "OutputBaseFilename=Open-Screen-Recorder-Classic-${versionTag}-Setup"
         $innoContent | Set-Content "Inno-classic.iss"
         
         & $innoPath "/DMyAppVersion=$version" "/DVariant=Classic" "Inno-classic.iss"
         
         # Rename output file
-        $installerName = "OSR-Studio-Classic-${versionTag}-Setup.exe"
-        Move-Item -Path "temp/OSR-Studio-Classic-${versionTag}-Setup.exe" -Destination $installerName -Force
+        $installerName = "Open-Screen-Recorder-Classic-${versionTag}-Setup.exe"
+        Move-Item -Path "temp/Open-Screen-Recorder-Classic-${versionTag}-Setup.exe" -Destination $installerName -Force
         echo "CLASSIC_INSTALLER=$installerName" >> $env:GITHUB_OUTPUT
       shell: pwsh
       id: installer_classic
