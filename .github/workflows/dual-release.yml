@@ -1,5 +1,5 @@
 # Dual Release Workflow
-# Builds both OSR Studio (modern UI) and OSR Studio (classic UI)
+# Builds both Open Screen Recorder (modern UI) and Open Screen Recorder (classic UI)
 # Creates 4 packages: 2 installers + 2 portable versions
 
 name: Dual Release - Modern & Classic UI
@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   build-modern-ui:
-    name: Build OSR Studio (Modern UI)
+    name: Build Open Screen Recorder (Modern UI)
     runs-on: windows-2022
     
     env:
@@ -134,7 +134,7 @@ jobs:
           ${{ steps.installer_modern.outputs.MODERN_INSTALLER }}
 
   build-classic-ui:
-    name: Build OSR Studio (Classic UI)
+    name: Build Open Screen Recorder (Classic UI)
     runs-on: windows-2022
     
     env:
@@ -293,7 +293,7 @@ jobs:
           
           ---
           
-          ### 🆕 OSR Studio (Modern UI)
+          ### 🆕 Open Screen Recorder (Modern UI)
           
           The updated interface with modern design improvements.
           
@@ -303,7 +303,7 @@ jobs:
           
           ---
           
-          ### 🎨 OSR Studio Classic (8.0.0 UI)
+          ### 🎨 Open Screen Recorder Classic (8.0.0 UI)
           
           Original interface design with all modern fixes - best of both worlds!
           
@@ -324,8 +324,8 @@ jobs:
           
           Both versions have **identical functionality** - the only difference is the UI design:
           
-          - **OSR Studio (Modern UI)** - Modern interface with updated layout
-          - **OSR Studio Classic** - Original 8.0.0 UI design with vertical button layout
+          - **Open Screen Recorder (Modern UI)** - Modern interface with updated layout
+          - **Open Screen Recorder Classic** - Original 8.0.0 UI design with vertical button layout
           
           **💡 Recommendation:** Choose based on your UI preference - both have all the same features and bug fixes!
           

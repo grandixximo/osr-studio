@@ -1,18 +1,18 @@
 {
   "branch": "classic-ui",
   "title": "Classic UI Changelog",
-  "description": "Changelog for OSR Studio Classic UI (classic-ui branch)",
+  "description": "Changelog for Open Screen Recorder (OSR Studio) Classic UI (classic-ui branch)",
   "releases": [
     {
       "version": "10.7.0",
       "date": "2025-10-XX",
-      "title": "OSR Studio - Classic UI Rebrand",
+      "title": "Open Screen Recorder - Classic UI Rebrand",
       "sections": [
         {
           "type": "changed",
           "title": "Rebranding",
           "items": [
-            "Complete rebrand from nCaptura to OSR Studio",
+            "Complete rebrand from nCaptura to Open Screen Recorder (OSR Studio)",
             "Updated application name, icons, and branding throughout",
             "New classic logo with light/dark theme variants",
             "Maintained classic UI layout and functionality",
@@ -23,7 +23,7 @@
           "type": "improved",
           "title": "Documentation",
           "items": [
-            "Updated all documentation to reflect OSR Studio branding",
+            "Updated all documentation to reflect Open Screen Recorder (OSR Studio) branding",
             "Enhanced README with better project description",
             "Added comprehensive credits section"
           ]
