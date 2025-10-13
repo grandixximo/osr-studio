@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Help translate OSR Studio into your language - Available in 35 languages">
+    <title>Translation - OSR Studio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .translate-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .translate-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .translate-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .translate-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .language-count {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .language-item {
+            padding: 12px 16px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .language-code {
+            font-family: 'Courier New', monospace;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 2px 8px;
+            background: var(--card-bg);
+            border-radius: 4px;
+        }
+
+        .contribute-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contribute-card {
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contribute-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .contribute-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contribute-icon {
+            font-size: 1.5rem;
+        }
+
+        .contribute-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contribute-card li {
+            padding: 8px 0;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .contribute-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-box h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: #667eea;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 12px 28px;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .info-box {
+                background: rgba(59, 130, 246, 0.1);
+            }
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .translate-header h1 {
+                font-size: 2rem;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-white, .btn-outline-white {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="logo-light.svg" alt="OSR Studio" class="logo logo-light">
+                    <img src="logo-dark.svg" alt="OSR Studio" class="logo logo-dark">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#download">Download</a></li>
+                    <li><a href="changelog.html">Changelog</a></li>
+                    <li><a href="translate.html" class="active">Translate</a></li>
+                    <li><a href="https://github.com/grandixximo/osr-studio" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="translate-container">
+            <div class="translate-header">
+                <h1>🌍 Help Translate OSR Studio</h1>
+                <p>Make OSR Studio accessible to more users worldwide</p>
+                <div class="language-count">Available in 35 Languages</div>
+            </div>
+
+            <div class="cta-box">
+                <h2>Ready to Contribute?</h2>
+                <p>Check out the complete translation guide with detailed instructions</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/grandixximo/osr-studio/blob/main/docs/translation.md" class="btn-white" target="_blank">
+                        📖 Full Translation Guide
+                    </a>
+                    <a href="https://github.com/grandixximo/osr-studio/tree/main/src/OsrStudio.Loc/Languages" class="btn-outline-white" target="_blank">
+                        📁 View Language Files
+                    </a>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🗣️ Available Languages</h2>
+                <p>OSR Studio is currently available in the following languages:</p>
+                
+                <div class="languages-grid">
+                    <div class="language-item"><span class="language-name">Arabic</span><span class="language-code">ar</span></div>
+                    <div class="language-item"><span class="language-name">Belarusian</span><span class="language-code">be</span></div>
+                    <div class="language-item"><span class="language-name">Catalan</span><span class="language-code">ca</span></div>
+                    <div class="language-item"><span class="language-name">Czech</span><span class="language-code">cs</span></div>
+                    <div class="language-item"><span class="language-name">Danish</span><span class="language-code">da</span></div>
+                    <div class="language-item"><span class="language-name">German</span><span class="language-code">de</span></div>
+                    <div class="language-item"><span class="language-name">Greek</span><span class="language-code">el</span></div>
+                    <div class="language-item"><span class="language-name">English</span><span class="language-code">en</span></div>
+                    <div class="language-item"><span class="language-name">Spanish</span><span class="language-code">es</span></div>
+                    <div class="language-item"><span class="language-name">Finnish</span><span class="language-code">fi</span></div>
+                    <div class="language-item"><span class="language-name">French</span><span class="language-code">fr</span></div>
+                    <div class="language-item"><span class="language-name">Hebrew</span><span class="language-code">he</span></div>
+                    <div class="language-item"><span class="language-name">Hindi</span><span class="language-code">hi</span></div>
+                    <div class="language-item"><span class="language-name">Indonesian</span><span class="language-code">id</span></div>
+                    <div class="language-item"><span class="language-name">Icelandic</span><span class="language-code">is</span></div>
+                    <div class="language-item"><span class="language-name">Italian</span><span class="language-code">it</span></div>
+                    <div class="language-item"><span class="language-name">Japanese</span><span class="language-code">ja</span></div>
+                    <div class="language-item"><span class="language-name">Kabyle</span><span class="language-code">kab</span></div>
+                    <div class="language-item"><span class="language-name">Korean</span><span class="language-code">ko</span></div>
+                    <div class="language-item"><span class="language-name">Malayalam</span><span class="language-code">ml</span></div>
+                    <div class="language-item"><span class="language-name">Dutch</span><span class="language-code">nl</span></div>
+                    <div class="language-item"><span class="language-name">Norwegian</span><span class="language-code">no</span></div>
+                    <div class="language-item"><span class="language-name">Polish</span><span class="language-code">pl</span></div>
+                    <div class="language-item"><span class="language-name">Portuguese</span><span class="language-code">pt</span></div>
+                    <div class="language-item"><span class="language-name">Portuguese (BR)</span><span class="language-code">pt-BR</span></div>
+                    <div class="language-item"><span class="language-name">Romanian</span><span class="language-code">ro</span></div>
+                    <div class="language-item"><span class="language-name">Russian</span><span class="language-code">ru</span></div>
+                    <div class="language-item"><span class="language-name">Slovenian</span><span class="language-code">sl</span></div>
+                    <div class="language-item"><span class="language-name">Swedish</span><span class="language-code">sv</span></div>
+                    <div class="language-item"><span class="language-name">Thai</span><span class="language-code">th</span></div>
+                    <div class="language-item"><span class="language-name">Turkish</span><span class="language-code">tr</span></div>
+                    <div class="language-item"><span class="language-name">Ukrainian</span><span class="language-code">uk</span></div>
+                    <div class="language-item"><span class="language-name">Vietnamese</span><span class="language-code">vi</span></div>
+                    <div class="language-item"><span class="language-name">Chinese (Simplified)</span><span class="language-code">zh-CN</span></div>
+                    <div class="language-item"><span class="language-name">Chinese (Traditional)</span><span class="language-code">zh-TW</span></div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🤝 How to Contribute</h2>
+                <p>There are two ways to help translate OSR Studio:</p>
+
+                <div class="contribute-options">
+                    <div class="contribute-card">
+                        <h3><span class="contribute-icon">🔧</span> Improve Existing</h3>
+                        <p>Help improve or complete existing translations:</p>
+                        <ul>
+                            <li>Fix translation errors</li>
+                            <li>Update outdated terms</li>
+                            <li>Complete partial translations</li>
+                            <li>Improve consistency</li>
+                        </ul>
+                        <a href="https://github.com/grandixximo/osr-studio/tree/main/src/OsrStudio.Loc/Languages" class="btn btn-secondary" target="_blank" style="margin-top: 15px;">View Language Files</a>
+                    </div>
+
+                    <div class="contribute-card">
+                        <h3><span class="contribute-icon">✨</span> Add New Language</h3>
+                        <p>Translate OSR Studio into a new language:</p>
+                        <ul>
+                            <li>Start from English template</li>
+                            <li>Translate all UI strings</li>
+                            <li>Use proper language codes</li>
+                            <li>Submit via Pull Request</li>
+                        </ul>
+                        <a href="https://github.com/grandixximo/osr-studio/blob/main/docs/translation.md#step-2-choose-your-action" class="btn btn-secondary" target="_blank" style="margin-top: 15px;">See Instructions</a>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>📝 Note:</strong> All translations are stored as JSON files in <code>src/OsrStudio.Loc/Languages/</code>. Each language has one file named with its ISO 639-1 language code (e.g., <code>es.json</code> for Spanish, <code>zh-CN.json</code> for Simplified Chinese).</p>
+                </div>
+
+                <h3>Translation Guidelines</h3>
+                <ul style="color: var(--text-primary); line-height: 1.8;">
+                    <li>✅ <strong>Keep keys unchanged</strong> - Only translate the values</li>
+                    <li>✅ <strong>Preserve placeholders</strong> - Keep {0}, {1} format specifiers</li>
+                    <li>✅ <strong>Maintain consistency</strong> - Use same translations for repeated terms</li>
+                    <li>✅ <strong>Consider context</strong> - Understand where the text appears</li>
+                    <li>✅ <strong>Keep it concise</strong> - Long translations may not fit in the UI</li>
+                    <li>✅ <strong>Use proper encoding</strong> - UTF-8 for all non-Latin scripts</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>🔧 Technical Details</h2>
+                <p>OSR Studio uses a JSON-based localization system:</p>
+                
+                <ul style="color: var(--text-primary); line-height: 1.8;">
+                    <li><strong>Format:</strong> Simple key-value pairs in JSON</li>
+                    <li><strong>Default Language:</strong> English (en.json) serves as fallback</li>
+                    <li><strong>Runtime Loading:</strong> Translations load automatically at startup</li>
+                    <li><strong>Language Switching:</strong> Users can change languages without restart</li>
+                    <li><strong>Fallback System:</strong> Missing translations fall back to English</li>
+                </ul>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <p><strong>🎯 Pro Tip:</strong> Even partial translations are valuable! If you translate 80% of the strings, users will see your translations with English fallback for the remaining 20%.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>❓ Frequently Asked Questions</h2>
+                
+                <h3>Can I submit a partial translation?</h3>
+                <p>Yes! Partial translations are welcome. The system automatically falls back to English for missing strings.</p>
+
+                <h3>How do I know if my language code is correct?</h3>
+                <p>Use standard <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 codes</a>. For regional variants, use the format: <code>language-REGION</code> (e.g., <code>pt-BR</code>, <code>zh-CN</code>).</p>
+
+                <h3>Will my translation be reviewed?</h3>
+                <p>Yes, all translation contributions are reviewed for format correctness and ideally by native speakers in the community.</p>
+
+                <h3>What if someone else is already translating my language?</h3>
+                <p>Check the <a href="https://github.com/grandixximo/osr-studio/pulls" target="_blank">open Pull Requests</a> first to avoid duplicate work. You can also comment on existing PRs to collaborate!</p>
+            </div>
+
+            <div class="cta-box">
+                <h2>🚀 Get Started Today</h2>
+                <p>Your contribution helps make OSR Studio accessible to millions of users worldwide!</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/grandixximo/osr-studio/blob/main/docs/translation.md" class="btn-white" target="_blank">
+                        Read Full Guide
+                    </a>
+                    <a href="https://github.com/grandixximo/osr-studio/fork" class="btn-outline-white" target="_blank">
+                        Fork on GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>OSR Studio</h4>
+                    <p>Modern screen recording software for Windows</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Copyright</h4>
+                    <p>&copy; 2019 Mathew Sachin</p>
+                    <p>&copy; 2024 Mr. Chip</p>
+                    <p>&copy; 2025 grandixximo</p>
+                </div>
+                <div class="footer-section">
+                    <h4>License</h4>
+                    <p><a href="https://github.com/grandixximo/osr-studio/blob/main/LICENSE.md">MIT License</a></p>
+                    <p><a href="https://github.com/grandixximo/osr-studio">GitHub Repository</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ by the OSR Studio community</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
