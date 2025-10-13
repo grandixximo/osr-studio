@@ -1,9 +1,9 @@
 using System.Windows;
 using System.Windows.Interop;
-using Captura.Webcam;
+using OsrStudio.Webcam;
 using Point = System.Drawing.Point;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class WebcamControl
     {

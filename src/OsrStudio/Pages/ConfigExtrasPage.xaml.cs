@@ -1,4 +1,4 @@
-namespace Captura
+namespace OsrStudio
 {
     public partial class ConfigExtrasPage
     {

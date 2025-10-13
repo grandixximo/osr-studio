@@ -1,10 +1,10 @@
 using System.Windows;
-using Captura.Models;
-using Captura.Video;
-using Captura.ViewModels;
-using Settings = Captura.Settings;
+using OsrStudio.Models;
+using OsrStudio.Video;
+using OsrStudio.ViewModels;
+using Settings = OsrStudio.Settings;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class WebCamWindow
     {

@@ -6,7 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class PreviewWindow
     {

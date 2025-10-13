@@ -11,14 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using Captura.Models;
-using Captura.MouseKeyHook;
-using Captura.ViewModels;
-using Captura.Video;
+using OsrStudio.Models;
+using OsrStudio.MouseKeyHook;
+using OsrStudio.ViewModels;
+using OsrStudio.Video;
 using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class OverlayWindow
     {

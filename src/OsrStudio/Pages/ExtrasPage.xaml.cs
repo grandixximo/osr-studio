@@ -1,9 +1,9 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System.Windows;
 using System.Windows.Media;
-using Captura.ViewModels;
+using OsrStudio.ViewModels;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class ExtrasPage
     {

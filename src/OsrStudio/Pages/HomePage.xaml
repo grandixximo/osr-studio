@@ -309,17 +309,17 @@ This Limit option is to prevent system crashes due to using high FPS on full scr
                 <StackPanel Margin="0,5"
                             DataContext="{Binding ScreenShotViewModel, Source={StaticResource ServiceLocator}}"
                             Orientation="Horizontal">
-                    <captura:ModernToggleButton ToolTip="{Binding Disk, Source={StaticResource Loc}, Mode=OneWay}"
+                    <osr:ModernToggleButton ToolTip="{Binding Disk, Source={StaticResource Loc}, Mode=OneWay}"
                                                 IconData="{Binding Icons.NewFile, Source={StaticResource ServiceLocator}}"
                                                 IsChecked="{Binding DiskWriter.Active}"/>
 
-                    <captura:ModernToggleButton ToolTip="{Binding Clipboard, Source={StaticResource Loc}, Mode=OneWay}"
+                    <osr:ModernToggleButton ToolTip="{Binding Clipboard, Source={StaticResource Loc}, Mode=OneWay}"
                                                 IconData="{Binding Icons.Clipboard, Source={StaticResource ServiceLocator}}"
                                                 IsChecked="{Binding ClipboardWriter.Active}"/>
 
                     <!-- Imgur upload button removed - feature no longer supported -->
 
-                    <captura:ModernToggleButton ToolTip="{Binding ImageEditor, Source={StaticResource Loc}, Mode=OneWay}"
+                    <osr:ModernToggleButton ToolTip="{Binding ImageEditor, Source={StaticResource Loc}, Mode=OneWay}"
                                                 IconData="{Binding Icons.Pencil, Source={StaticResource ServiceLocator}}"
                                                 IsChecked="{Binding EditorWriter.Active, Source={StaticResource ServiceLocator}}"/>
                 </StackPanel>

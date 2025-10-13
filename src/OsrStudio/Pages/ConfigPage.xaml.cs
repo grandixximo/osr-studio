@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class ConfigPage
     {

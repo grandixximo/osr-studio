@@ -1,8 +1,8 @@
-<Page x:Class="Captura.OverlayConfigPage"
+<Page x:Class="OsrStudio.OverlayConfigPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      xmlns:local="clr-namespace:Captura"
+      xmlns:local="clr-namespace:OsrStudio"
       Title="{Binding Overlays, Source={StaticResource Loc}, Mode=OneWay}"
       SizeChanged="OverlayWindow_OnSizeChanged">
     <Grid Background="{DynamicResource WindowBackground}">

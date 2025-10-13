@@ -6,14 +6,14 @@ using WSize = System.Windows.Size;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
-using Captura.ViewModels;
-using Captura.Webcam;
-using Captura.Windows.Gdi;
+using OsrStudio.ViewModels;
+using OsrStudio.Webcam;
+using OsrStudio.Windows.Gdi;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using Xceed.Wpf.Toolkit.Core.Utilities;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class WebcamPlacementPreviewPage
     {

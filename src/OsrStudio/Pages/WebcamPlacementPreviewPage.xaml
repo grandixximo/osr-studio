@@ -1,7 +1,7 @@
-<Page x:Class="Captura.WebcamPlacementPreviewPage"
+<Page x:Class="OsrStudio.WebcamPlacementPreviewPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:captura="clr-namespace:Captura"
+      xmlns:osr="clr-namespace:OsrStudio"
       Title="{Binding WebCam, Source={StaticResource Loc}, Mode=OneWay}"
       DataContext="{Binding MainViewModel, Source={StaticResource ServiceLocator}}">
     <Grid Margin="5,0">
@@ -12,17 +12,17 @@
         </Grid.ColumnDefinitions>
         <StackPanel DataContext="{Binding Settings.WebcamOverlay}">
             <DockPanel>
-                <captura:ModernButton ToolTip="{Binding Refresh, Source={StaticResource Loc}, Mode=OneWay}"
+                <osr:ModernButton ToolTip="{Binding Refresh, Source={StaticResource Loc}, Mode=OneWay}"
                                       Command="{Binding WebcamModel.RefreshCommand, Source={StaticResource ServiceLocator}}"
                                       IconData="{Binding Icons.Refresh, Source={StaticResource ServiceLocator}}"
                                       DockPanel.Dock="Right"/>
 
-                <captura:ModernButton ToolTip="Camera Properties"
+                <osr:ModernButton ToolTip="Camera Properties"
                                       Click="CameraProperties_OnClick"
                                       IconData="{Binding Icons.Settings, Source={StaticResource ServiceLocator}}"
                                       DockPanel.Dock="Right"/>
 
-                <captura:ModernButton ToolTip="Capture Image"
+                <osr:ModernButton ToolTip="Capture Image"
                                       Click="CaptureImage_OnClick"
                                       IconData="{Binding Icons.Camera, Source={StaticResource ServiceLocator}}"
                                       DockPanel.Dock="Right"/>

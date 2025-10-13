@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class CropWindow
     {

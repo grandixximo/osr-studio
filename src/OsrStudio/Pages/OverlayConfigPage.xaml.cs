@@ -10,15 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using Captura.MouseKeyHook;
-using Captura.Video;
-using Captura.ViewModels;
+using OsrStudio.MouseKeyHook;
+using OsrStudio.Video;
+using OsrStudio.ViewModels;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 
-namespace Captura
+namespace OsrStudio
 {
     public partial class OverlayConfigPage
     {
