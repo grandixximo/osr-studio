@@ -28,6 +28,7 @@
     <Resource Include="Images\pause.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Management" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
