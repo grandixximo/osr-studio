@@ -136,7 +136,8 @@ namespace OsrStudio
 
             var visibilityProp = Settings
                 .ObserveProperty(M => M.SeparateTextFile)
-                .Select(M => M ? Visibility.Collapsed : Visibility.Visible)
+                .CombineLatest(Settings.ObserveProperty(M => M.Display), (separateFile, display) => !separateFile && display)
+                .Select(M => M ? Visibility.Visible : Visibility.Collapsed)
                 .ToReadOnlyReactivePropertySlim();
 
             control.BindOne(VisibilityProperty, visibilityProp);
@@ -271,6 +272,14 @@ namespace OsrStudio
             AddToGrid(keystrokes, false);
 
             var elapsed = Text(settings.Elapsed, "00:00:00");
+            
+            var elapsedVisibilityProp = settings.Elapsed
+                .ObserveProperty(M => M.Display)
+                .Select(M => M ? Visibility.Visible : Visibility.Collapsed)
+                .ToReadOnlyReactivePropertySlim();
+
+            elapsed.BindOne(VisibilityProperty, elapsedVisibilityProp);
+            
             AddToGrid(elapsed, false);
 
             var textOverlayVm = ServiceProvider.Get<CustomOverlaysViewModel>();
