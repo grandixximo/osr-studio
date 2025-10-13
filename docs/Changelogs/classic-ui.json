@@ -1,0 +1,45 @@
+{
+  "branch": "classic-ui",
+  "title": "Classic UI Changelog",
+  "description": "Changelog for OSR Studio Classic UI (classic-ui branch)",
+  "releases": [
+    {
+      "version": "10.7.0",
+      "date": "2025-10-XX",
+      "title": "OSR Studio - Classic UI Rebrand",
+      "sections": [
+        {
+          "type": "changed",
+          "title": "Rebranding",
+          "items": [
+            "Complete rebrand from nCaptura to OSR Studio",
+            "Updated application name, icons, and branding throughout",
+            "New classic logo with light/dark theme variants",
+            "Maintained classic UI layout and functionality",
+            "Refreshed GitHub repository with new identity"
+          ]
+        },
+        {
+          "type": "improved",
+          "title": "Documentation",
+          "items": [
+            "Updated all documentation to reflect OSR Studio branding",
+            "Enhanced README with better project description",
+            "Added comprehensive credits section"
+          ]
+        },
+        {
+          "type": "fixed",
+          "title": "Bug Fixes",
+          "items": [
+            "Restored mouse left button down event to video source picker window",
+            "Fixed various UI inconsistencies after rebranding",
+            "Corrected localization strings",
+            "Fixed lost ideograms in translations"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
