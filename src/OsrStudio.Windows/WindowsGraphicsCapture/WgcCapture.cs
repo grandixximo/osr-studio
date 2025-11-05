@@ -42,7 +42,7 @@ namespace OsrStudio.Windows.WindowsGraphicsCapture
             _framePool = Direct3D11CaptureFramePool.Create(
                 d3dDevice,
                 DirectXPixelFormat.B8G8R8A8UIntNormalized,
-                2,
+                3, // Increased from 2 to 3 for better buffering and frame pacing
                 _captureItem.Size);
             
             _session = _framePool.CreateCaptureSession(_captureItem);

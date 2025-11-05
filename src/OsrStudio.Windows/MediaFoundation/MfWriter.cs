@@ -49,12 +49,15 @@ namespace OsrStudio.Windows.MediaFoundation
 
         MediaAttributes GetSinkWriterAttributes(Device Device)
         {
-            var attr = new MediaAttributes(7);
+            var attr = new MediaAttributes(6);
 
             attr.Set(SinkWriterAttributeKeys.ReadwriteEnableHardwareTransforms, 1);
             attr.Set(SinkWriterAttributeKeys.ReadwriteDisableConverters, 0);
             attr.Set(TranscodeAttributeKeys.TranscodeContainertype, TranscodeContainerTypeGuids.Mpeg4);
-            attr.Set(SinkWriterAttributeKeys.LowLatency, true);
+
+            // REMOVED: LowLatency mode - it reduces buffering which actually hurts performance
+            // The encoder needs some buffering to maintain throughput
+            // attr.Set(SinkWriterAttributeKeys.LowLatency, true);
 
             // Disable throttling for better real-time performance
             attr.Set(SinkWriterAttributeKeys.ReadwriteDisableThrottling, 1);
@@ -134,7 +137,8 @@ namespace OsrStudio.Windows.MediaFoundation
 
             _writer.BeginWriting();
 
-            _copyTexture = new Texture2D(Device, new Texture2DDescription
+            // Create ring buffer of textures and samples for better throughput
+            var textureDesc = new Texture2DDescription
             {
                 CpuAccessFlags = CpuAccessFlags.Read,
                 BindFlags = BindFlags.None,
@@ -146,18 +150,22 @@ namespace OsrStudio.Windows.MediaFoundation
                 ArraySize = 1,
                 SampleDescription = { Count = 1, Quality = 0 },
                 Usage = ResourceUsage.Staging
-            });
+            };
 
-            _sample = MediaFactory.CreateVideoSampleFromSurface(null);
-                
-            // Create the media buffer from the texture
-            MediaFactory.CreateDXGISurfaceBuffer(typeof(Texture2D).GUID, _copyTexture, 0, false, out _mediaBuffer);
+            for (int i = 0; i < BufferCount; i++)
+            {
+                _copyTextures[i] = new Texture2D(Device, textureDesc);
+                _samples[i] = MediaFactory.CreateVideoSampleFromSurface(null);
 
-            using (var buffer2D = _mediaBuffer.QueryInterface<Buffer2D>())
-                _mediaBuffer.CurrentLength = buffer2D.ContiguousLength;
+                // Create the media buffer from the texture
+                MediaFactory.CreateDXGISurfaceBuffer(typeof(Texture2D).GUID, _copyTextures[i], 0, false, out _mediaBuffers[i]);
 
-            // Attach the created buffer to the sample
-            _sample.AddBuffer(_mediaBuffer);
+                using (var buffer2D = _mediaBuffers[i].QueryInterface<Buffer2D>())
+                    _mediaBuffers[i].CurrentLength = buffer2D.ContiguousLength;
+
+                // Attach the created buffer to the sample
+                _samples[i].AddBuffer(_mediaBuffers[i]);
+            }
         }
 
         public static MediaType GetMediaType(WaveFormat Wf)
@@ -187,6 +195,13 @@ namespace OsrStudio.Windows.MediaFoundation
 
         readonly object _syncLock = new object();
 
+        // Ring buffer for textures and samples to allow queuing multiple frames
+        const int BufferCount = 3;
+        readonly Texture2D[] _copyTextures = new Texture2D[BufferCount];
+        readonly Sample[] _samples = new Sample[BufferCount];
+        readonly MediaBuffer[] _mediaBuffers = new MediaBuffer[BufferCount];
+        int _currentBufferIndex = 0;
+
         public void Write(Sample Sample)
         {
             lock (_syncLock)
@@ -196,7 +211,7 @@ namespace OsrStudio.Windows.MediaFoundation
 
                 Sample.SampleTime = _frameNumber * _frameDuration;
                 Sample.SampleDuration = _frameDuration;
-                
+
                 if (_first)
                 {
                     _writer.SendStreamTick(VideoStreamIndex, Sample.SampleTime);
@@ -207,15 +222,15 @@ namespace OsrStudio.Windows.MediaFoundation
             }
         }
 
-        Texture2D _copyTexture;
-        Sample _sample;
-        MediaBuffer _mediaBuffer;
-
         void Write(Texture2D Texture)
         {
-            _device.ImmediateContext.CopyResource(Texture, _copyTexture);
+            // Use ring buffer to allow queuing multiple frames
+            var bufferIndex = _currentBufferIndex;
+            _currentBufferIndex = (_currentBufferIndex + 1) % BufferCount;
 
-            Write(_sample);
+            _device.ImmediateContext.CopyResource(Texture, _copyTextures[bufferIndex]);
+
+            Write(_samples[bufferIndex]);
         }
 
         bool _disposed;
@@ -225,7 +240,7 @@ namespace OsrStudio.Windows.MediaFoundation
             lock (_syncLock)
             {
                 _disposed = true;
-                
+
                 const int noSamplesProcessedHResult = unchecked((int) 0xC00D4A44);
 
                 try
@@ -237,14 +252,18 @@ namespace OsrStudio.Windows.MediaFoundation
 
                 _writer.Dispose();
 
-                _copyTexture.Dispose();
-                _copyTexture = null;
+                // Dispose all buffers in the ring buffer
+                for (int i = 0; i < BufferCount; i++)
+                {
+                    _copyTextures[i]?.Dispose();
+                    _copyTextures[i] = null;
 
-                _sample.Dispose();
-                _sample = null;
+                    _samples[i]?.Dispose();
+                    _samples[i] = null;
 
-                _mediaBuffer.Dispose();
-                _mediaBuffer = null;
+                    _mediaBuffers[i]?.Dispose();
+                    _mediaBuffers[i] = null;
+                }
             }
         }
 
