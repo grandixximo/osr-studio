@@ -37,7 +37,8 @@ namespace OsrStudio.Video
         int _frameCount;
         long _audioBytesWritten;
         readonly int _audioBytesPerFrame, _audioBytesPerSecond, _audioChunkBytes;
-        // Smaller chunk lowers latency and reduces audible jitter
+        // Audio chunk size: balance between latency and stability
+        // 50ms provides good balance - smaller values increase thread overhead
         const int AudioChunkLengthMs = 50;
         byte[] _audioBuffer, _silenceBuffer;
 
@@ -227,32 +228,28 @@ namespace OsrStudio.Video
 
             var read = _audioProvider.Read(_audioBuffer, 0, toWrite);
 
-            // Nothing read
-            if (read == 0)
+            // Write whatever we got from the provider
+            if (read > 0)
             {
-                return;
+                _videoWriter.WriteAudio(_audioBuffer, 0, read);
+                _audioBytesWritten += read;
             }
 
-            _videoWriter.WriteAudio(_audioBuffer, 0, read);
-            _audioBytesWritten += read;
-
-            // Fill with silence to maintain synchronization
+            // Fill any remaining gap with silence to maintain synchronization
+            // This ensures we stay on schedule even if audio provider is lagging
             var silenceToWrite = toWrite - read;
 
-            // Write silence when gap exceeds one chunk
-            if (silenceToWrite <= _audioChunkBytes)
+            if (silenceToWrite > 0)
             {
-                return;
-            }
-            
-            // Reallocate silence buffer: An array of zeros.
-            if (_silenceBuffer == null || _silenceBuffer.Length < silenceToWrite)
-            {
-                _silenceBuffer = new byte[silenceToWrite];
-            }
+                // Reallocate silence buffer: An array of zeros.
+                if (_silenceBuffer == null || _silenceBuffer.Length < silenceToWrite)
+                {
+                    _silenceBuffer = new byte[silenceToWrite];
+                }
 
-            _videoWriter.WriteAudio(_silenceBuffer, 0, silenceToWrite);
-            _audioBytesWritten += silenceToWrite;
+                _videoWriter.WriteAudio(_silenceBuffer, 0, silenceToWrite);
+                _audioBytesWritten += silenceToWrite;
+            }
         }
 
         void AudioPumpLoop()

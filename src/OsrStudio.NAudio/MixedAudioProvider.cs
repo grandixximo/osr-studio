@@ -18,7 +18,6 @@ namespace OsrStudio.Audio
         readonly Dictionary<NAudioProvider, ProviderState> _providers = new Dictionary<NAudioProvider, ProviderState>();
 
         readonly IWaveProvider _mixingWaveProvider;
-        byte[] _drainBuffer;
 
         public MixedAudioProvider(params NAudioProvider[] AudioProviders)
         {
@@ -44,13 +43,15 @@ namespace OsrStudio.Audio
             {
                 var bufferedProvider = new BufferedWaveProvider(provider.NAudioWaveFormat)
                 {
-                    DiscardOnBufferOverflow = true,
+                    // CRITICAL: Never discard audio samples - let buffer expand if needed
+                    DiscardOnBufferOverflow = false,
                     // Ensure we always get exactly the requested bytes; fills with silence on underflow
                     ReadFully = true
                 };
 
-                // Provide headroom against jitter and scheduling delays
-                bufferedProvider.BufferDuration = TimeSpan.FromMilliseconds(500);
+                // Increased buffer duration for better jitter tolerance (2 seconds instead of 500ms)
+                // This prevents audio drops during CPU spikes or scheduling delays
+                bufferedProvider.BufferDuration = TimeSpan.FromMilliseconds(2000);
 
                 provider.WaveIn.DataAvailable += (S, E) =>
                 {
@@ -128,49 +129,9 @@ namespace OsrStudio.Audio
 
         public int Read(byte[] Buffer, int Offset, int Length)
         {
-            BalanceBuffers();
+            // Removed BalanceBuffers() call - we never drop audio samples
+            // The larger buffer size (2000ms) provides sufficient headroom for jitter
             return _mixingWaveProvider.Read(Buffer, Offset, Length);
-        }
-
-        void BalanceBuffers()
-        {
-            foreach (var state in _providers.Values)
-            {
-                var bytesPerSecond = state.BytesPerSecond;
-                if (bytesPerSecond <= 0)
-                    continue;
-
-                var buffered = state.Buffered.BufferedBytes;
-                var highWatermark = Math.Min(state.Buffered.BufferLength, (int)(bytesPerSecond * 0.6)); // ~600 ms
-                var target = Math.Min(state.Buffered.BufferLength, bytesPerSecond / 2); // ~500 ms
-
-                if (buffered > highWatermark)
-                {
-                    var toDrop = buffered - target;
-                    var maxDrop = Math.Max(bytesPerSecond / 10, 1024); // cap to ~100 ms
-                    DropOldest(state.Buffered, Math.Min(toDrop, maxDrop));
-                }
-            }
-        }
-
-        void DropOldest(BufferedWaveProvider provider, int bytes)
-        {
-            if (bytes <= 0)
-                return;
-
-            var chunk = Math.Min(bytes, 16384);
-            if (_drainBuffer == null || _drainBuffer.Length < chunk)
-                _drainBuffer = new byte[chunk];
-
-            var remaining = bytes;
-            while (remaining > 0)
-            {
-                var toRead = Math.Min(remaining, _drainBuffer.Length);
-                var read = provider.Read(_drainBuffer, 0, toRead);
-                if (read <= 0)
-                    break;
-                remaining -= read;
-            }
         }
     }
 }
