@@ -15,7 +15,9 @@ namespace OsrStudio.Windows.MediaFoundation
     public class MfWriter : IVideoFileWriter
     {
         readonly Device _device;
-        const int BitRate = 8_000_000;
+        // Reduced from 8 Mbps to 3 Mbps for better encoder performance
+        // 3 Mbps is more than sufficient for screen recording quality
+        const int BitRate = 3_000_000;
         readonly Guid _encodingFormat;
         readonly Guid _encodedAudioFormat = AudioFormatGuids.Aac;
         readonly long _frameDuration;
@@ -47,12 +49,15 @@ namespace OsrStudio.Windows.MediaFoundation
 
         MediaAttributes GetSinkWriterAttributes(Device Device)
         {
-            var attr = new MediaAttributes(6);
+            var attr = new MediaAttributes(7);
 
             attr.Set(SinkWriterAttributeKeys.ReadwriteEnableHardwareTransforms, 1);
             attr.Set(SinkWriterAttributeKeys.ReadwriteDisableConverters, 0);
             attr.Set(TranscodeAttributeKeys.TranscodeContainertype, TranscodeContainerTypeGuids.Mpeg4);
             attr.Set(SinkWriterAttributeKeys.LowLatency, true);
+
+            // Disable throttling for better real-time performance
+            attr.Set(SinkWriterAttributeKeys.ReadwriteDisableThrottling, 1);
 
             var devMan = new DXGIDeviceManager();
             devMan.ResetDevice(Device);
@@ -100,7 +105,9 @@ namespace OsrStudio.Windows.MediaFoundation
                 mediaTypeIn.Set(MediaTypeAttributeKeys.FrameSize, PackLong(w, h));
                 mediaTypeIn.Set(MediaTypeAttributeKeys.FrameRate, PackLong(Args.FrameRate, 1));
                 mediaTypeIn.Set(MediaTypeAttributeKeys.PixelAspectRatio, PackLong(1, 1));
-                mediaTypeIn.Set(MediaTypeAttributeKeys.AllSamplesIndependent, 1);
+                // REMOVED: AllSamplesIndependent = 1
+                // Setting all frames as keyframes is extremely expensive for encoding
+                // Let the encoder use P-frames and B-frames for much better performance
 
                 var encoderParams = new MediaAttributes(2);
                 encoderParams.Set(RateControlModeKey, RateControlMode.Quality);
