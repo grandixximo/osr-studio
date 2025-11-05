@@ -36,6 +36,7 @@ namespace OsrStudio.Video
         Task _audioPumpTask;
         int _frameCount;
         long _audioBytesWritten;
+        long _maxAudioBytes; // Maximum audio to write when stopping (prevents audio past last frame)
         readonly int _audioBytesPerFrame, _audioBytesPerSecond, _audioChunkBytes;
         // Audio chunk size: balance between latency and stability
         // 50ms provides good balance - smaller values increase thread overhead
@@ -199,6 +200,12 @@ namespace OsrStudio.Video
             // Use elapsed time to determine audio budget to decouple from video frame pacing
             var shouldHaveWritten = (long)(_sw.Elapsed.TotalSeconds * _audioBytesPerSecond);
 
+            // When stopping, don't write audio past the maximum (prevents audio extending past last frame)
+            if (_maxAudioBytes > 0)
+            {
+                shouldHaveWritten = Math.Min(shouldHaveWritten, _maxAudioBytes);
+            }
+
             // Already written more than enough, skip for now
             if (_audioBytesWritten >= shouldHaveWritten)
             {
@@ -292,6 +299,20 @@ namespace OsrStudio.Video
                     await _frameWriteTask.ConfigureAwait(false);
             }
             catch { }
+
+            // Now that all video frames are written, refine the maximum audio bytes
+            // based on actual frame count to ensure perfect audio/video sync at the end
+            if (_audioProvider != null && _frameCount > 0)
+            {
+                var requiredAudioBytes = (long)_frameCount * _audioBytesPerFrame;
+
+                // Use the actual frame count to set precise audio limit
+                // This ensures audio doesn't extend past the last video frame
+                if (_maxAudioBytes == 0 || requiredAudioBytes < _maxAudioBytes)
+                {
+                    _maxAudioBytes = requiredAudioBytes;
+                }
+            }
 
             try { _audioPumpTask?.Wait(2000); } catch { }
 
@@ -395,6 +416,15 @@ namespace OsrStudio.Video
             _audioProvider?.Stop();
 
             _sw?.Stop();
+
+            // Set preliminary maximum audio based on stopwatch time and frame rate
+            // This prevents audio pump from writing past video duration
+            // Will be refined in Dispose() based on actual final frame count
+            if (_audioProvider != null && _sw != null)
+            {
+                var estimatedFrames = (long)(_sw.Elapsed.TotalSeconds * _frameRate);
+                _maxAudioBytes = estimatedFrames * _audioBytesPerFrame;
+            }
         }
     }
 }
