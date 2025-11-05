@@ -38,9 +38,9 @@ namespace OsrStudio.Video
         long _audioBytesWritten;
         long _maxAudioBytes; // Maximum audio to write when stopping (prevents audio past last frame)
         readonly int _audioBytesPerFrame, _audioBytesPerSecond, _audioChunkBytes;
-        // Audio chunk size: balance between latency and stability
-        // 50ms provides good balance - smaller values increase thread overhead
-        const int AudioChunkLengthMs = 50;
+        // Audio chunk size: smaller chunks = smoother audio delivery to encoder
+        // 20ms chunks provide better temporal consistency
+        const int AudioChunkLengthMs = 20;
         byte[] _audioBuffer, _silenceBuffer;
 
         readonly IFpsManager _fpsManager;
@@ -214,17 +214,21 @@ namespace OsrStudio.Video
 
             var toWrite = (int)(shouldHaveWritten - _audioBytesWritten);
 
-            // Prevent large bursts; keep writes bounded
-            var maxBurstBytes = _audioChunkBytes * 4;
-            if (toWrite > maxBurstBytes)
-            {
-                toWrite = maxBurstBytes;
-            }
+            // Write in consistent chunk sizes for smoother delivery
+            // Round down to nearest chunk boundary
+            toWrite = (toWrite / _audioChunkBytes) * _audioChunkBytes;
 
-            // Only write if data to write is more than chunk size to keep latency stable
+            // Must have at least one chunk to write
             if (toWrite < _audioChunkBytes)
             {
                 return;
+            }
+
+            // Cap maximum write size to prevent large bursts
+            var maxBurstBytes = _audioChunkBytes * 3;
+            if (toWrite > maxBurstBytes)
+            {
+                toWrite = maxBurstBytes;
             }
 
             // Reallocate buffer as needed
@@ -261,6 +265,9 @@ namespace OsrStudio.Video
 
         void AudioPumpLoop()
         {
+            // Set high thread priority for consistent audio delivery
+            Thread.CurrentThread.Priority = ThreadPriority.AboveNormal;
+
             while (!_cancellationToken.IsCancellationRequested)
             {
                 try
@@ -272,7 +279,8 @@ namespace OsrStudio.Video
                 }
                 catch { }
 
-                Thread.Sleep(AudioChunkLengthMs / 2);
+                // Pump more frequently for smoother audio (every 10ms)
+                Thread.Sleep(10);
             }
         }
 

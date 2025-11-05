@@ -49,9 +49,9 @@ namespace OsrStudio.Audio
                     ReadFully = true
                 };
 
-                // Increased buffer duration for better jitter tolerance (2 seconds instead of 500ms)
-                // This prevents audio drops during CPU spikes or scheduling delays
-                bufferedProvider.BufferDuration = TimeSpan.FromMilliseconds(2000);
+                // Buffer duration: 1 second provides good balance between jitter tolerance and latency
+                // Too large causes sync issues, too small causes drops
+                bufferedProvider.BufferDuration = TimeSpan.FromMilliseconds(1000);
 
                 provider.WaveIn.DataAvailable += (S, E) =>
                 {

@@ -277,7 +277,7 @@ namespace OsrStudio.Windows.MediaFoundation
 
         public bool SupportsAudio => true;
 
-        long _audioWritten;
+        long _audioWrittenBytes;
 
         public void WriteAudio(byte[] Buffer, int Offset, int Length)
         {
@@ -294,13 +294,18 @@ namespace OsrStudio.Windows.MediaFoundation
                 using var sample = MediaFactory.CreateVideoSampleFromSurface(null);
                 sample.AddBuffer(buffer);
 
-                sample.SampleTime = _audioWritten * TenPower7 / _audioInBytesPerSecond;
-                sample.SampleDuration = Length * TenPower7 / _audioInBytesPerSecond;
+                // Calculate duration for this chunk based on its length
+                var sampleDuration = Length * TenPower7 / _audioInBytesPerSecond;
+
+                // Use expected timestamp based on total audio written
+                // This provides smooth timestamps even if delivery is jittery
+                sample.SampleTime = _audioWrittenBytes * TenPower7 / _audioInBytesPerSecond;
+                sample.SampleDuration = sampleDuration;
 
                 _writer.WriteSample(AudioStreamIndex, sample);
-            }
 
-            _audioWritten += Length;
+                _audioWrittenBytes += Length;
+            }
         }
     }
 }
