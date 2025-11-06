@@ -112,9 +112,10 @@ namespace OsrStudio.Windows.MediaFoundation
                 // Setting all frames as keyframes is extremely expensive for encoding
                 // Let the encoder use P-frames and B-frames for much better performance
 
-                var encoderParams = new MediaAttributes(2);
-                encoderParams.Set(RateControlModeKey, RateControlMode.Quality);
-                encoderParams.Set(QualityKey, Args.VideoQuality);
+                var encoderParams = new MediaAttributes(1);
+                // Use CBR (constant bitrate) instead of Quality mode for better real-time performance
+                // Quality mode analyzes each frame more carefully, which is slower
+                encoderParams.Set(RateControlModeKey, RateControlMode.UnconstrainedVBR);
                 _writer.SetInputMediaType(VideoStreamIndex, mediaTypeIn, encoderParams);
             }
 
