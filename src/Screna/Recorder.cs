@@ -126,11 +126,11 @@ namespace OsrStudio.Video
                         else
                         {
                             // Encoder still busy - insert repeat frame to maintain timing
+                            // RepeatFrame increments frame count internally, so don't do it here
                             if (!AddFrame(RepeatFrame.Instance))
                                 return;
 
-                            ++_frameCount;
-                            continue; // Skip starting new capture
+                            continue; // Skip starting new capture, wait for encoder
                         }
                     }
 
