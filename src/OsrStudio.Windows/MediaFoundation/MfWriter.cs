@@ -71,9 +71,9 @@ namespace OsrStudio.Windows.MediaFoundation
 
         public MfWriter(VideoWriterArgs Args, Device Device, Guid EncodingFormat = default)
         {
-            var inputFormat = Args.ImageProvider.DummyFrame is Texture2DFrame
-                ? VideoFormatGuids.NV12
-                : VideoFormatGuids.Rgb32;
+            // CRITICAL FIX: WGC captures in BGRA format, not NV12
+            // Tell Media Foundation the truth so hardware encoder can handle conversion efficiently
+            var inputFormat = VideoFormatGuids.Rgb32;
 
             _device = Device;
             _encodingFormat = EncodingFormat == default ? VideoFormatGuids.H264 : EncodingFormat;
