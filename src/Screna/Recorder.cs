@@ -130,6 +130,12 @@ namespace OsrStudio.Video
                             if (!AddFrame(RepeatFrame.Instance))
                                 return;
 
+                            // CRITICAL: Must still sleep to maintain frame timing!
+                            // Don't skip the sleep or we'll spin in a tight loop
+                            var timeTillNextFrame = timestamp + frameInterval - _sw.Elapsed;
+                            if (timeTillNextFrame > TimeSpan.Zero)
+                                Thread.Sleep(timeTillNextFrame);
+
                             continue; // Skip starting new capture, wait for encoder
                         }
                     }
