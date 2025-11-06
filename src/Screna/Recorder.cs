@@ -111,12 +111,27 @@ namespace OsrStudio.Video
 
                     if (_frameWriteTask != null)
                     {
-                        // If false, stop recording
-                        if (!await _frameWriteTask)
-                            return;
+                        // Don't block waiting for encoder - check if it's done
+                        if (_frameWriteTask.IsCompleted)
+                        {
+                            // If false, stop recording
+                            if (!await _frameWriteTask)
+                                return;
 
-                        if (!WriteDuplicateFrame())
-                            return;
+                            if (!WriteDuplicateFrame())
+                                return;
+
+                            _frameWriteTask = null;
+                        }
+                        else
+                        {
+                            // Encoder still busy - insert repeat frame to maintain timing
+                            if (!AddFrame(RepeatFrame.Instance))
+                                return;
+
+                            ++_frameCount;
+                            continue; // Skip starting new capture
+                        }
                     }
 
                     _frameWriteTask = Task.Run(() => FrameWriter(timestamp));
