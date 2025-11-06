@@ -313,7 +313,12 @@ namespace OsrStudio.Windows.MediaFoundation
                 sample.SampleTime = _audioWrittenBytes * TenPower7 / _audioInBytesPerSecond;
                 sample.SampleDuration = sampleDuration;
 
-                _writer.WriteSample(AudioStreamIndex, sample);
+                // CRITICAL: SinkWriter is NOT thread-safe!
+                // Audio and video both call WriteSample and must be synchronized
+                lock (_syncLock)
+                {
+                    _writer.WriteSample(AudioStreamIndex, sample);
+                }
 
                 _audioWrittenBytes += Length;
             }
